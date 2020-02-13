@@ -13,7 +13,8 @@ Communication with MIFARE Classic, MIFARE Plus, MIFARE Ultralight and iCLASS cre
 normally done using the PC/SC APDUs
 
 
-
+**FOR UI**
+Use PC/SC API commands to create an application.
 
 
 
