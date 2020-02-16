@@ -1,0 +1,103 @@
+My notes from MF1S50yyX pdf. I Tried to keep it simple and 
+organized. Each section has a bunch of info, that defines the 
+scope of each topic.
+
+Communication:
+
+	According to the guide, commands are initiated by the reader.
+	From there they are controlled by the DCU or digital control unit.
+	The command response is depending on the state of the Information
+	circuit. This is also true when accessing anything on the sectors.
+	
+	After authentication you can do any of the following actions:
+	
+	Read block, Write block, Decrement: Decrements the contents
+	of a block and stores the result in the I.T.B., Increment: 
+	Increments the contents of a block and stores the result in
+	the I.T.B., Restore: Moves the contents of a block into 
+	the ITB Transfer: Writes the contents of the I.T.B. to a 
+	value block.
+	
+	For operations, the carrier field from the reader always 
+	needs to be present (with short pauses when transmitting),
+	as it is used for the power supply of the card.
+	
+	For both directions of data communication there is only 
+	one start bit at the beginning of each frame. Each byte is 
+	transmitted with a parity bit (odd parity) at the end. The
+	LSB of the byte with the lowest address of the selected 
+	block is transmitted first. The maximum frame length is 163 bits 
+    (16 data bytes + 2 CRC bytes = 16 * 9 + 2 * 9 + 1 start bit).
+	
+Needs:
+	We have to write an anticollision loop function
+    that selects each card individually distiguished by an 
+    UID, and these selected cards can read/write correctly
+    without interference from the other cards. The unselected 
+    cards will return to the idle state and wait for a new 
+    request command. ** Note: read 8.2.2 anticollision loop for
+    more info.
+    
+    We also need to write a function to handle the three pass
+    sequence. The mifare document should be able to help us with
+    this part.
+
+Security: 
+
+--> There is a Manufacturer programmed 7-byte UID or 4-byte NUID 
+	identifier for each device, Random ID Support, a mutual three
+	pass authentication, and a individual set of two keys per 
+	sector to support being wrirteen by different apps.
+	
+--> ***Three pass authentiacation sequence*** Very Important:
+
+	1. The reader specifes the sector being accessed and chooses
+	   which key to use A or B.
+	2. For the first pass, the card then reads the key and 
+	   accesses info from the sector trailer, then it sends a 
+	   challenge number back to the reader.
+	3. In the second pass, The reader then checks the response 
+	   by using the secret key, other inputs, and challenge 
+	   number, and transmits back to the card.
+	4. For the final pass, the card verifies the response by 
+	   comparing with the cards own challenge number, and then
+	   it calculates the response to the challenge and transmits
+	   it.
+	5. The reader then does the same thing, after this first challenge,
+	   the communication between card and reader is encrypted.
+	   
+
+What we need for delivery of data:
+--> 7-byte Unique ID, or a 4-byte Non-Unique ID, and the writing 
+	device uses either a bump, MOA4, or a MOA8 package. See 
+	section 5 table 2 for ordering information
+	
+Card and chip description:
+
+--> every mifare chip has a 1kb EEPROM, RF interface, and a digital 
+    control unit. everything is transferred via an antenna 
+    consisting of a coil that is connected to each chip.
+    
+	-The RF Interface uses a modulator, a Rectifier which
+	 handles the power. a clock regenerator handle the speed
+	 of transmission, a power-on reset and a voltage regulator.
+	 
+	-Authentication: ensures that access to a block is only 
+	 possible via the two keys specified for each block
+
+	-Crypto Unit: They use a CRYPTO1 stream cipher to authenticate
+	 and encrypt the data exchange.
+	 
+	-EEPROM has 1kb of storage and it consits of 16 sectors
+	 of 4 blocks. One block has 16 bytes, the last block of each 
+	 sector is called the trailer and it contains the two 
+	 secret keys and access information for each block in the sector.
+	
+	
+Data Blocks:
+	
+1. Manufacturer Block: This is the 1st data block of 
+   the 1st sector. This block comes pre-programmed and 
+   write protected from the factory.
+2. 
+   
