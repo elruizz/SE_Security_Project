@@ -29,3 +29,7 @@ It will work with any card type. OR it can be sent using SCardControl()
 
 **MiFare Data Sheet**
 Section 8.7 Accessing the Data blocks. VERY USEFUL
+
+
+Link to the USB sample codes
+https://github.com/hidglobal/HID-OMNIKEY-Sample-Codes
