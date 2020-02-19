@@ -150,15 +150,77 @@ Anti-collision and Selection:
 	Depending on how we set up the personaliztion options there are 
 	certain ways to perform anti-collision and selection and bring the 
 	MIFARE Classic into the ACTIVE state ***reference table 15.
-		Sequence 1: anti-collision and selection using the cascade level
-		1 followed by the cascade level 2 SEL command.
-		Sequence 2: using cascade level 1 anti-collision and selection 
-		procedure followed by a Read command from block 0.
-		Sequence 3: anti-collision and selection using the cascade level
-		1 SEL command.
+		-Sequence 1: anti-collision and selection using the cascade level
+		 1 followed by the cascade level 2 SEL command.
+		
+		-Sequence 2: using cascade level 1 anti-collision and selection 
+		 procedure followed by a Read command from block 0.
+		
+		-Sequence 3: anti-collision and selection using the cascade level
+		 1 SEL command.
 	Note: The Read part in Sequence 2 does not require a prior
 	authentication to Sector 0 and is transmitted as plain data. For the
 	others, the readout is encrypted and requires an authentication to 
 	that sector.
    
-   
+Authentication:
+
+	During authentication 4-byte of the UID are passed on to the auth 
+	command of the reader's IC. Depending on what activation sequence, 
+	those 4-byte are picked differently. Usually the input parameter
+	to the Authenticate command is the set of 4 bytes retrieved during 
+	the last cascade level from the ISO/IEC 14443-3 Type A anticollision.
+	
+	REF table 16 for the input parameter.
+	
+	The input parameter to the MIFARE Classic Authenticate command is 
+	the full 4-byte UID retrieved during the anti-collision procedure. 
+	This is the same as for the activation Sequence 3 in the 7-byte 
+	UID variant.
+	
+	The MIFARE auth is a 3-pass mutual authentication which needs two 
+	pairs of command-response. These two parts, MIFARE authentication 
+	part 1 and part 2 REF to Page 22 and 23, these pages cover the 
+	parts and have the auth commands with the timing speeds.
+	
+MiFare Reading:
+
+	Reading requires a block address, which then returns the 16-bytes of 
+	one of the blocks. REF page 23 for the structure and commands as well
+	as the timing.
+
+MiFare Write:	
+	
+	Writing requires a block address, and writes 16 bytes of data into
+	the block. It requires two pairs of command-response. REF to pages 
+	25 and 26 for the structures, commands, and timing diagrams.
+	
+MiFare Increment, Decrement, and Restore:
+
+	--> Incrementing: needs a source block address and an operand.
+		It adds the operand to the value of the addressed block, and 
+		stores the result in the Transfer Buffer.
+		
+	--> Decrementing: needs a source block address and an operand. 
+		It subtracts the operand from the value of the addressed block, 
+		and stores the result in the Transfer Buffer.
+		
+	--> Restoring: needs a source block address. It copies the value 
+		of the addressed block into the Transfer Buffer. The 4 byte 
+		Operand in the second part of the command is not used and may 
+		contain arbitrary values.
+		
+	All three commands are responding with a NAK to the first command 
+	part if the addressed block is not formatted to be a valid value 
+	block. REF to the bottom of page 25 and 26 for the structures,
+	commands, and timing tables.
+	
+MiFare Transfer:
+	
+	Transfering requires a destination block address, and writes
+	the value stored in the Transfer Buffer into one block. REF
+	to page 27 for the structure table, commands, and timing tables.
+	
+The last part of this PDF we can reference, but may not need is the 
+Limiting values and some the random Characteristics for some of the 
+tables thes can be found on page 28 and 29.
