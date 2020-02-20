@@ -1,0 +1,54 @@
+These are the notes for the PCSC pdf. I will keep them simple and easy 
+to read. If you need to reference the PDF, it is in the folder with 
+these notes.
+
+For notes purposes IFD is the INTERFACE DEVICE. I will use IFD to help 
+with the notes.
+
+the subsystem consits of:
+Part 1: an IFD that provides the interface for ICC's or card readers.
+Part 2: an I/O channel managed by the device driver on the PC.
+Part 3: PC-Hosted, I.E. a program that interfaces with the upper layer
+	    of the overall Interoperability Specification for ICC's, the
+	    PC's architecture, and the low level device drivers. 
+	    REF Figure 1 on pg 1.
+
+The IFD Subsystem:
+
+This is a PC peripheral subsystem consisting of the 
+components described above. The IFD Subsystem has a layered 
+architecture, which allows for different design variations and 
+supports a variety of communications interfaces between the IFD 
+and PC. Requirements on compliant devices are specified at
+the interface to the ICC and at the programming interface 
+(IFD Handler Interface) on the PC.
+
+	IFD Subsystem:
+	
+		IFD's is a PC peripheral that:
+		
+		- Interfaces to ICC's in part 2. “Interface Requirements for
+		  Compatible IC Cards and Interface Devices.”
+		- Bidirectional communication must be supported
+		- Incorporates the functionality needed to use the interface 
+		  exposed by the IFD Handler.
+		- Can add enhanced capabilities, like access to a display and
+		  a keyboard.
+	
+		I/O Channel:
+		
+		This spec is compatible with IFD Subsystems using any available
+		PC I/O channel to communicate with the IFD. We need to create
+		an IFD Handler and device drivers, so that the ICC Service
+		Providers can communicate with the ICC through the Interface 
+		Device. Also we have to provide the proper management services
+		and error handling related to the PC I/O channel to have  
+		reliable, and error free communication.
+		
+		Since we are using a USB device we will be fine, the USB drivers
+		handle all the I/O stuff, we could also use PS/2 devices, serial,
+		parallel, PC-Card based, and SCSI interfaces. Bet you all dont 
+		know what most of these are!!!
+		
+		
+	
