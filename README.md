@@ -25,3 +25,11 @@ All keys except MIFARE keys must be loaded during secure
 session. MIFARE keys can be loaded when secure session is established or not
 
 It will work with any card type. OR it can be sent using SCardControl()
+
+
+**MiFare Data Sheet**
+Section 8.7 Accessing the Data blocks. VERY USEFUL
+
+
+Link to the USB sample codes
+https://github.com/hidglobal/HID-OMNIKEY-Sample-Codes

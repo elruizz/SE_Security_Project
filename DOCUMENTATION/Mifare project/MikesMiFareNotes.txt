@@ -1,0 +1,226 @@
+My notes from MF1S50yyX pdf. I Tried to keep it simple and 
+organized. Each section has a bunch of info, that defines the 
+scope of each topic.
+
+Communication:
+
+	According to the guide, commands are initiated by the reader.
+	From there they are controlled by the DCU or digital control unit.
+	The command response is depending on the state of the Information
+	circuit. This is also true when accessing anything on the sectors.
+	
+	After authentication you can do any of the following actions:
+	
+	Read block, Write block, Decrement: Decrements the contents
+	of a block and stores the result in the I.T.B., Increment: 
+	Increments the contents of a block and stores the result in
+	the I.T.B., Restore: Moves the contents of a block into 
+	the ITB Transfer: Writes the contents of the I.T.B. to a 
+	value block.
+	
+	For operations, the carrier field from the reader always 
+	needs to be present (with short pauses when transmitting),
+	as it is used for the power supply of the card.
+	
+	For both directions of data communication there is only 
+	one start bit at the beginning of each frame. Each byte is 
+	transmitted with a parity bit (odd parity) at the end. The
+	LSB of the byte with the lowest address of the selected 
+	block is transmitted first. The maximum frame length is 163 bits 
+    (16 data bytes + 2 CRC bytes = 16 * 9 + 2 * 9 + 1 start bit).
+	
+Needs:
+	We have to write an anticollision loop function
+    that selects each card individually distiguished by an 
+    UID, and these selected cards can read/write correctly
+    without interference from the other cards. The unselected 
+    cards will return to the idle state and wait for a new 
+    request command. ** Note: read 8.2.2 anticollision loop for
+    more info.
+    
+    We also need to write a function to handle the three pass
+    sequence. The mifare document should be able to help us with
+    this part.
+
+Security: 
+
+--> There is a Manufacturer programmed 7-byte UID or 4-byte NUID 
+	identifier for each device, Random ID Support, a mutual three
+	pass authentication, and a individual set of two keys per 
+	sector to support being wrirteen by different apps.
+	
+--> ***Three pass authentiacation sequence*** Very Important:
+
+	1. The reader specifes the sector being accessed and chooses
+	   which key to use A or B.
+	2. For the first pass, the card then reads the key and 
+	   accesses info from the sector trailer, then it sends a 
+	   challenge number back to the reader.
+	3. In the second pass, The reader then checks the response 
+	   by using the secret key, other inputs, and challenge 
+	   number, and transmits back to the card.
+	4. For the final pass, the card verifies the response by 
+	   comparing with the cards own challenge number, and then
+	   it calculates the response to the challenge and transmits
+	   it.
+	5. The reader then does the same thing, after this first challenge,
+	   the communication between card and reader is encrypted.
+	   
+
+What we need for delivery of data:
+--> 7-byte Unique ID, or a 4-byte Non-Unique ID, and the writing 
+	device uses either a bump, MOA4, or a MOA8 package. See 
+	section 5 table 2 for ordering information
+	
+Card and chip description:
+
+--> every mifare chip has a 1kb EEPROM, RF interface, and a digital 
+    control unit. everything is transferred via an antenna 
+    consisting of a coil that is connected to each chip.
+    
+	-The RF Interface uses a modulator, a Rectifier which
+	 handles the power. a clock regenerator handle the speed
+	 of transmission, a power-on reset and a voltage regulator.
+	 
+	-Authentication: ensures that access to a block is only 
+	 possible via the two keys specified for each block
+
+	-Crypto Unit: They use a CRYPTO1 stream cipher to authenticate
+	 and encrypt the data exchange.
+	 
+	-EEPROM has 1kb of storage and it consits of 16 sectors
+	 of 4 blocks. One block has 16 bytes, the last block of each 
+	 sector is called the trailer and it contains the two 
+	 secret keys and access information for each block in the sector.
+	
+	
+Data Blocks:
+	
+1. Manufacturer Block: This is the 1st data block of the 1st sector. 
+   This block comes pre-programmed and write protected from the 
+   factory.
+2. Data Blocks: All sectors contain 3 blocks of 16 bytes for storing 
+   data. *note sector 0 has 2 data blocks and the manufacturer block*.
+   Data blocks are set up by the access bits as read/write blocks or
+   value blocks. 
+3. Value Blocks: can be used for electronic apps where other commands 
+   can be stored. refer to section 8.6.2 for more about value blocks.
+   **we may need to think about this**
+4. Sector Trailer: This is the last block(block 3) in one sector. Every
+   sector has a sector trailer and it holds the secret keys and the 
+   access conditions for the blocks of that sector. 
+   ***Very Important****************************************************
+   The conditions are stored in bytes 6...9, and they also tell you what 
+   type of blocks they are, either data or value. Byte 9 of the sector 
+   trailer can be set up as user data. 
+   **When the sector trailer is read, the key bytes are blanked out by 
+   returning logical zeros. If key B is configured to be readable, the 
+   data stored in bytes 10 to 15 is returned. All keys are set to 
+   FFFF FFFF FFFFh at chip delivery and bytes 6, 7 and 8 are set to 
+   FF0780h.
+   *********************************************************************
+   If key B is not needed, the last 6 bytes of the sector trailer can be 
+   used as data bytes which is determined by the access bits.
+   
+Memory Access: This Section has the diagrams and the logic for read and 
+writing. We will refer to these tables on page 12 of the manuel.
+
+	Access Conditions: For all data blocks and sector trailers are 
+	defined by 3 bits, which are stored as non-inverted and inverted in 
+	the sector trailer of the specified sector. The access bits control 
+	the rights of memory access with  the secret keys A and B. The 
+	access conditions can be changed, if we know the relevant key and 
+	the current access condition lets us. If we access non-inverted 
+	memory access the internal logic checks the access conditions. If it
+	detects a format violation the whole sector becomes bad. Check 
+	Table 6 for access conditions.
+	
+	***Conditions for the sector trailer: Check Table 7 this will be
+	very important understanding the access keys.*******************
+	
+	***Conditions for the data blocks: Check Table 8 this will be
+	very important for understanding what data block operations can
+	happen and what can be accessed in each block.*******************
+	
+*** All MIFARE Classic commands typically use the MIFARE CRYPTO1 and 
+	requirean authentication see Table 9.
+	
+Anti-collision and Selection:
+
+	Depending on how we set up the personaliztion options there are 
+	certain ways to perform anti-collision and selection and bring the 
+	MIFARE Classic into the ACTIVE state ***reference table 15.
+		-Sequence 1: anti-collision and selection using the cascade level
+		 1 followed by the cascade level 2 SEL command.
+		
+		-Sequence 2: using cascade level 1 anti-collision and selection 
+		 procedure followed by a Read command from block 0.
+		
+		-Sequence 3: anti-collision and selection using the cascade level
+		 1 SEL command.
+	Note: The Read part in Sequence 2 does not require a prior
+	authentication to Sector 0 and is transmitted as plain data. For the
+	others, the readout is encrypted and requires an authentication to 
+	that sector.
+   
+Authentication:
+
+	During authentication 4-byte of the UID are passed on to the auth 
+	command of the reader's IC. Depending on what activation sequence, 
+	those 4-byte are picked differently. Usually the input parameter
+	to the Authenticate command is the set of 4 bytes retrieved during 
+	the last cascade level from the ISO/IEC 14443-3 Type A anticollision.
+	
+	REF table 16 for the input parameter.
+	
+	The input parameter to the MIFARE Classic Authenticate command is 
+	the full 4-byte UID retrieved during the anti-collision procedure. 
+	This is the same as for the activation Sequence 3 in the 7-byte 
+	UID variant.
+	
+	The MIFARE auth is a 3-pass mutual authentication which needs two 
+	pairs of command-response. These two parts, MIFARE authentication 
+	part 1 and part 2 REF to Page 22 and 23, these pages cover the 
+	parts and have the auth commands with the timing speeds.
+	
+MiFare Reading:
+
+	Reading requires a block address, which then returns the 16-bytes of 
+	one of the blocks. REF page 23 for the structure and commands as well
+	as the timing.
+
+MiFare Write:	
+	
+	Writing requires a block address, and writes 16 bytes of data into
+	the block. It requires two pairs of command-response. REF to pages 
+	25 and 26 for the structures, commands, and timing diagrams.
+	
+MiFare Increment, Decrement, and Restore:
+
+	--> Incrementing: needs a source block address and an operand.
+		It adds the operand to the value of the addressed block, and 
+		stores the result in the Transfer Buffer.
+		
+	--> Decrementing: needs a source block address and an operand. 
+		It subtracts the operand from the value of the addressed block, 
+		and stores the result in the Transfer Buffer.
+		
+	--> Restoring: needs a source block address. It copies the value 
+		of the addressed block into the Transfer Buffer. The 4 byte 
+		Operand in the second part of the command is not used and may 
+		contain arbitrary values.
+		
+	All three commands are responding with a NAK to the first command 
+	part if the addressed block is not formatted to be a valid value 
+	block. REF to the bottom of page 25 and 26 for the structures,
+	commands, and timing tables.
+	
+MiFare Transfer:
+	
+	Transfering requires a destination block address, and writes
+	the value stored in the Transfer Buffer into one block. REF
+	to page 27 for the structure table, commands, and timing tables.
+	
+The last part of this PDF we can reference, but may not need is the 
+Limiting values and some the random Characteristics for some of the 
+tables thes can be found on page 28 and 29.
