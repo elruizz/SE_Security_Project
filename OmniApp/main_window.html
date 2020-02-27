@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
+
   <head>
     <meta charset="utf-8">
-    <title>FnAcYoMnIaPpNaMe</title>
+    <title>FaNcYoMnIaPpNaMe</title>
     <script src="renderer.js"></script>
+    <script src="js/buttons.js"></script>
   </head>
+
   <body>
     <h1>OMNI Key Reader/Writer</h1>
     <button id="show_reader">Reader</button>
     <button id="show_writer">Writer</button>
+  </body>
 
-    <script>
+  <script>
     var ipc = require('electron').ipcRenderer;
     var authButton = document.getElementById('show_reader');
     authButton.addEventListener('click', function(){
@@ -19,6 +23,13 @@
       })
       ipc.send('show_r', 'r');
     });
-    </script>
-  </body>
+    var authButton = document.getElementById('show_writer');
+      authButton.addEventListener('click', function(){
+        ipc.once('actionReply', function(event, response){
+          processResponse(response);
+        })
+        ipc.send('show_w', 'w');
+      });
+  </script>
+
 </html>

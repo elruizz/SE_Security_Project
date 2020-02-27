@@ -31,6 +31,11 @@ app.on('ready', function(){
       event.sender.send('actionReply', result);
   });
 
+  ipc.on('show_w', function(event, data){
+    var result = mainWindow.loadURL('file://' + __dirname + '/write_window.html')
+    event.sender.send('actionReply', result);
+  });
+
   mainWindow.on('closed', function(){
     app.quit();
   });
@@ -59,6 +64,27 @@ function createReadWindow(){
 
   // garbage collection
   readWindow.on('close', function(){
+    addWindow = null;
+  });
+}
+
+function createWriteWindow(){
+  // create new window
+  writeWindow = new BrowserWindow({
+    webPreferences: {
+      nodeIntegration: true
+    },
+    title: 'OMNIKey Writer'
+  });
+  // load html file
+  writeWindow.loadURL(url.format({
+    pathname: path.join(__dirname, 'write_window.html'),
+    protocol: "file",
+    slashes: true
+  }));
+
+  // garbage collection
+  writeWindow.on('close', function(){
     addWindow = null;
   });
 }
