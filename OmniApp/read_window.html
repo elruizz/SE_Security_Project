@@ -4,15 +4,12 @@
     <meta charset="utf-8">
     <title>OMNIKey Reader</title>
     <script src="renderer.js"></script>
+    <link rel="stylesheet" href="stylesheet/r_w_style.css" type="text/css">
   </head>
   <body>
-    <h1>Reader Window</h1>
+    <h1 id="reader_header">Reader Window</h1>
 
     <button id="show_writer">Writer</button>
-    <button id="cancel">Cancel</button>
-    <button id="read">Read</button>
-    <button id="exit">Exit</button>
-
     <script>
       var ipc = require('electron').ipcRenderer;
       var authButton = document.getElementById('show_writer');
@@ -23,5 +20,8 @@
         ipc.send('show_w', 'w');
       });
     </script>
+    <button id="cancel">Cancel</button>
+    <button id="read">Read</button>
+    <button id="exit">Exit</button>
   </body>
 </html>
