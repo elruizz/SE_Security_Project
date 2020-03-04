@@ -1,14 +1,22 @@
-function CancelButton(){
+document.getElementById("clear").addEventListener("click", ClearClick);
+document.getElementById("write").addEventListener("click", WriteClick);
+document.getElementById("exit").addEventListener("click", ExitClick);
 
+
+
+
+function ClearClick(){
+
+        alert("Hello")
         // Do some shit yo
 }
 
-function ReadButton(){
+function WriteClick(){
 
     // Read some card
 }
 
-function ExitButton(){
+function ExitClick(){
     
-    ExitButton();
+    self.close()
 }
