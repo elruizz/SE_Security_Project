@@ -8,3 +8,5 @@ LDFLAGS := $(shell pkg-config --libs libpcsclite)
 CFLAGS += $(PCSC_CFLAGS)
 
 test2omni: test2omni.c
+clean:
+	rm -f test2omni
