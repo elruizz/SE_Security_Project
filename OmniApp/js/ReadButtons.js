@@ -1,27 +1,64 @@
 document.getElementById("cancel").addEventListener("click", ClearClick);
-document.getElementById("read").addEventListener("click", WriteClick);
+document.getElementById("read").addEventListener("click", ReadClick);
 document.getElementById("exit").addEventListener("click", ExitClick);
 
 
 
-
+// Clear fields function
 function ClearClick(){
         alert("Hello")
 }
 
-function WriteClick(){
-
+// Read function
+function ReadClick(){
 
 }
 
+
+// Exit function
 function ExitClick(){
     
     self.close()
 }
 
+// Functions for the drop down menus Sector selection
+
+// sector 1 on click
+document.getElementById("Sector_1").onclick = function(){  
+  alert("Hi")
+  //TODO ADD SWITCHING OF SECTOR FROM ONE TO ANOTHER
+}
+
+// sector 2 on click
+document.getElementById("Sector_2").onclick = function(){alert("Hi")}
+
+// sector 3 on click
+document.getElementById("Sector_3").onclick = function(){alert("Hi")}
+
+// sector 4 on click
+document.getElementById("Sector_4").onclick = function(){alert("Hi")}
+
+// sector 5 on click
+document.getElementById("Sector_5").onclick = function(){alert("Hi")}
+
+// sector 6 on click
+document.getElementById("Sector_6").onclick = function(){alert("Hi")}
+
+// sector 7 on click
+document.getElementById("Sector_7").onclick = function(){alert("Hi")}
+
+// sector 8 on click
+document.getElementById("Sector_8").onclick = function(){alert("Hi")}
+
+// sector 9 on click
+document.getElementById("Sector_9").onclick = function(){alert("Hi")}
+
+// sector 10 on click
+document.getElementById("Sector_10").onclick = function(){alert("Hi")}
+
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-function myFunction() {
+function DropDownMenu() {
     document.getElementById("myDropdown").classList.toggle("show");
   }
   

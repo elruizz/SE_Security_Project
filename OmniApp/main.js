@@ -14,9 +14,11 @@ let mainWindow;
 app.on('ready', function(){
   // create main window
   mainWindow = new BrowserWindow({
+    
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    fullscreen: true
   })
   // load html file
   mainWindow.loadURL(url.format({
