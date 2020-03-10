@@ -1,0 +1,11 @@
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\WebServerApp.exe
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\WebServerApp.deps.json
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\WebServerApp.runtimeconfig.json
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\WebServerApp.runtimeconfig.dev.json
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\WebServerApp.dll
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\WebServerApp.pdb
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.csprojAssemblyReference.cache
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.AssemblyInfoInputs.cache
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.AssemblyInfo.cs
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.dll
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.pdb
