@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
   <head>
     <meta charset="utf-8">
-    <title>FaNcYoMnIaPpNaMe</title>
+    <title>OMNIKey Reader</title>
     <script src="renderer.js"></script>
-    <script src="js/buttons.js"></script>
-    
     <link rel="stylesheet" href="stylesheets/main_style.css" type="text/css">
   </head>
-  <div>
-      <h1>OMNI Key Reader/Writer</h1>
-  </div>
   <body>
-    
+    <div>
+      <h1>OMNIKey Reader/Writer</h1>
+    </div>
     <p>
     <div>
-      <button id="show_reader">Reader</button>
-      <button id="show_writer">Writer</button>
+      <!-- <button id="show_writer">Writer</button> -->
+      <button id="cancel">Cancel</button>
+      <button id="read">Read</button>
       <button id="exit">Exit</button>
     </div>
     </p>
+    <div class="dropdown">
+      <button onclick="myFunction()" class="dropbtn">Dropdown</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 4</a>
+        <a href="#">Link 5</a>
+        <a href="#">Link 6</a>
+        <a href="#">Link 7</a>
+        <a href="#">Link 8</a>
+        <a href="#">Link 9</a>
+        <a href="#">Link 10</a>
+      </div>
+    </div>
+
   </body>
 
-  <script>
+  <!-- <script>
     var ipc = require('electron').ipcRenderer;
-    var authButton = document.getElementById('show_reader');
+    var authButton = document.getElementById('show_writer');
     authButton.addEventListener('click', function(){
       ipc.once('actionReply', function(event, response){
         processResponse(response);
       })
-      ipc.send('show_r', 'r');
+      ipc.send('show_w', 'w');
     });
-    var authButton = document.getElementById('show_writer');
-      authButton.addEventListener('click', function(){
-        ipc.once('actionReply', function(event, response){
-          processResponse(response);
-        })
-        ipc.send('show_w', 'w');
-      });
-  </script>
+  </script> -->
   <script src="js/MainButtons.js"></script>
 </html>
