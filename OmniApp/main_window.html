@@ -16,7 +16,6 @@
       <button id="cancel">Cancel</button>
       <button id="read">Read</button>
       <button id="exit">Exit</button>
-      <button id="converter">Converter</button>
     </div>
     </p>
     <div class="dropdown">
@@ -37,23 +36,15 @@
 
   </body>
 
-  <script>
+  <!-- <script>
     var ipc = require('electron').ipcRenderer;
-    var authButton = document.getElementById('show_conv');
+    var authButton = document.getElementById('show_writer');
     authButton.addEventListener('click', function(){
       ipc.once('actionReply', function(event, response){
         processResponse(response);
       })
-      ipc.send('show_c', 'c');
+      ipc.send('show_w', 'w');
     });
-    // var ipc = require('electron').ipcRenderer;
-    // var authButton = document.getElementById('show_writer');
-    // authButton.addEventListener('click', function(){
-    //   ipc.once('actionReply', function(event, response){
-    //     processResponse(response);
-    //   })
-    //   ipc.send('show_w', 'w');
-    });
-  </script>
+  </script> -->
   <script src="js/MainButtons.js"></script>
 </html>

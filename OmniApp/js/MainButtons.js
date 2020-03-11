@@ -1,7 +1,7 @@
 document.getElementById("cancel").addEventListener("click", ClearClick);
 document.getElementById("read").addEventListener("click", WriteClick);
 document.getElementById("exit").addEventListener("click", ExitClick);
-document.getElementById("converter").addEventListener("click", ConverterClick);
+
 
 
 
@@ -18,13 +18,6 @@ function ExitClick(){
 
     self.close()
 }
-
-function ConverterClick(){
-  ipc.on('show_c', function(event, data){
-   var result = mainWindow.loadURL('file://' + __dirname + 'hash/index.html')
-   event.sender.send('actionReply', result);
-});
-
 
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -44,4 +37,4 @@ function myFunction() {
         }
       }
     }
-  }
+  } 
