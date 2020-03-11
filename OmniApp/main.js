@@ -14,7 +14,7 @@ let mainWindow;
 app.on('ready', function(){
   // create main window
   mainWindow = new BrowserWindow({
-    
+
     webPreferences: {
       nodeIntegration: true
     },
@@ -27,17 +27,6 @@ app.on('ready', function(){
     slashes: true
   }));
 
-  //button event listenter to load read/write windows
-  ipc.on('show_r', function(event, data){
-      var result = mainWindow.loadURL('file://' + __dirname + '/read_window.html')
-      event.sender.send('actionReply', result);
-  });
-
-  ipc.on('show_w', function(event, data){
-    var result = mainWindow.loadURL('file://' + __dirname + '/write_window.html')
-    event.sender.send('actionReply', result);
-  });
-
   mainWindow.on('closed', function(){
     app.quit();
   });
@@ -47,49 +36,6 @@ app.on('ready', function(){
   // insert menu
   Menu.setApplicationMenu(mainMenu);
 });
-
-// Handle create Read window
-function createReadWindow(){
-  // create new window
-  readWindow = new BrowserWindow({
-    webPreferences: {
-      nodeIntegration: true
-    },
-    title: 'OMNIKey Reader'
-  });
-  // load html file
-  readWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'read_window.html'),
-    protocol: "file",
-    slashes: true
-  }));
-
-  // garbage collection
-  readWindow.on('close', function(){
-    addWindow = null;
-  });
-}
-
-function createWriteWindow(){
-  // create new window
-  writeWindow = new BrowserWindow({
-    webPreferences: {
-      nodeIntegration: true
-    },
-    title: 'OMNIKey Writer'
-  });
-  // load html file
-  writeWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'write_window.html'),
-    protocol: "file",
-    slashes: true
-  }));
-
-  // garbage collection
-  writeWindow.on('close', function(){
-    addWindow = null;
-  });
-}
 
 // create menu template
 const mainMenuTemplate = [
@@ -116,8 +62,6 @@ const mainMenuTemplate = [
     ]
   }
 ];
-
-
 
 //shift menu over for mac
 if(process.platform == 'darwin'){
