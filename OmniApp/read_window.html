@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>OMNIKey Reader</title>
+    <script src="renderer.js"></script>
+    <link rel="stylesheet" href="stylesheets/r_w_style.css" type="text/css">
+  </head>
+  <body>
+    <div>
+      <h1 id="reader_header">Reader Window</h1>
+    </div>
+    <p>
+    <div>
+      <button id="show_writer">Writer</button>
+      <button id="cancel">Cancel</button>
+      <button id="read">Read</button>
+      <button id="exit">Exit</button>
+    </div>
+    </p>
+    <div class="dropdown">
+      <button onclick="DropDownMenu()" class="dropbtn">Dropdown</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a id = "Sector_1" >Sector 1</a>
+        <a id = "Sector_2" >Sector 2</a>
+        <a id = "Sector_3" >Sector 3</a>
+        <a id = "Sector_4" >Sector 4</a>
+        <a id = "Sector_5" >Sector 5</a>
+        <a id = "Sector_6" >Sector 6</a>
+        <a id = "Sector_7" >Sector 7</a>
+        <a id = "Sector_8" >Sector 8</a>
+        <a id = "Sector_9" >Sector 9</a>
+        <a id = "Sector_10">Sector 10</a>
+      </div>
+    </div> 
+    
+  </body>
+
+  <script>
+    var ipc = require('electron').ipcRenderer;
+    var authButton = document.getElementById('show_writer');
+    authButton.addEventListener('click', function(){
+      ipc.once('actionReply', function(event, response){
+        processResponse(response);
+      })
+      ipc.send('show_w', 'w');
+    });
+  </script>
+  <script src="js/ReadButtons.js"></script>
+</html>
