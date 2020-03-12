@@ -4678,6 +4678,7 @@
     display: inline-block;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    
   }
   
   .navbar-collapse {
@@ -4690,6 +4691,15 @@
         -ms-flex-align: center;
             align-items: center;
   }
+
+  .navbar-center
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+}
   
   .navbar-toggler {
     padding: 0.25rem 0.75rem;

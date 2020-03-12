@@ -7,24 +7,23 @@
     <script src="renderer.js"></script>
     <link rel="stylesheet" href="stylesheets/main_style.css" type="text/css">
     <link rel="stylesheet" href="stylesheets/ToggleReadWrite.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
+
   </head>
 
   <body>
 
-
-    <div class="container-fluid">
-      <div class = "row justify-content-md-center">
-        <div class = "col-12">
-          <h1>OMNIKey Reader/Writer</h1>
-        </div>
-      </div>
-
+    <nav class="navbar-center navbar-expand-lg navbar-light bg-light">
+      <span class="navbar-brand mb-0 h1">OmniApp Reader/Writer</span>
+   </nav>
     
-      <div class="w-100"></div>
-      <div class="w-100"></div>
+    <div class="container-fluid">
       <div class="col-12"></div>
-        <div class = "row">
+
+      <div class = "row">
+
         <div class="col-1">
           <label><h2>Read</h2></label>
         </div>
@@ -38,9 +37,10 @@
           </div>
         </div>
 
-        <div class ="col-5">
+        <div class ="col-1">
           <Label><h2>Write</h2></Label>
         </div>
+
       </div>
     </div>
 
@@ -70,27 +70,27 @@
     </div>
 
     <div class="container-md">
-    <div class="Block-2">
-      <label for="usr">Block 2:</label>
-      <input type="text" class="form-control" id="usr">
-    </div>
-    </div>
-
-    <div class="container-md">
-    <div class="Block-3">
-      <label for="usr">Block 3:</label>
-      <input type="text" class="form-control" id="usr">
-    </div>
+      <div class="Block-2">
+        <label for="usr">Block 2:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
     </div>
 
     <div class="container-md">
-    <div class="Block-4">
-      <label for="usr">Block 4:</label>
-      <input type="text" class="form-control" id="usr">
-    </div>
+      <div class="Block-3">
+        <label for="usr">Block 3:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
     </div>
 
-    <div class="container">
+    <div class="container-md">
+      <div class="Block-4">
+        <label for="usr">Block 4:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+    </div>
+
+    <div class="container-fluid">
       <button id="ExitButton">Exit</button>
     </div>
 
