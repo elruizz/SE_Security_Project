@@ -1,18 +1,13 @@
-const remote = require('electron').remote
 document.getElementById("write").addEventListener("click", WriteClick);
 document.getElementById("read").addEventListener("click", ReadClick);
-document.getElementById("exit").addEventListener("click", ExitClick);
+document.getElementById("ExitButton").addEventListener("click", ExitClick);
 
 function ExitClick(){
-  
-  self.close();
-
+  self.close()
 }
 
 function ReadClick(){
-
         alert("Hello")
-
 }
 
 function WriteClick(){
