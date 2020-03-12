@@ -1,22 +1,23 @@
-document.getElementById("cancel").addEventListener("click", ClearClick);
-document.getElementById("read").addEventListener("click", WriteClick);
+const remote = require('electron').remote
+document.getElementById("write").addEventListener("click", WriteClick);
+document.getElementById("read").addEventListener("click", ReadClick);
 document.getElementById("exit").addEventListener("click", ExitClick);
 
+function ExitClick(){
+  
+  self.close();
 
+}
 
+function ReadClick(){
 
-function ClearClick(){
         alert("Hello")
+
 }
 
 function WriteClick(){
 
 
-}
-
-function ExitClick(){
-
-    self.close()
 }
 
 // Functions for the drop down menus Sector selection
