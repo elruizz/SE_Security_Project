@@ -33,3 +33,6 @@ Section 8.7 Accessing the Data blocks. VERY USEFUL
 
 Link to the USB sample codes
 https://github.com/hidglobal/HID-OMNIKEY-Sample-Codes
+
+Link for example c code
+https://github.com/max2344/pcsc-lite/blob/master/doc/example/pcsc_demo.c
