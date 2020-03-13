@@ -18,54 +18,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
-    <div>
-      <h1>OMNIKey Reader/Writer</h1>
+    <div class="row">
+      <div class="col-md-5">
+        <h1>OMNIKey Reader/Writer</h1>
+      </div>
+      <div class="fixed-top">
+        <div class="col-md-auto">
+          <div class="dropdown">
+            <button onclick="DropDownMenu()" class="dropbtn">Dropdown</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a id = "Sector_1" >Sector 1</a>
+              <a id = "Sector_2" >Sector 2</a>
+              <a id = "Sector_3" >Sector 3</a>
+              <a id = "Sector_4" >Sector 4</a>
+              <a id = "Sector_5" >Sector 5</a>
+              <a id = "Sector_6" >Sector 6</a>
+              <a id = "Sector_7" >Sector 7</a>
+              <a id = "Sector_8" >Sector 8</a>
+              <a id = "Sector_9" >Sector 9</a>
+              <a id = "Sector_10">Sector 10</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <p>
-      <!-- <button id="show_writer">Writer</button> -->
-    <div class="switch">
-      <label>
-        Read
-        <input type="checkbox" checked>
-        <span class="lever"></span> Write
-      </label>
-    </div>
-    <div class="container">
-      <button id="exit">Exit</button>
-    </div>
-    </p>
-    <div class="dropdown">
-      <button onclick="DropDownMenu()" class="dropbtn">Dropdown</button>
-      <div id="myDropdown" class="dropdown-content">
-        <a id = "Sector_1" >Sector 1</a>
-        <a id = "Sector_2" >Sector 2</a>
-        <a id = "Sector_3" >Sector 3</a>
-        <a id = "Sector_4" >Sector 4</a>
-        <a id = "Sector_5" >Sector 5</a>
-        <a id = "Sector_6" >Sector 6</a>
-        <a id = "Sector_7" >Sector 7</a>
-        <a id = "Sector_8" >Sector 8</a>
-        <a id = "Sector_9" >Sector 9</a>
-        <a id = "Sector_10">Sector 10</a>
+    <div class="row">
+      <div class="switch">
+        <label>
+          Read
+          <input type="checkbox" checked>
+          <span class="lever"></span> Write
+        </label>
+      </div>
+
+      <div class="container">
+        <div class="Block-1">
+          <label for="usr">Block 1:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="Block-2">
+          <label for="usr">Block 2:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="Block-3">
+          <label for="usr">Block 3:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
+        <div class="Block-4">
+          <label for="usr">Block 4:</label>
+          <input type="text" class="form-control" id="usr">
+        </div>
       </div>
     </div>
 
-    <div class="Block-1">
-      <label for="usr">Block 1:</label>
-      <input type="text" class="form-control" id="usr">
-    </div>
-    <div class="Block-2">
-      <label for="usr">Block 2:</label>
-      <input type="text" class="form-control" id="usr">
-    </div>
-    <div class="Block-3">
-      <label for="usr">Block 3:</label>
-      <input type="text" class="form-control" id="usr">
-    </div>
-    <div class="Block-4">
-      <label for="usr">Block 4:</label>
-      <input type="text" class="form-control" id="usr">
-    </div>
+
+
+
+    <!-- <div class="container">
+      <button id="exit">Exit</button>
+    </div> -->
+
 
   </body>
   <script src="js/MainButtons.js"></script>
