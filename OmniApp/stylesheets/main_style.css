@@ -18,6 +18,21 @@ h1{
   background-color: gray;
 }
 
+input[name="UID-col"]{
+  height: 250px;
+}
+
+div[name="switch-col"]{
+  background-color: lightgray;
+  min-height: 100vh;
+  height: 100%;
+  width: 300px;
+}
+
+div[name="row_2"]{
+  background-color: slategray;
+}
+
  /* Dropdown Button */
  .dropbtn {
   margin: 0px;
