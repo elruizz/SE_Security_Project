@@ -1,4 +1,4 @@
-document.getElementById("ExitButton").addEventListener("click", ExitClick);
+document.getElementById("Exit").addEventListener("click", ExitClick);
 
 function ExitClick(){
   self.close()
@@ -38,7 +38,23 @@ document.getElementById("Sector_9").onclick = function(){alert("Hi")}
   
 // sector 10 on click
 document.getElementById("Sector_10").onclick = function(){alert("Hi")}
+
+// sector 11 on click
+document.getElementById("Sector_11").onclick = function(){alert("Hi")}
   
+// sector 12 on click
+document.getElementById("Sector_12").onclick = function(){alert("Hi")}
+  
+// sector 13 on click
+document.getElementById("Sector_13").onclick = function(){alert("Hi")}
+  
+// sector 14 on click
+document.getElementById("Sector_14").onclick = function(){alert("Hi")}
+  
+// sector 15 on click
+document.getElementById("Sector_15").onclick = function(){alert("Hi")}
+  
+
 /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
 function DropDownMenu() {

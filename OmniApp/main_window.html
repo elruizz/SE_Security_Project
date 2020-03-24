@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
   <head>
     <meta charset="utf-8">
     <title>OMNIKey Reader</title>
@@ -18,7 +17,6 @@
     <!-- mainly for mobile devices i believe -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
-
   <body>
     <div class="row" name="row_1">
       <div class="col-md-5">
@@ -29,6 +27,7 @@
           <div class="dropdown">
             <button onclick="DropDownMenu()" class="dropbtn">Dropdown</button>
             <div id="myDropdown" class="dropdown-content">
+              <a id = "Sector_0" >Sector 0</a>
               <a id = "Sector_1" >Sector 1</a>
               <a id = "Sector_2" >Sector 2</a>
               <a id = "Sector_3" >Sector 3</a>
@@ -39,6 +38,10 @@
               <a id = "Sector_8" >Sector 8</a>
               <a id = "Sector_9" >Sector 9</a>
               <a id = "Sector_10">Sector 10</a>
+              <a id = "Sector_10">Sector 11</a>
+              <a id = "Sector_10">Sector 12</a>
+              <a id = "Sector_10">Sector 13</a>
+              <a id = "Sector_10">Sector 14</a>
             </div>
           </div>
         </div>
@@ -60,36 +63,28 @@
         <input type="text" name="UID-input" readonly="readonly">
       </div>
       <div class="col-md-7">
+          <div class="Block-0">
+            <label for="usr">Block 0:</label>
+            <input type="text" class="form-control" id="usr_block_0">
+          </div>
           <div class="Block-1">
             <label for="usr">Block 1:</label>
-            <input type="text" class="form-control" id="usr">
+            <input type="text" class="form-control" id="usr_block_1">
           </div>
           <div class="Block-2">
             <label for="usr">Block 2:</label>
-            <input type="text" class="form-control" id="usr">
+            <input type="text" class="form-control" id="usr_block_2">
           </div>
           <div class="Block-3">
             <label for="usr">Block 3:</label>
-            <input type="text" class="form-control" id="usr">
-          </div>
-          <div class="Block-4">
-            <label for="usr">Block 4:</label>
-            <input type="text" class="form-control" id="usr">
+            <input type="text" class="form-control" id="usr_block_3">
         </div>
       </div>
     </div>
 
-
-
-
-
-
-
-
-    <!-- <div class="container">
-      <button id="exit">Exit</button>
-    </div> -->
-
+    <div class="container">
+      <button id="Exit">Exit</button>
+    </div>
 
   </body>
   <script src="js/MainButtons.js"></script>
