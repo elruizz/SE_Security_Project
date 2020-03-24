@@ -14,6 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="stylesheets/main_style.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/ToggleReadWrite.css" type="text/css">
     <!-- mainly for mobile devices i believe -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
@@ -51,13 +52,14 @@
     <div class="row" name="row_2">
       <div class="col-md-2" name="switch-col">
         <div class="switch">
-          <label>
-            Read
+          <label class="switch">
+            <h2>Read</h2>
             <input type="checkbox" checked>
-            <span class="lever"></span> Write
+            <span class="slider round"></span> <h2>Write</h2>
           </label>
         </div>
       </div>
+      
       <div class="col-md-8" name="UID-col">
         <label type="text">UID</label>
         <input type="text" name="UID-input" readonly="readonly">
@@ -81,11 +83,7 @@
         </div>
       </div>
     </div>
-
-    <div class="container">
-      <button id="Exit">Exit</button>
-    </div>
-
+    <button id="Exit">Exit</button>
   </body>
   <script src="js/MainButtons.js"></script>
 </html>
