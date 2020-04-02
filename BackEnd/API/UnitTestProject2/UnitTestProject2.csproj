@@ -13,4 +13,10 @@
     <PackageReference Include="coverlet.collector" Version="1.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HidGlobal.OK.Readers\HidGlobal.OK.Readers.csproj" />
+    <ProjectReference Include="..\HidGlobal.OK.SampleCodes\HidGlobal.OK.SampleCodes.csproj" />
+    <ProjectReference Include="..\Utilities\KbwToCcidSwitchApi\KbwToCcidSwitchApi.csproj" />
+  </ItemGroup>
+
 </Project>

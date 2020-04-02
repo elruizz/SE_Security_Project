@@ -1,3 +1,7 @@
+using HidGlobal.OK.Readers;
+using HidGlobal.OK.Readers.AViatoR.Components;
+using HidGlobal.OK.Readers.Components;
+using HidGlobal.OK.SampleCodes.Utilities;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTestProject2
@@ -28,14 +32,8 @@ namespace UnitTestProject2
                 GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
             ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x07, 0x00);
 
+            reader.Disconnect(CardDisposition.Unpower);
 
-            if (reader.IsConnected)
-            {
-
-                reader.Disconnect(CardDisposition.Unpower);
-
-
-            }
         }
     }
 }
