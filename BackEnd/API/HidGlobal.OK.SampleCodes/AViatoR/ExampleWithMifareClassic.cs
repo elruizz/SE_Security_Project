@@ -82,7 +82,7 @@ namespace HidGlobal.OK.SampleCodes.AViatoR
             public void Run(string readerName)
             {
                 var reader = new SmartCardReader(readerName);
-                
+
                 try
                 {
                     ConsoleWriter.Instance.PrintSplitter();
@@ -92,7 +92,7 @@ namespace HidGlobal.OK.SampleCodes.AViatoR
 
                     ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
                     ConsoleWriter.Instance.PrintSplitter();
-
+                    
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
                         GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
                     ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x04, 0x00);
