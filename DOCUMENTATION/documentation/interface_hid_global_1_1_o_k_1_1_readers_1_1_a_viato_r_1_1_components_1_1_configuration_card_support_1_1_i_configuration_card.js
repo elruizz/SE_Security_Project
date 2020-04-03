@@ -1,0 +1,11 @@
+var interface_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_support_1_1_i_configuration_card =
+[
+    [ "Add", "interface_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_support_1_1_i_configuration_card.html#af9e731a0be938f3efb9adc3ddafa85c5", null ],
+    [ "AddRange", "interface_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_support_1_1_i_configuration_card.html#a3ac74cd44476e35b2ba0a8f7cc165e7f", null ],
+    [ "GetConfigurationCardCreationCommands", "interface_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_support_1_1_i_configuration_card.html#acc0ddfc24cff665ff6815bbdc9a6ce85", null ],
+    [ "NumberOfFiles", "interface_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_support_1_1_i_configuration_card.html#ae1bcd9d399ed6a2123fc76c57aa4e5ff", null ],
+    [ "ProductIdentifier", "interface_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_support_1_1_i_configuration_card.html#ad3e89bcd2e57cc83c4f0754beca84dac", null ],
+    [ "Version", "interface_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_support_1_1_i_configuration_card.html#a326dabd769821c3eafcca7a956ad0cd1", null ],
+    [ "VersionMajor", "interface_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_support_1_1_i_configuration_card.html#ade1daa4771d1780618edd56bb7ac714a", null ],
+    [ "VersionMinor", "interface_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_support_1_1_i_configuration_card.html#a650096d75f9754aac534d82fdf0c9d09", null ]
+];

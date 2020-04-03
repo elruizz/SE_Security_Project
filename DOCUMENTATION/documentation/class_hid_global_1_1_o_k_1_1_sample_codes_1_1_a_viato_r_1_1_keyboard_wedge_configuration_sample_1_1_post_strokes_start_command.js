@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_keyboard_wedge_configuration_sample_1_1_post_strokes_start_command =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_keyboard_wedge_configuration_sample_1_1_post_strokes_start_command.html#a9bde8fdc1438340a162acfef10ab1492", null ]
+];

@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_serial_number =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_serial_number.html#a74918b75d2dc4ef519cf11ad16ddfb51", null ]
+];

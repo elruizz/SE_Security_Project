@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_hf_controller_version =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_hf_controller_version.html#a1bf8a67cc51d680057b4a097346cb016", null ]
+];

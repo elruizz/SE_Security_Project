@@ -1,0 +1,5 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_s_e_processor_sample_1_1_desfire_read_write_data_example =
+[
+    [ "DesfireReadWriteDataExample", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_s_e_processor_sample_1_1_desfire_read_write_data_example.html#a0d296336e7aa0134aae3d467a81e15b6", null ],
+    [ "ExecuteExample", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_s_e_processor_sample_1_1_desfire_read_write_data_example.html#ab66535af6a0cb92a0f2c6f195a8b0549", null ]
+];

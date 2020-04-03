@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['listreadergroups',['ListReaderGroups',['../class_hid_global_1_1_o_k_1_1_readers_1_1_context_handler.html#a0798739770ec5f5a88b399f7a1205554',1,'HidGlobal.OK.Readers.ContextHandler.ListReaderGroups()'],['../interface_hid_global_1_1_o_k_1_1_readers_1_1_i_context_handler.html#a96bc76ec356117a13ba99bcd00501e0d',1,'HidGlobal.OK.Readers.IContextHandler.ListReaderGroups()']]],
+  ['listreaders',['ListReaders',['../class_hid_global_1_1_o_k_1_1_readers_1_1_context_handler.html#a5b0593a011e4742a3a77ac1ba12cfc97',1,'HidGlobal.OK.Readers.ContextHandler.ListReaders(IReadOnlyList&lt; string &gt; readerGroups)'],['../class_hid_global_1_1_o_k_1_1_readers_1_1_context_handler.html#a78323c8667e25472ce3871bb38ed3a64',1,'HidGlobal.OK.Readers.ContextHandler.ListReaders()'],['../interface_hid_global_1_1_o_k_1_1_readers_1_1_i_context_handler.html#ac0c6dc03b96f94fc6727d74fda1ac2e0',1,'HidGlobal.OK.Readers.IContextHandler.ListReaders(IReadOnlyList&lt; string &gt; readerGroups)'],['../interface_hid_global_1_1_o_k_1_1_readers_1_1_i_context_handler.html#abfae29a220fa95ead621ad923eccd0ac',1,'HidGlobal.OK.Readers.IContextHandler.ListReaders()']]]
+];

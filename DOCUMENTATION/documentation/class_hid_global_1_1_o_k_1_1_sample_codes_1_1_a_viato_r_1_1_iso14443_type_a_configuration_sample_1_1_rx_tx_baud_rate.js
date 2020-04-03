@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_iso14443_type_a_configuration_sample_1_1_rx_tx_baud_rate =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_iso14443_type_a_configuration_sample_1_1_rx_tx_baud_rate.html#a7ea4103cc6a444e7b194064d305d500b", null ]
+];

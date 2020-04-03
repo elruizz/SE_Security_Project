@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['reconnect',['Reconnect',['../interface_hid_global_1_1_o_k_1_1_readers_1_1_i_smart_card_reader.html#a6df0e9622066842fcca0a3929947f6a8',1,'HidGlobal.OK.Readers.ISmartCardReader.Reconnect()'],['../class_hid_global_1_1_o_k_1_1_readers_1_1_smart_card_reader.html#a79ade027632a2ba4267eaf6ae8d6873c',1,'HidGlobal.OK.Readers.SmartCardReader.Reconnect()']]],
+  ['reestablish',['ReEstablish',['../class_hid_global_1_1_o_k_1_1_readers_1_1_context_handler.html#a96297de7b658034f559977700fc1e84c',1,'HidGlobal.OK.Readers.ContextHandler.ReEstablish()'],['../interface_hid_global_1_1_o_k_1_1_readers_1_1_i_context_handler.html#a7cada18ad8e2ebe7be5744f1b2da62a7',1,'HidGlobal.OK.Readers.IContextHandler.ReEstablish()']]],
+  ['release',['Release',['../class_hid_global_1_1_o_k_1_1_readers_1_1_context_handler.html#aa8fd3d19b996a72bb09a4460fb35e338',1,'HidGlobal.OK.Readers.ContextHandler.Release()'],['../interface_hid_global_1_1_o_k_1_1_readers_1_1_i_context_handler.html#a13f1c68e1ee66e14b4091250af6751a2',1,'HidGlobal.OK.Readers.IContextHandler.Release()']]],
+  ['removereaderfromgroup',['RemoveReaderFromGroup',['../class_hid_global_1_1_o_k_1_1_readers_1_1_context_handler.html#a17fe2296594564a2c69509fbddf1cdcb',1,'HidGlobal.OK.Readers.ContextHandler.RemoveReaderFromGroup()'],['../interface_hid_global_1_1_o_k_1_1_readers_1_1_i_context_handler.html#abff438c82526861be8541d13ff6c707d',1,'HidGlobal.OK.Readers.IContextHandler.RemoveReaderFromGroup()']]]
+];

@@ -1,0 +1,6 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_range_start_command_response =
+[
+    [ "GetKeyboardWedgeRangeStartCommandResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_range_start_command_response.html#a63b433e5302d7e32a201f478cef7695d", null ],
+    [ "ReadBody", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_range_start_command_response.html#a2ca638ff8b70d9738032520856e67985", null ],
+    [ "RangeStart", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_range_start_command_response.html#a0fce726da1de6ea7766edcfbd601e353", null ]
+];

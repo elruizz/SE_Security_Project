@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_example_with_mifare_classic_1_1_reada04d3328de103df75953ec48288e828b =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_example_with_mifare_classic_1_1_reada04d3328de103df75953ec48288e828b.html#ae0360019a39aae889304d5b9d8b66d1f", null ]
+];

@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_configuration_control_sample_1_1_restore_factory_defaults =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_configuration_control_sample_1_1_restore_factory_defaults.html#a5d6a5afc09a58c6ea9e2e454cafd359b", null ]
+];
