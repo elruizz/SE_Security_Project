@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Threading;
+using HidGlobal.OK.SampleCodes.MenuSections;
 
 namespace WebServer
 {
@@ -103,12 +104,21 @@ namespace WebServer
             return string.Format("<HTML><BODY>My web page.<br>{0}</BODY></HTML>", DateTime.Now);
         }
 
+        private static IMenuItem _rootMenu = new MenuItem("HID OMNIKEY Smart Card Readers' Sample Codes Application Menu", true);
+
+        private static IMenuSection _keyboardWedgesSection = new KeyboardWedgesMenuSection(KeyboardWedgesMenuFactory.Instance);
+        private static IMenuSection _smartCardReadersSection = new SmartCardReadersMenuSection(SmartCardReadersMenuFactory.Instance);
+
         private static void Main(string[] args)
         {
             var ws = new WebServer(SendResponse, "http://localhost:8080/test/");
             ws.Run();
-            Console.WriteLine("A simple webserver. Press a key to quit.");
-            Console.ReadKey();
+            _rootMenu.AddSubItem(_smartCardReadersSection.RootMenuItem);
+            _rootMenu.AddSubItem(_keyboardWedgesSection.RootMenuItem);
+
+            _rootMenu.Execute();
+            //Console.WriteLine("A simple webserver. Press enter key to quit.");
+            //Console.ReadKey();
             ws.Stop();
         }
     }

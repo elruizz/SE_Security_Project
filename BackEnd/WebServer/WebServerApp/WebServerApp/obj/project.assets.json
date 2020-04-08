@@ -1,11 +1,62 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {}
+    ".NETCoreApp,Version=v3.1": {
+      "HidGlobal.OK.Readers/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/HidGlobal.OK.Readers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HidGlobal.OK.Readers.dll": {}
+        }
+      },
+      "HidGlobal.OK.SampleCodes/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "KbwToCcidSwitchApi": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/HidGlobal.OK.SampleCodes.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HidGlobal.OK.SampleCodes.dll": {}
+        }
+      },
+      "KbwToCcidSwitchApi/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/KbwToCcidSwitchApi.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KbwToCcidSwitchApi.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "HidGlobal.OK.Readers/1.0.0": {
+      "type": "project",
+      "path": "../../../API/HidGlobal.OK.Readers/HidGlobal.OK.Readers.csproj",
+      "msbuildProject": "../../../API/HidGlobal.OK.Readers/HidGlobal.OK.Readers.csproj"
+    },
+    "HidGlobal.OK.SampleCodes/1.0.0": {
+      "type": "project",
+      "path": "../../../API/HidGlobal.OK.SampleCodes/HidGlobal.OK.SampleCodes.csproj",
+      "msbuildProject": "../../../API/HidGlobal.OK.SampleCodes/HidGlobal.OK.SampleCodes.csproj"
+    },
+    "KbwToCcidSwitchApi/1.0.0": {
+      "type": "project",
+      "path": "../../../API/Utilities/KbwToCcidSwitchApi/KbwToCcidSwitchApi.csproj",
+      "msbuildProject": "../../../API/Utilities/KbwToCcidSwitchApi/KbwToCcidSwitchApi.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": []
+    ".NETCoreApp,Version=v3.1": [
+      "HidGlobal.OK.Readers >= 1.0.0",
+      "HidGlobal.OK.SampleCodes >= 1.0.0",
+      "KbwToCcidSwitchApi >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\bigsw\\.nuget\\packages\\": {},
@@ -36,7 +87,17 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj": {
+              "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj"
+            },
+            "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.SampleCodes\\HidGlobal.OK.SampleCodes.csproj": {
+              "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.SampleCodes\\HidGlobal.OK.SampleCodes.csproj"
+            },
+            "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj": {
+              "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -62,7 +123,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
       }
     }
   }
