@@ -207,6 +207,36 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "HidGlobal.OK.Readers/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/HidGlobal.OK.Readers.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HidGlobal.OK.Readers.dll": {}
+        }
+      },
+      "HidGlobal.OK.SampleCodes/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "KbwToCcidSwitchApi": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/HidGlobal.OK.SampleCodes.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HidGlobal.OK.SampleCodes.dll": {}
+        }
+      },
+      "KbwToCcidSwitchApi/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/KbwToCcidSwitchApi.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/KbwToCcidSwitchApi.dll": {}
+        }
       }
     }
   },
@@ -678,10 +708,28 @@
         "netstandard.library.2.0.3.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "HidGlobal.OK.Readers/1.0.0": {
+      "type": "project",
+      "path": "../../../API/HidGlobal.OK.Readers/HidGlobal.OK.Readers.csproj",
+      "msbuildProject": "../../../API/HidGlobal.OK.Readers/HidGlobal.OK.Readers.csproj"
+    },
+    "HidGlobal.OK.SampleCodes/1.0.0": {
+      "type": "project",
+      "path": "../../../API/HidGlobal.OK.SampleCodes/HidGlobal.OK.SampleCodes.csproj",
+      "msbuildProject": "../../../API/HidGlobal.OK.SampleCodes/HidGlobal.OK.SampleCodes.csproj"
+    },
+    "KbwToCcidSwitchApi/1.0.0": {
+      "type": "project",
+      "path": "../../../API/Utilities/KbwToCcidSwitchApi/KbwToCcidSwitchApi.csproj",
+      "msbuildProject": "../../../API/Utilities/KbwToCcidSwitchApi/KbwToCcidSwitchApi.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.2": [
+      "HidGlobal.OK.Readers >= 1.0.0",
+      "HidGlobal.OK.SampleCodes >= 1.0.0",
+      "KbwToCcidSwitchApi >= 1.0.0",
       "Microsoft.NETCore.App >= 2.2.0"
     ]
   },
@@ -714,7 +762,17 @@
       },
       "frameworks": {
         "netcoreapp2.2": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\CMU\\SOFTWARE\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj": {
+              "projectPath": "D:\\CMU\\SOFTWARE\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj"
+            },
+            "D:\\CMU\\SOFTWARE\\BackEnd\\API\\HidGlobal.OK.SampleCodes\\HidGlobal.OK.SampleCodes.csproj": {
+              "projectPath": "D:\\CMU\\SOFTWARE\\BackEnd\\API\\HidGlobal.OK.SampleCodes\\HidGlobal.OK.SampleCodes.csproj"
+            },
+            "D:\\CMU\\SOFTWARE\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj": {
+              "projectPath": "D:\\CMU\\SOFTWARE\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -740,5 +798,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\CMU\\SOFTWARE\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\obj\\WebServerApp.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

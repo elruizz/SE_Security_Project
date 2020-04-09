@@ -1,30 +1,87 @@
 {
   "format": 1,
   "restore": {
-    "/home/matacker/Desktop/School/Spring2020/CSCI486/SE_Security_Project/BackEnd/WebServer/WebServerApp/WebServerApp/WebServerApp.csproj": {}
+    "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\WebServerApp.csproj": {}
   },
   "projects": {
-    "/home/matacker/Desktop/School/Spring2020/CSCI486/SE_Security_Project/BackEnd/WebServer/WebServerApp/WebServerApp/WebServerApp.csproj": {
+    "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/matacker/Desktop/School/Spring2020/CSCI486/SE_Security_Project/BackEnd/WebServer/WebServerApp/WebServerApp/WebServerApp.csproj",
+        "projectUniqueName": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj",
+        "projectName": "HidGlobal.OK.Readers",
+        "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj"
+      },
+      "frameworks": {
+        "net452": {}
+      }
+    },
+    "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.SampleCodes\\HidGlobal.OK.SampleCodes.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.SampleCodes\\HidGlobal.OK.SampleCodes.csproj",
+        "projectName": "HidGlobal.OK.SampleCodes",
+        "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.SampleCodes\\HidGlobal.OK.SampleCodes.csproj",
+        "frameworks": {
+          "net452": {
+            "projectReferences": {
+              "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj": {
+                "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net452": {}
+      }
+    },
+    "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj",
+        "projectName": "KbwToCcidSwitchApi",
+        "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj"
+      },
+      "frameworks": {
+        "net452": {}
+      }
+    },
+    "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\WebServerApp.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\WebServerApp.csproj",
         "projectName": "WebServerApp",
-        "projectPath": "/home/matacker/Desktop/School/Spring2020/CSCI486/SE_Security_Project/BackEnd/WebServer/WebServerApp/WebServerApp/WebServerApp.csproj",
-        "packagesPath": "/home/matacker/.nuget/packages/",
-        "outputPath": "/home/matacker/Desktop/School/Spring2020/CSCI486/SE_Security_Project/BackEnd/WebServer/WebServerApp/WebServerApp/obj/",
+        "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\WebServerApp.csproj",
+        "packagesPath": "C:\\Users\\bigsw\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "/home/matacker/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\bigsw\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj": {
+                "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj"
+              },
+              "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.SampleCodes\\HidGlobal.OK.SampleCodes.csproj": {
+                "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.SampleCodes\\HidGlobal.OK.SampleCodes.csproj"
+              },
+              "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj": {
+                "projectPath": "C:\\Users\\bigsw\\projects\\SEFinal\\SE_Security_Project\\BackEnd\\API\\Utilities\\KbwToCcidSwitchApi\\KbwToCcidSwitchApi.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -50,7 +107,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

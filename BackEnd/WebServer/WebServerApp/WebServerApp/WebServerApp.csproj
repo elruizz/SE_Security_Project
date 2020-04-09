@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\API\HidGlobal.OK.Readers\HidGlobal.OK.Readers.csproj" />
+    <ProjectReference Include="..\..\..\API\HidGlobal.OK.SampleCodes\HidGlobal.OK.SampleCodes.csproj" />
+    <ProjectReference Include="..\..\..\API\Utilities\KbwToCcidSwitchApi\KbwToCcidSwitchApi.csproj" />
+  </ItemGroup>
+
 </Project>
