@@ -82,7 +82,7 @@ namespace HidGlobal.OK.SampleCodes.AViatoR
             public void Run(string readerName)
             {
                 var reader = new SmartCardReader(readerName);
-                
+
                 try
                 {
                     ConsoleWriter.Instance.PrintSplitter();
@@ -92,21 +92,21 @@ namespace HidGlobal.OK.SampleCodes.AViatoR
 
                     ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
                     ConsoleWriter.Instance.PrintSplitter();
-
+                    
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x04, 0x00);
 
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x05,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x05, 0x00);
 
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x06,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x06, 0x00);
 
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x07,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x07, 0x00);
                     
                     ConsoleWriter.Instance.PrintSplitter();
@@ -143,15 +143,15 @@ namespace HidGlobal.OK.SampleCodes.AViatoR
                     ConsoleWriter.Instance.PrintSplitter();
 
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x04, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
 
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x05,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x05, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
 
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x06,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x06, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
                     
                     ConsoleWriter.Instance.PrintSplitter();
@@ -211,7 +211,7 @@ namespace HidGlobal.OK.SampleCodes.AViatoR
                     ConsoleWriter.Instance.PrintSplitter();
 
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     // Update block 4 with write operation in value block format:
                     // 4 byte value LSByte first, 4 byte bit inverted represetaton of value LSByte first, 4 byte value LSByte first, 1 byte block address, 1 byte bit inverted block address, 1 byte block address, 1 byte bit inverted block address
                     string valueTypeData = GetMifareValueTypeData(1234567, 0x04);
@@ -277,7 +277,7 @@ namespace HidGlobal.OK.SampleCodes.AViatoR
                     ConsoleWriter.Instance.PrintSplitter();
 
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     // Update block 4 with write operation in value block format:
                     // 4 byte value LSByte first, 4 byte bit inverted represetaton of value LSByte first, 4 byte value LSByte first, 1 byte block address, 1 byte bit inverted block address, 1 byte block address, 1 byte bit inverted block address
                     string valueTypeData = GetMifareValueTypeData(1234567, 0x04);
@@ -343,7 +343,7 @@ namespace HidGlobal.OK.SampleCodes.AViatoR
                     ConsoleWriter.Instance.PrintSplitter();
 
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     // Update block 4 with write operation in value block format:
                     // 4 byte value LSByte first, 4 byte bit inverted represetaton of value LSByte first, 4 byte value LSByte first, 1 byte block address, 1 byte bit inverted block address, 1 byte block address, 1 byte bit inverted block address
                     string valueTypeData = GetMifareValueTypeData(1234567, 0x04);
@@ -410,7 +410,7 @@ namespace HidGlobal.OK.SampleCodes.AViatoR
                     ConsoleWriter.Instance.PrintSplitter();
 
                     ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x02);
+                        GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                     // Update block 4 with write operation in value block format:
                     // 4 byte value LSByte first, 4 byte bit inverted represetaton of value LSByte first, 4 byte value LSByte first, 1 byte block address, 1 byte bit inverted block address, 1 byte block address, 1 byte bit inverted block address
                     string valueTypeData = GetMifareValueTypeData(1234567, 0x04);

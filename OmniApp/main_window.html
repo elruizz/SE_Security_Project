@@ -3,42 +3,108 @@
 
   <head>
     <meta charset="utf-8">
-    <title>FaNcYoMnIaPpNaMe</title>
+    <title>OMNIKey Reader</title>
     <script src="renderer.js"></script>
-    <script src="js/buttons.js"></script>
-    
     <link rel="stylesheet" href="stylesheets/main_style.css" type="text/css">
-  </head>
-  <div>
-      <h1>OMNI Key Reader/Writer</h1>
-  </div>
-  <body>
-    
-    <p>
-    <div>
-      <button id="show_reader">Reader</button>
-      <button id="show_writer">Writer</button>
-      <button id="exit">Exit</button>
-    </div>
-    </p>
-  </body>
+    <link rel="stylesheet" href="stylesheets/ToggleReadWrite.css" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" rel="stylesheet" type="text/css">
 
-  <script>
-    var ipc = require('electron').ipcRenderer;
-    var authButton = document.getElementById('show_reader');
-    authButton.addEventListener('click', function(){
-      ipc.once('actionReply', function(event, response){
-        processResponse(response);
-      })
-      ipc.send('show_r', 'r');
-    });
-    var authButton = document.getElementById('show_writer');
-      authButton.addEventListener('click', function(){
-        ipc.once('actionReply', function(event, response){
-          processResponse(response);
-        })
-        ipc.send('show_w', 'w');
-      });
-  </script>
+  </head>
+
+  <body>
+
+    <nav class="navbar-center navbar-expand-lg navbar-light bg-light">
+      <span class="navbar-brand mb-0 h1">OmniApp Reader/Writer</span>
+   </nav>
+    
+    <div class="container-fluid">
+      <div class="col-12"></div>
+
+      <div class = "row">
+
+        <div class="col-1">
+          <label><h3>Read</h3></label>
+        </div>
+
+        <div class="col-1">
+          <div class="switch">
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider round"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class ="col-1">
+          <Label><h3>Write</h3></Label>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container-fluid">
+    <div class="dropdown">
+      <button onclick="DropDownMenu()" class="dropbtn">Sector</button>
+      <div id="myDropdown" class="dropdown-content">
+        <a id = "Sector_10">Sector 0</a>
+        <a id = "Sector_1" >Sector 1</a>
+        <a id = "Sector_2" >Sector 2</a>
+        <a id = "Sector_3" >Sector 3</a>
+        <a id = "Sector_4" >Sector 4</a>
+        <a id = "Sector_5" >Sector 5</a>
+        <a id = "Sector_6" >Sector 6</a>
+        <a id = "Sector_7" >Sector 7</a>
+        <a id = "Sector_8" >Sector 8</a>
+        <a id = "Sector_9" >Sector 9</a>
+        <a id = "Sector_10">Sector 10</a>
+        <a id = "Sector_10">Sector 11</a>
+        <a id = "Sector_10">Sector 12</a>
+        <a id = "Sector_10">Sector 13</a>
+        <a id = "Sector_10">Sector 14</a>
+        <a id = "Sector_10">Sector 15</a>
+      </div>
+    </div> 
+    </div>
+
+
+    <BLOCKS>
+    <div class="container-md">
+    <div class="Block-0">
+      <label for="usr">Block 0:</label>
+      <input type="text" class="form-control" id="usr">
+    </div>
+    </div>
+
+    <div class="container-md">
+      <div class="Block-1">
+        <label for="usr">Block 1:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+    </div>
+
+    <div class="container-md">
+      <div class="Block-2">
+        <label for="usr">Block 2:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+    </div>
+
+    <div class="container-md">
+      <div class="Block-3">
+        <label for="usr">Block 3:</label>
+        <input type="text" class="form-control" id="usr">
+      </div>
+    </div>
+    </BLOCKS>
+
+
+    <div class="container-fluid">
+      <butpos><button id="ExitButton">Exit</button></butpos>
+    </div>
+
+
+  </body>
   <script src="js/MainButtons.js"></script>
 </html>

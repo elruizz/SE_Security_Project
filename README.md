@@ -1,6 +1,17 @@
 # SE_Security_Project
 This is our semester project for Software Engineering. We are doing a security based project with OMNIKEY readers and Mifareclassic
+Group Members:
+Ethan Ruiz elruiz@mavs.coloradomesa.edu
+Mike Tacker
+Jonah Simon
+Jake Lambdin 
 
+Mifare 1k classic blocks go from 0-63.
+in order to read a block you must authenticate.
+Use Key A or Key B to Authenticate.
+every 4 blocks is a reserved block that gives authentication details for the sector.
+4 blocks per sector
+16 sectors
 
 Useful Notes:
 KeyNumber: See Section: 5.2 Key Locations
@@ -13,16 +24,11 @@ Communication with MIFARE Classic, MIFARE Plus, MIFARE Ultralight and iCLASS cre
 normally done using the PC/SC APDUs
 
 
-**FOR UI**
-Use PC/SC API commands to create an application.
-
-
-
 **PC/SC APDU Notes**
 
 Loading Keys:
 All keys except MIFARE keys must be loaded during secure
-session. MIFARE keys can be loaded when secure session is established or not
+session. Such as iCalss. MIFARE keys can be loaded when secure session is established or not.
 
 It will work with any card type. OR it can be sent using SCardControl()
 
