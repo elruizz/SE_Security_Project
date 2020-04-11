@@ -1,8 +1,64 @@
 document.getElementById("Exit").addEventListener("click", ExitClick);
 
+// Write block buttons listeners
+document.getElementById("Button-Write-Block-0").onclick = writeBlock0;
+document.getElementById("Button-Write-Block-1").onclick = writeBlock1;
+document.getElementById("Button-Write-Block-2").onclick = writeBlock2;
+document.getElementById("Button-Write-Block-3").onclick = writeBlock3;
+
+// Read block buttons listeners
+document.getElementById("Button-Read-Block-0").onclick = readBlock0;
+document.getElementById("Button-Read-Block-1").onclick = readBlock1;
+document.getElementById("Button-Read-Block-2").onclick = readBlock2;
+document.getElementById("Button-Read-Block-3").onclick = readBlock3;
+
+// Exit the application
 function ExitClick(){
   self.close()
 }
+
+// Write functions
+function writeBlock0(){
+  var Block = getBlocknum(0);
+  alert(Block);
+}
+
+function writeBlock1(){
+  var Block = getBlocknum(1);
+  alert(Block);
+}
+
+function writeBlock2(){
+  var Block = getBlocknum(2);
+  alert(Block);
+}
+
+function writeBlock3(){
+  var Block = getBlocknum(3);
+  alert(Block);
+}
+
+// Read functions
+function readBlock0(){
+  var Block = getBlocknum(0);
+  alert(Block);
+}
+
+function readBlock1(){
+  var Block = getBlocknum(1);
+  alert(Block);
+}
+
+function readBlock2(){
+  var Block = getBlocknum(2);
+  alert(Block);
+}
+
+function readBlock3(){
+  var Block = getBlocknum(3);
+  alert(Block);
+}
+
 
 // Functions for the drop down menus Sector selection
 // sector 1 on click
@@ -121,3 +177,21 @@ window.onclick = function(event) {
         }
       }
     }
+
+
+// get hex block number
+function getBlocknum(num) {
+  var sector = document.getElementById("sector_num");
+  var secNum = sector.innerHTML;
+  var Block;
+  if (secNum == 0){
+      Block = num
+  }
+  else {
+    Block = ((secNum * 4))+ num;
+  }
+  var hexString = Block.toString(16);
+
+  return hexString
+
+}
