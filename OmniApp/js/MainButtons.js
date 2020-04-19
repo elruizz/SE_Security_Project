@@ -18,6 +18,7 @@ var data0;
 var data1;
 var data2;
 var data3;
+const assert = require('assert');
 
 // Exit the application
 function ExitClick(){
@@ -28,7 +29,13 @@ function ExitClick(){
 function writeBlock0(){
   getData();
   var Block = getBlocknum(0);
-  alert(strToHex(data0)); 
+  alert(data0.length);
+  if (data0.length != 12){ //---------------------"assertion" here
+    alert('error')
+  }
+  else{
+    alert(strToHex(data0));
+  }
 }
 
 function writeBlock1(){
