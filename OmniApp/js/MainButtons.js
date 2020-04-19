@@ -1,3 +1,7 @@
+// var request = new XMLHttpRequest();
+// request.open('GET', 'http://localhost:8080/test/');
+// request.onload= function()
+
 document.getElementById("Exit").addEventListener("click", ExitClick);
 
 // Write block buttons listeners
@@ -226,6 +230,7 @@ function getData(){
   data2 = document.getElementById("usr_block_2").value;
   data3 = document.getElementById("usr_block_3").value;
 }
+<<<<<<< HEAD
 
 //convert user input string to hex
 function strToHex(str){
@@ -250,3 +255,5 @@ function ascii_to_hexa(str){
 
 console.log(ascii_to_hexa('12'));
 console.log(ascii_to_hexa('100'));
+=======
+>>>>>>> frontend
