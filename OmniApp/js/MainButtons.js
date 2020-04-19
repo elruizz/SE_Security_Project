@@ -12,6 +12,13 @@ document.getElementById("Button-Read-Block-1").onclick = readBlock1;
 document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
 
+// Variables to store user data
+var key;
+var data0;
+var data1;
+var data2;
+var data3;
+
 // Exit the application
 function ExitClick(){
   self.close()
@@ -19,42 +26,50 @@ function ExitClick(){
 
 // Write functions
 function writeBlock0(){
+  getData();
   var Block = getBlocknum(0);
-  alert(Block);
+  alert(data0);
 }
 
 function writeBlock1(){
+  getData();
   var Block = getBlocknum(1);
-  alert(Block);
+  alert(data1);
 }
 
 function writeBlock2(){
+  getData();
   var Block = getBlocknum(2);
-  alert(Block);
+  alert(data2);
 }
 
 function writeBlock3(){
+  getData();
   var Block = getBlocknum(3);
-  alert(Block);
+  alert(data3);
 }
 
 // Read functions
 function readBlock0(){
+  getData();
   var Block = getBlocknum(0);
   alert(Block);
 }
 
 function readBlock1(){
+  getData();
   var Block = getBlocknum(1);
   alert(Block);
 }
 
 function readBlock2(){
+  getData();
   var Block = getBlocknum(2);
   alert(Block);
 }
 
 function readBlock3(){
+  getData();
   var Block = getBlocknum(3);
   alert(Block);
 }
@@ -194,4 +209,13 @@ function getBlocknum(num) {
 
   return hexString
 
+}
+
+// Get the data from the user input
+function getData(){
+  key = document.getElementById("key").value;
+  data0 = document.getElementById("usr_block_0").value;
+  data1 = document.getElementById("usr_block_1").value;
+  data2 = document.getElementById("usr_block_2").value;
+  data3 = document.getElementById("usr_block_3").value;
 }

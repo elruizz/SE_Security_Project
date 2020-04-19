@@ -53,12 +53,17 @@
 
     <div class="row" name="row_2">
 
-      <div class="col-md-9" name="UID-col">
+      <div class="col-md-6" name="UID-col">
         <label type="text">UID</label>
         <input type="text" name="UID-input" readonly="readonly">
       </div>
 
-      <div class="col-md-9">
+      <div class="col-md-6" name="Key-input">
+        <label type="text">Key</label>
+        <input type="text" id="key">
+      </div>
+
+      <div class="col-md-6">
         <label type="text">Sector</label>
         <label id="sector_num" type="text"></label>
       </div>
@@ -85,15 +90,14 @@
           <div class="Block-3">
             <label for="usr">Block 3:</label>
             <input type="text" class="form-control" id="usr_block_3">
-            <button id = "Button-Read-Block-3">Write</button>
-            <button id = "Button-Write-Block-3">Read</button>
+            <button id = "Button-Write-Block-3">Write</button>
+            <button id = "Button-Read-Block-3">Read</button>
         </div>
       </div>
     </div>
+    
     <div class="col-auto"><button id="Exit">Exit</button></div>
 
   </body>
-
   <script src="js/MainButtons.js"></script>
-
 </html>
