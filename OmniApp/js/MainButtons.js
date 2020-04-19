@@ -28,7 +28,7 @@ function ExitClick(){
 function writeBlock0(){
   getData();
   var Block = getBlocknum(0);
-  alert(data0);
+  alert(strToHex(data0)); 
 }
 
 function writeBlock1(){
@@ -219,3 +219,27 @@ function getData(){
   data2 = document.getElementById("usr_block_2").value;
   data3 = document.getElementById("usr_block_3").value;
 }
+
+//convert user input string to hex
+function strToHex(str){
+	var arr1 = [];
+	for (var n = 0, l = str.length; n < l; n ++)
+     {
+		var hex = Number(str.charCodeAt(n)).toString(16);
+		arr1.push(hex);
+	 }
+	return arr1.join('');
+}
+
+function ascii_to_hexa(str){
+	var arr1 = [];
+	for (var n = 0, l = str.length; n < l; n ++)
+  {
+		var hex = Number(str.charCodeAt(n)).toString(16);
+		arr1.push(hex);
+	}
+	return arr1.join('');
+}
+
+console.log(ascii_to_hexa('12'));
+console.log(ascii_to_hexa('100'));
