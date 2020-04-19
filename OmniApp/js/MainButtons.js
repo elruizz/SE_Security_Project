@@ -1,3 +1,7 @@
+// var request = new XMLHttpRequest();
+// request.open('GET', 'http://localhost:8080/test/');
+// request.onload= function()
+
 document.getElementById("Exit").addEventListener("click", ExitClick);
 
 // Write block buttons listeners
