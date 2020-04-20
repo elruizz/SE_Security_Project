@@ -7,12 +7,11 @@ using System.Threading;
 using HidGlobal.OK.Readers;
 using HidGlobal.OK.Readers.AViatoR.Components;
 using HidGlobal.OK.Readers.Components;
-using HidGlobal.OK.SampleCodes.MenuSections;
 using HidGlobal.OK.SampleCodes.Utilities;
 
 namespace WebServer
 {
- 
+
     public class WebServer
     {
         private readonly HttpListener _listener = new HttpListener();
@@ -326,6 +325,9 @@ namespace WebServer
 
             IReadOnlyList<string> myReader = reader.ListReaders();
             string text = myReader[0];
+
+            var SCreader = new SmartCardReader(text);
+            SCreader.PcscReaderName();
             
 
             return string.Format("<HTML><BODY>My web page.<br> {0} <br> {1} </BODY></HTML>", DateTime.Now, text);
