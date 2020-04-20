@@ -15,12 +15,6 @@ C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerA
 C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\WebServerApp.runtimeconfig.dev.json
 C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\WebServerApp.dll
 C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\WebServerApp.pdb
-C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.csproj.CoreCompileInputs.cache
-C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.AssemblyInfoInputs.cache
-C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.AssemblyInfo.cs
-C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.dll
-C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.pdb
-C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.genruntimeconfig.cache
 C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\HidGlobal.OK.Readers.dll
 C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\KbwToCcidSwitchApi.dll
 C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\OMNIKEY_SampleCodes.exe
@@ -28,4 +22,10 @@ C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerA
 C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\OMNIKEY_SampleCodes.pdb
 C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\bin\Debug\netcoreapp3.1\KbwToCcidSwitchApi.pdb
 C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.csprojAssemblyReference.cache
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.csproj.CoreCompileInputs.cache
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.AssemblyInfoInputs.cache
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.AssemblyInfo.cs
 C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.csproj.CopyComplete
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.dll
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.pdb
+C:\Users\bigsw\projects\SEFinal\SE_Security_Project\BackEnd\WebServer\WebServerApp\WebServerApp\obj\Debug\netcoreapp3.1\WebServerApp.genruntimeconfig.cache
