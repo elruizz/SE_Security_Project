@@ -1,7 +1,3 @@
-// var request = new XMLHttpRequest();
-// request.open('GET', 'http://localhost:8080/test/');
-// request.onload= function()
-
 document.getElementById("Exit").addEventListener("click", ExitClick);
 
 // Write block buttons listeners
@@ -23,6 +19,23 @@ var data1;
 var data2;
 var data3;
 const assert = require('assert');
+
+function writeReaderName() { //------------------------------------send reader name to webserver
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "http://localhost:8080/test/", true);
+  xhttp.send("reader=OMNIKEY");
+}
+
+function readData() { //---------------------------------------not sure about this one
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("GET", "http://localhost:8080/test/", true);
+  xhttp.send("reader");
+}
+
+var getUIDdata = function () { //---------------------- get reader/UID data
+  var UIDinput = document.getElementById('UID-input');
+  UIDinput.value = 'value from javascript';
+}
 
 // Exit the application
 function ExitClick(){

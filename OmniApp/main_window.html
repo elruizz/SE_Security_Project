@@ -19,6 +19,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <form runat="server">
+
     <div class="row" name="row_1">
       <div class="col-md-5">
         <h1>OMNIKey Reader/Writer</h1>
@@ -56,6 +58,7 @@
       <div class="col-md-6" name="UID-col">
         <label type="text">UID</label>
         <input type="text" name="UID-input" readonly="readonly">
+        <!-- <asp:HiddenField ID="UID-input" type="text" name="UID-input" readonly="readonly" runat="server" /> -->
       </div>
 
       <div class="col-md-6" name="Key-input">
@@ -95,7 +98,7 @@
         </div>
       </div>
     </div>
-    
+
     <div class="col-auto"><button id="Exit">Exit</button></div>
 
   </body>

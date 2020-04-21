@@ -13,6 +13,7 @@ namespace UnitTestProject2
         public void Run(string readerName)
         {
             var reader = new SmartCardReader(readerName);
+            // UIDinput.value = readerName; ------------------UIDinput data 
 
             ReaderHelper.ConnectToReaderWithCard(reader);
 
