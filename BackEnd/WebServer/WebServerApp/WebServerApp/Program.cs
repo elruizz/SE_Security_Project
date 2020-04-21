@@ -281,13 +281,7 @@ namespace WebServer
             var reader = new SmartCardReader(readerName);
             try
             {
-                ConsoleWriter.Instance.PrintSplitter();
-                ConsoleWriter.Instance.PrintTask($"Connecting to {reader.PcscReaderName}");
-
                 ReaderHelper.ConnectToReaderWithCard(reader);
-
-                ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
-                ConsoleWriter.Instance.PrintSplitter();
 
                 ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
                     GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
@@ -299,7 +293,6 @@ namespace WebServer
 
                 SendDecrementCommand(reader, "Decrement value in block nr: ", 1, 0x04);
 
-                ConsoleWriter.Instance.PrintSplitter();
             }
             catch (Exception e)
             {
@@ -316,8 +309,8 @@ namespace WebServer
     }
 
     internal class Program
-    { 
-        
+    {
+
 
         public static string SendResponse(HttpListenerRequest request)
         {
@@ -326,22 +319,22 @@ namespace WebServer
             IReadOnlyList<string> myReader = reader.ListReaders();
             string text = myReader[0];
 
-            var SCreader = new SmartCardReader(text);
-            SCreader.Connect(ReaderSharingMode.Direct, Protocol.Any);
-            
+            //var SCreader = new SmartCardReader(text);
+            //SCreader.PcscReaderName();
+
 
             return string.Format("<HTML><BODY>My web page.<br> {0} <br> {1} </BODY></HTML>", DateTime.Now, text);
         }
 
         //private static IMenuItem _rootMenu = new MenuItem("HID OMNIKEY Smart Card Readers' Sample Codes Application Menu", true);
-        
-        
+
+
         //private static IMenuSection _keyboardWedgesSection = new KeyboardWedgesMenuSection(KeyboardWedgesMenuFactory.Instance);
         //private static IMenuSection _smartCardReadersSection = new SmartCardReadersMenuSection(SmartCardReadersMenuFactory.Instance);
         //private static readonly Scope scope = Scope.System;
         //private static string deviceName = "-3674937291639357440";
 
-        
+
         private static void Main(string[] args)
         {
 
@@ -351,13 +344,13 @@ namespace WebServer
             //ReaderHelper.GetSerialNumber(readerName);
             //reader.ListReaders();
             //reader.ListReaders(readerName);
-            
+
             var ws = new WebServer(SendResponse, "http://localhost:8080/test/");
             ws.Run();
-            
-            
-            
-            
+
+
+
+
             //_rootMenu.AddSubItem(_smartCardReadersSection.RootMenuItem);
             //_rootMenu.AddSubItem(_keyboardWedgesSection.RootMenuItem);
 
