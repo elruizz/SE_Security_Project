@@ -327,7 +327,7 @@ namespace WebServer
             string text = myReader[0];
 
             var SCreader = new SmartCardReader(text);
-            SCreader.PcscReaderName();
+            SCreader.Connect(ReaderSharingMode.Direct, Protocol.Any);
             
 
             return string.Format("<HTML><BODY>My web page.<br> {0} <br> {1} </BODY></HTML>", DateTime.Now, text);
