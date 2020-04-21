@@ -33,56 +33,56 @@ function ExitClick(){
 function writeBlock0(){
   getData();
   var Block = getBlocknum(0);
-  alert(data0.length);
+  console.log(data0.length);
   if (data0.length != 12){ //---------------------"assertion" here
-    alert('error')
+      console.log('error')
   }
   else{
-    alert(strToHex(data0));
+      console.log(strToHex(data0));
   }
 }
 
 function writeBlock1(){
   getData();
   var Block = getBlocknum(1);
-  alert(data1);
+  console.log(data1);
 }
 
 function writeBlock2(){
   getData();
   var Block = getBlocknum(2);
-  alert(data2);
+  console.log(data2);
 }
 
 function writeBlock3(){
   getData();
   var Block = getBlocknum(3);
-  alert(data3);
+  console.log(data3);
 }
 
 // Read functions
 function readBlock0(){
   getData();
   var Block = getBlocknum(0);
-  alert(Block);
+  console.log(Block);
 }
 
 function readBlock1(){
   getData();
   var Block = getBlocknum(1);
-  alert(Block);
+  console.log(Block);
 }
 
 function readBlock2(){
   getData();
   var Block = getBlocknum(2);
-  alert(Block);
+  console.log(Block);
 }
 
 function readBlock3(){
   getData();
   var Block = getBlocknum(3);
-  alert(Block);
+  console.log(Block);
 }
 
 
