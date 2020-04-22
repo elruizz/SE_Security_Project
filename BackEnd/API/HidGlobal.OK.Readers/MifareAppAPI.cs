@@ -1,7 +1,6 @@
 ﻿using HidGlobal.OK.Readers;
 using HidGlobal.OK.Readers.AViatoR.Components;
 using HidGlobal.OK.Readers.Components;
-using HidGlobal.OK.Sam
 using System;
 using System.Linq;
 
@@ -450,4 +449,4 @@ namespace HidGlobal.OK.Readers
     }
 
 }
-}
+

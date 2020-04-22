@@ -22,7 +22,6 @@
 using HidGlobal.OK.Readers;
 using HidGlobal.OK.Readers.AViatoR.Components;
 using HidGlobal.OK.Readers.Components;
-using HidGlobal.OK.SampleCodes.Utilities;
 using System;
 using System.Linq;
 

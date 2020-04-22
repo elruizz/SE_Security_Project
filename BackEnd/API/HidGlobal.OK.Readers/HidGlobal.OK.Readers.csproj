@@ -85,6 +85,8 @@
     <Compile Include="Components\PollingFrequency.cs" />
     <Compile Include="Components\PollingSearchOrder.cs" />
     <Compile Include="Components\VoltageSequenceFlags.cs" />
+    <Compile Include="ConsoleWriter.cs" />
+    <Compile Include="ExampleWithMifareClassic.cs" />
     <Compile Include="ISmartCardReader.cs" />
     <Compile Include="AViatoR\OK5122.cs" />
     <Compile Include="MifareAppAPI.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Components\ReaderSharingMode.cs" />
     <Compile Include="Components\IORequest.cs" />
     <Compile Include="Components\ReaderState.cs" />
+    <Compile Include="ReaderHelper.cs" />
     <Compile Include="Utilities\ExceptionHelper.cs" />
     <Compile Include="Utilities\LinqExtension.cs" />
     <Compile Include="WinSCard\WinSCardWrapper.cs" />
