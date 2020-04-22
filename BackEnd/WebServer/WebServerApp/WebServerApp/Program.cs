@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text;
 using System.Threading;
+using System.ComponentModel;
+using HidGlobal.OK.SampleCodes;
 using HidGlobal.OK.SampleCodes.MenuSections;
+using HidGlobal.OK.Readers.Components;
+using HidGlobal.OK.Readers.AViatoR.Components;
+
+using HidGlobal.OK.SampleCodes.Utilities;
+using HidGlobal.OK.Readers;
 
 namespace WebServer
 {
@@ -38,6 +45,7 @@ namespace WebServer
             _responderMethod = method;
             _listener.Start();
         }
+
 
         public WebServer(Func<HttpListenerRequest, string> method, params string[] prefixes)
            : this(prefixes, method)
@@ -95,31 +103,72 @@ namespace WebServer
             _listener.Stop();
             _listener.Close();
         }
-    }
-
+       
     internal class Program
     {
         public static string SendResponse(HttpListenerRequest request)
         {
             return string.Format("<HTML><BODY>My web page.<br>{0}</BODY></HTML>", DateTime.Now);
+
         }
 
-        private static IMenuItem _rootMenu = new MenuItem("HID OMNIKEY Smart Card Readers' Sample Codes Application Menu", true);
+           
+     //   private static IMenuItem _rootMenu = new MenuItem("HID OMNIKEY Smart Card Readers' Sample Codes Application Menu", true);
 
-        private static IMenuSection _keyboardWedgesSection = new KeyboardWedgesMenuSection(KeyboardWedgesMenuFactory.Instance);
-        private static IMenuSection _smartCardReadersSection = new SmartCardReadersMenuSection(SmartCardReadersMenuFactory.Instance);
+       // private static IMenuSection _keyboardWedgesSection = new KeyboardWedgesMenuSection(KeyboardWedgesMenuFactory.Instance);
+     //  private static IMenuSection _smartCardReadersSection = new SmartCardReadersMenuSection(SmartCardReadersMenuFactory.Instance);
+      //  public static string rName = "";
+       // private static ISmartCardReader smartC = new SmartCardReader(rName);
+        // private static web_con = new IContextHandler.Instance;
+      
+        private static Scope scope = Scope.System;
+
+
+
+
+        public static void run() {
+
+            var result = ContextHandler.Instance;
+            IReadOnlyList<string> myreaders = result.ListReaders();
+            string text = myreaders[0];
+
+            // var sReader = new SmartCardReader(result.ListReaders());
+            //result.IsValid();
+            //  result.Establish(scope);
+
+            var WebReader = new SmartCardReader(text);
+            Console.WriteLine(WebReader.PcscReaderName);
+            //  WebReader.Connect();
+           
+
+            
+    }
+     
+    
+    
+       // private static ISmartCardReader _reader = new SmartCardReader(ContextHandler.Instance);
+
+       // private static Scope web_previousScope;
+      //  private static IContextHandler web_instance;
+        
+        
 
         private static void Main(string[] args)
         {
-            var ws = new WebServer(SendResponse, "http://localhost:8080/test/");
-            ws.Run();
-            _rootMenu.AddSubItem(_smartCardReadersSection.RootMenuItem);
-            _rootMenu.AddSubItem(_keyboardWedgesSection.RootMenuItem);
+            
+            //web_con.
 
-            _rootMenu.Execute();
-            //Console.WriteLine("A simple webserver. Press enter key to quit.");
-            //Console.ReadKey();
-            ws.Stop();
+            var ws = new WebServer(SendResponse, "http://localhost:8080/test/");
+          //  ws.Run();
+            run();
+           //  _rootMenu.AddSubItem(_smartCardReadersSection.RootMenuItem);
+           //   _rootMenu.AddSubItem(_keyboardWedgesSection.RootMenuItem);
+            // web_con.Establish(web_previousScope);
+            //  web_instance.Establish(web_previousScope);
+          //   _rootMenu.Execute();
+            Console.WriteLine("A simple webserver. Press enter key to quit.");
+            Console.ReadKey();
+           // ws.Stop();
         }
     }
 
