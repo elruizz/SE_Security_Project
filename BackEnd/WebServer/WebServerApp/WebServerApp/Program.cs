@@ -7,6 +7,7 @@ using System.ComponentModel;
 using HidGlobal.OK.Readers.Components;
 using HidGlobal.OK.Readers.AViatoR.Components;
 using HidGlobal.OK.Readers;
+
 namespace WebServer
 {
     public class WebServer
@@ -127,6 +128,9 @@ namespace WebServer
                 var result = ContextHandler.Instance;
                 IReadOnlyList<string> myreaders = result.ListReaders();
                 string text = myreaders[0];
+                //var keycommand = new Load
+                
+                
 
                 // var sReader = new SmartCardReader(result.ListReaders());
                 //result.IsValid();
@@ -158,6 +162,7 @@ namespace WebServer
                 var ws = new WebServer(SendResponse, "http://localhost:8080/test/");
                 //  ws.Run();
                 run();
+                
                 //  _rootMenu.AddSubItem(_smartCardReadersSection.RootMenuItem);
                 //   _rootMenu.AddSubItem(_keyboardWedgesSection.RootMenuItem);
                 // web_con.Establish(web_previousScope);
