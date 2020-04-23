@@ -27,13 +27,9 @@ namespace HidGlobal.OK.Readers
 
                     try
                     {
-                        ConsoleWriter.Instance.PrintSplitter();
                         ConsoleWriter.Instance.PrintTask($"Connecting to { reader.PcscReaderName}");
-
                         ReaderHelper.ConnectToReader(reader);
 
-                        ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
-                        ConsoleWriter.Instance.PrintSplitter();
 
                         LoadKeyCommand(reader, 0x01,
                             Readers.AViatoR.Components.LoadKeyCommand.KeyType.CardKey,
@@ -66,49 +62,48 @@ namespace HidGlobal.OK.Readers
 
                     try
                     {
-                        ConsoleWriter.Instance.PrintSplitter();
-                        ConsoleWriter.Instance.PrintTask($"Connecting to {reader.PcscReaderName}");
+                        
+                        Console.WriteLine($"Connecting to {reader.PcscReaderName}");
 
                         ReaderHelper.ConnectToReaderWithCard(reader);
 
-                        ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
-                        ConsoleWriter.Instance.PrintSplitter();
+                        
 
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x01,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x01,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x01, 0x00);
+                        ReaderHelper.ReadBinaryMifareCommand(reader, 0x01, 0x00);
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x02,
+                        ReaderHelper.GeneralAuthenticateMifare(reader,  0x02,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x02, 0x00);
+                        ReaderHelper.ReadBinaryMifareCommand(reader,  0x02, 0x00);
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x03,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x03,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x03, 0x00);
+                        ReaderHelper.ReadBinaryMifareCommand(reader,  0x03, 0x00);
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x04,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x04, 0x00);
+                        ReaderHelper.ReadBinaryMifareCommand(reader, 0x04, 0x00);
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x04,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x04, 0x00);
+                        ReaderHelper.ReadBinaryMifareCommand(reader, 0x04, 0x00);
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x05,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x05,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x05, 0x00);
+                        ReaderHelper.ReadBinaryMifareCommand(reader, 0x05, 0x00);
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x06,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x06,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x06, 0x00);
+                        ReaderHelper.ReadBinaryMifareCommand(reader, 0x06, 0x00);
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x07,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x07,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x07, 0x00);
+                        ReaderHelper.ReadBinaryMifareCommand(reader, 0x07, 0x00);
 
 
-                        ConsoleWriter.Instance.PrintSplitter();
+             
                     }
                     catch (Exception e)
                     {
@@ -121,7 +116,6 @@ namespace HidGlobal.OK.Readers
                             reader.Disconnect(CardDisposition.Unpower);
                             ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
-                        ConsoleWriter.Instance.PrintSplitter();
                     }
                 }
             }
@@ -173,7 +167,6 @@ namespace HidGlobal.OK.Readers
                             reader.Disconnect(CardDisposition.Unpower);
                             ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
-                        ConsoleWriter.Instance.PrintSplitter();
                     }
                 }
             }
