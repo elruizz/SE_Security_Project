@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 // var request = new XMLHttpRequest();
 // request.open('GET', 'http://localhost:8080/test/');
 // request.onload= function()
@@ -7,7 +6,7 @@
 //export for our js file to use for the serve
 
 // Adding exit button functionality
->>>>>>> master
+
 document.getElementById("Exit").addEventListener("click", ExitClick);
 
 // Write block buttons listeners
