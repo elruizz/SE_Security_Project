@@ -2,6 +2,7 @@
 using HidGlobal.OK.Readers.Components;
 using System;
 using System.Linq;
+using System.Web.Services;
 
 namespace HidGlobal.OK.Readers
 {
@@ -13,18 +14,18 @@ namespace HidGlobal.OK.Readers
             public string MifareOutput = "";
             public string MifareAPDU = "";
 
-            private void LoadKeyCommand(ISmartCardReader smartCardReader, byte keySlot, LoadKeyCommand.KeyType keyType, LoadKeyCommand.Persistence persistence, LoadKeyCommand.Transmission transmission, LoadKeyCommand.KeyLength keyLength, string key)
+                private void LoadKeyCommand(ISmartCardReader smartCardReader, byte keySlot, LoadKeyCommand.KeyType keyType, LoadKeyCommand.Persistence persistence, LoadKeyCommand.Transmission transmission, LoadKeyCommand.KeyLength keyLength, string key)
                 {
                     var loadKeyCommand = new Readers.AViatoR.Components.LoadKeyCommand();
 
                     string input = loadKeyCommand.GetApdu(keySlot, keyType, persistence, transmission, keyLength, key);
                     string output = ReaderHelper.SendCommand(smartCardReader, input);
-                //ConsoleWriter.Instance.PrintCommand(description + key, input, output);
-                Console.WriteLine($"input {input}  Load Key Output:  {output}  Key: {key}");
-                MifareOutput = output;
-                MifareAPDU = input;
+                    //ConsoleWriter.Instance.PrintCommand(description + key, input, output);
+                    Console.WriteLine($"input {input}  Load Key Output:  {output}  Key: {key}");
+                    MifareOutput = output;
+                    MifareAPDU = input;
                
-            }
+                }
                 public void Run(string readerName, string Keyresponse)
                 {
                     var reader = new SmartCardReader(readerName);
@@ -60,7 +61,8 @@ namespace HidGlobal.OK.Readers
             }
             public class ReadMifareClassic1k
             {
-                public void Run(string readerName)
+            [WebMethod]
+            public static void Run(string readerName)
                 {
                     var reader = new SmartCardReader(readerName);
 
