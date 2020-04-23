@@ -135,24 +135,24 @@ namespace HidGlobal.OK.Readers
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x04,
 
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x04, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x04, data); // Data can be 32 bytes long
 
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x05,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x05, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x05, data);
 
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x06,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
 
-                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x04, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x04, data);
 
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x05,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x05, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x05, data);
 
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x06,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x06, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x06, data);
 
                         ConsoleWriter.Instance.PrintSplitter();
                     }
