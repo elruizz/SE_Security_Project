@@ -8,18 +8,18 @@ namespace HidGlobal.OK.Readers
 {
     class MifareAppAPI
     {
-        class ExampleWithMifareClassic
+        class MifareClassic
         {
             public class LoadKeyExample
             {
-                private void LoadKeyCommand(ISmartCardReader smartCardReader, string description, byte keySlot, LoadKeyCommand.KeyType keyType, LoadKeyCommand.Persistence persistence, LoadKeyCommand.Transmission transmission, LoadKeyCommand.KeyLength keyLength, string key)
+                private void LoadKeyCommand(ISmartCardReader smartCardReader, byte keySlot, LoadKeyCommand.KeyType keyType, LoadKeyCommand.Persistence persistence, LoadKeyCommand.Transmission transmission, LoadKeyCommand.KeyLength keyLength, string key)
                 {
                     var loadKeyCommand = new Readers.AViatoR.Components.LoadKeyCommand();
 
                     string input = loadKeyCommand.GetApdu(keySlot, keyType, persistence, transmission, keyLength, key);
                     string output = ReaderHelper.SendCommand(smartCardReader, input);
-                    ConsoleWriter.Instance.PrintCommand(description + key, input, output);
-                    // ConsoleWriter.Instance.PrintCommand("THIS IS THE OUTPUT", output);
+                    // ConsoleWriter.Instance.PrintCommand(description + key, input, output);
+                    Console.WriteLine("Load Key Output: ", output);
                 }
                 public void Run(string readerName, string Keyresponse)
                 {
@@ -35,7 +35,7 @@ namespace HidGlobal.OK.Readers
                         ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
                         ConsoleWriter.Instance.PrintSplitter();
 
-                        LoadKeyCommand(reader, "Load Mifare Key: ", 0x01,
+                        LoadKeyCommand(reader, 0x01,
                             Readers.AViatoR.Components.LoadKeyCommand.KeyType.CardKey,
                             Readers.AViatoR.Components.LoadKeyCommand.Persistence.Persistent,
                             Readers.AViatoR.Components.LoadKeyCommand.Transmission.Plain,
@@ -58,7 +58,7 @@ namespace HidGlobal.OK.Readers
                     }
                 }
             }
-            public class ReadBinaryMifareClassic1kExample
+            public class ReadMifareClassic1k
             {
                 public void Run(string readerName)
                 {
@@ -125,43 +125,40 @@ namespace HidGlobal.OK.Readers
                     }
                 }
             }
-            public class UpdateBinaryMifareClassic1kExample
+            public class UpdateMifareClassic1k
             {
-                public void Run(string readerName)
+                public void Run(string readerName, string data)
                 {
                     var reader = new SmartCardReader(readerName);
 
                     try
                     {
-                        ConsoleWriter.Instance.PrintSplitter();
-                        ConsoleWriter.Instance.PrintTask($"Connecting to {reader.PcscReaderName}");
+                        
+                        Console.WriteLine($"Connecting to {reader.PcscReaderName}");
 
                         ReaderHelper.ConnectToReaderWithCard(reader);
 
-                        ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
-                        ConsoleWriter.Instance.PrintSplitter();
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x04,
 
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x04, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x04, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x05,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x05,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x05, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x05, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x06,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x06,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
 
-                        ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x04, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x04, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x05,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x05,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x05, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x05, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x06,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x06,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x06, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x06, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
 
                         ConsoleWriter.Instance.PrintSplitter();
                     }
@@ -180,7 +177,7 @@ namespace HidGlobal.OK.Readers
                     }
                 }
             }
-            public class IncrementMifareClassic1kExample
+            public class IncrementMifareClassic1k
             {
                 string GetMifareValueTypeData(int value, byte blockNumber)
                 {
@@ -198,36 +195,32 @@ namespace HidGlobal.OK.Readers
                            ((byte)~blockNumber).ToString("X2") + $"{blockNumber:X2}" +
                            ((byte)~blockNumber).ToString("X2");
                 }
-                void SendIncrementCommand(ISmartCardReader smartCardReader, string description, int value, byte blockNumber)
+                void SendIncrementCommand(ISmartCardReader smartCardReader, int value, byte blockNumber)
                 {
                     var incrementCommand = new IncrementCommand();
                     string input = incrementCommand.GetApdu(blockNumber, value);
                     string output = ReaderHelper.SendCommand(smartCardReader, input);
 
-                    ConsoleWriter.Instance.PrintCommand(description + blockNumber.ToString("X2"), input, output);
+                    Console.WriteLine("Input ", input, "Output: ", output);
                 }
                 public void Run(string readerName)
                 {
                     var reader = new SmartCardReader(readerName);
                     try
                     {
-                        ConsoleWriter.Instance.PrintSplitter();
-                        ConsoleWriter.Instance.PrintTask($"Connecting to {reader.PcscReaderName}");
+
+                        Console.WriteLine($"Connecting to {reader.PcscReaderName}");
 
                         ReaderHelper.ConnectToReaderWithCard(reader);
 
-                        ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
-                        ConsoleWriter.Instance.PrintSplitter();
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x04,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                         // Update block 4 with write operation in value block format:
                         // 4 byte value LSByte first, 4 byte bit inverted represetaton of value LSByte first, 4 byte value LSByte first, 1 byte block address, 1 byte bit inverted block address, 1 byte block address, 1 byte bit inverted block address
                         string valueTypeData = GetMifareValueTypeData(1234567, 0x04);
-                        ReaderHelper.UpdateBinaryCommand(reader, "Create value type in block nr ",
-                            UpdateBinaryCommand.Type.Plain, 0x04, valueTypeData);
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x04, valueTypeData);
 
-                        SendIncrementCommand(reader, "Increment value in block nr: ", 1, 0x04);
+                        SendIncrementCommand(reader, 1, 0x04);
 
                         ConsoleWriter.Instance.PrintSplitter();
                     }
@@ -246,7 +239,7 @@ namespace HidGlobal.OK.Readers
                     }
                 }
             }
-            public class DecrementMifareClassic1kExample
+            public class DecrementMifareClassic1k
             {
                 string GetMifareValueTypeData(int value, byte blockNumber)
                 {
@@ -264,169 +257,30 @@ namespace HidGlobal.OK.Readers
                            ((byte)~blockNumber).ToString("X2") + $"{blockNumber:X2}" +
                            ((byte)~blockNumber).ToString("X2");
                 }
-                void SendDecrementCommand(ISmartCardReader smartCardReader, string description, int value, byte blockNumber)
+                void SendDecrementCommand(ISmartCardReader smartCardReader, int value, byte blockNumber)
                 {
                     var decrementCommand = new DecrementCommand();
                     string input = decrementCommand.GetApdu(blockNumber, value);
                     string output = ReaderHelper.SendCommand(smartCardReader, input);
 
-                    ConsoleWriter.Instance.PrintCommand(description + blockNumber.ToString("X2"), input, output);
+                    Console.WriteLine("Input: ", input, "\n Output: ", output);
                 }
                 public void Run(string readerName)
                 {
                     var reader = new SmartCardReader(readerName);
                     try
                     {
-                        ConsoleWriter.Instance.PrintSplitter();
-                        ConsoleWriter.Instance.PrintTask($"Connecting to {reader.PcscReaderName}");
 
                         ReaderHelper.ConnectToReaderWithCard(reader);
-
-                        ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
-                        ConsoleWriter.Instance.PrintSplitter();
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x04,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                         // Update block 4 with write operation in value block format:
                         // 4 byte value LSByte first, 4 byte bit inverted represetaton of value LSByte first, 4 byte value LSByte first, 1 byte block address, 1 byte bit inverted block address, 1 byte block address, 1 byte bit inverted block address
                         string valueTypeData = GetMifareValueTypeData(1234567, 0x04);
-                        ReaderHelper.UpdateBinaryCommand(reader, "Create value type in block nr ",
+                        ReaderHelper.UpdateBinaryCommand(reader,
                             UpdateBinaryCommand.Type.Plain, 0x04, valueTypeData);
 
-                        SendDecrementCommand(reader, "Decrement value in block nr: ", 1, 0x04);
-
-                        ConsoleWriter.Instance.PrintSplitter();
-                    }
-                    catch (Exception e)
-                    {
-                        ConsoleWriter.Instance.PrintError(e.Message);
-                    }
-                    finally
-                    {
-                        if (reader.IsConnected)
-                        {
-                            reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
-                        }
-                        ConsoleWriter.Instance.PrintSplitter();
-                    }
-                }
-            }
-            public class IncrementMifareClassic1kForOK5023Example
-            {
-                string GetMifareValueTypeData(int value, byte blockNumber)
-                {
-                    var valueBytes = BitConverter.GetBytes(value);
-                    var invertedValueBytes = BitConverter.GetBytes(~value);
-                    if (!BitConverter.IsLittleEndian)
-                    {
-                        valueBytes = valueBytes.Reverse().ToArray();
-                        invertedValueBytes = invertedValueBytes.Reverse().ToArray();
-                    }
-                    string lsbFirstValue = BitConverter.ToString(valueBytes).Replace("-", "");
-                    string lsbFirstInvertedValue = BitConverter.ToString(invertedValueBytes).Replace("-", "");
-
-                    return lsbFirstValue + lsbFirstInvertedValue + lsbFirstValue + $"{blockNumber:X2}" +
-                           ((byte)~blockNumber).ToString("X2") + $"{blockNumber:X2}" +
-                           ((byte)~blockNumber).ToString("X2");
-                }
-                void SendIncrementCommand(ISmartCardReader smartCardReader, string description, int value, byte blockNumber)
-                {
-                    var incrementCommand = new IncrementDecrementCommand();
-                    string input = incrementCommand.GetApdu(IncrementDecrementCommand.OperationType.Increment, blockNumber, value);
-                    string output = ReaderHelper.SendCommand(smartCardReader, input);
-
-                    ConsoleWriter.Instance.PrintCommand(description + blockNumber.ToString("X2"), input, output);
-                }
-                public void Run(string readerName)
-                {
-                    var reader = new SmartCardReader(readerName);
-                    try
-                    {
-                        ConsoleWriter.Instance.PrintSplitter();
-                        ConsoleWriter.Instance.PrintTask($"Connecting to {reader.PcscReaderName}");
-
-                        ReaderHelper.ConnectToReaderWithCard(reader);
-
-                        ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
-                        ConsoleWriter.Instance.PrintSplitter();
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        // Update block 4 with write operation in value block format:
-                        // 4 byte value LSByte first, 4 byte bit inverted represetaton of value LSByte first, 4 byte value LSByte first, 1 byte block address, 1 byte bit inverted block address, 1 byte block address, 1 byte bit inverted block address
-                        string valueTypeData = GetMifareValueTypeData(1234567, 0x04);
-                        ReaderHelper.UpdateBinaryCommand(reader, "Create value type in block nr ",
-                            UpdateBinaryCommand.Type.Plain, 0x04, valueTypeData);
-
-                        SendIncrementCommand(reader, "Increment value in block nr: ", 1, 0x04);
-
-                        ConsoleWriter.Instance.PrintSplitter();
-                    }
-                    catch (Exception e)
-                    {
-                        ConsoleWriter.Instance.PrintError(e.Message);
-                    }
-                    finally
-                    {
-                        if (reader.IsConnected)
-                        {
-                            reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
-                        }
-                        ConsoleWriter.Instance.PrintSplitter();
-                    }
-                }
-            }
-            public class DecrementMifareClassic1kForOK5023Example
-            {
-                string GetMifareValueTypeData(int value, byte blockNumber)
-                {
-                    var valueBytes = BitConverter.GetBytes(value);
-                    var invertedValueBytes = BitConverter.GetBytes(~value);
-                    if (!BitConverter.IsLittleEndian)
-                    {
-                        valueBytes = valueBytes.Reverse().ToArray();
-                        invertedValueBytes = invertedValueBytes.Reverse().ToArray();
-                    }
-                    string lsbFirstValue = BitConverter.ToString(valueBytes).Replace("-", "");
-                    string lsbFirstInvertedValue = BitConverter.ToString(invertedValueBytes).Replace("-", "");
-
-                    return lsbFirstValue + lsbFirstInvertedValue + lsbFirstValue + $"{blockNumber:X2}" +
-                           ((byte)~blockNumber).ToString("X2") + $"{blockNumber:X2}" +
-                           ((byte)~blockNumber).ToString("X2");
-                }
-                void SendDecrementCommand(ISmartCardReader smartCardReader, string description, int value, byte blockNumber)
-                {
-                    var decrementCommand = new IncrementDecrementCommand();
-                    string input = decrementCommand.GetApdu(IncrementDecrementCommand.OperationType.Decrement, blockNumber, value);
-                    string output = ReaderHelper.SendCommand(smartCardReader, input);
-
-                    ConsoleWriter.Instance.PrintCommand(description + blockNumber.ToString("X2"), input, output);
-                }
-                public void Run(string readerName)
-                {
-                    var reader = new SmartCardReader(readerName);
-
-                    try
-                    {
-                        ConsoleWriter.Instance.PrintSplitter();
-                        ConsoleWriter.Instance.PrintTask($"Connecting to {reader.PcscReaderName}");
-
-                        ReaderHelper.ConnectToReaderWithCard(reader);
-
-                        ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
-                        ConsoleWriter.Instance.PrintSplitter();
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        // Update block 4 with write operation in value block format:
-                        // 4 byte value LSByte first, 4 byte bit inverted represetaton of value LSByte first, 4 byte value LSByte first, 1 byte block address, 1 byte bit inverted block address, 1 byte block address, 1 byte bit inverted block address
-                        string valueTypeData = GetMifareValueTypeData(1234567, 0x04);
-                        ReaderHelper.UpdateBinaryCommand(reader, "Create value type in block nr ",
-                            UpdateBinaryCommand.Type.Plain, 0x04, valueTypeData);
-
-                        SendDecrementCommand(reader, "Decrement value in block nr: ", 1, 0x04);
+                        SendDecrementCommand(reader, 1, 0x04);
 
                         ConsoleWriter.Instance.PrintSplitter();
                     }
@@ -447,6 +301,4 @@ namespace HidGlobal.OK.Readers
             }
         }
     }
-
 }
-

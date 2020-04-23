@@ -111,7 +111,7 @@ namespace HidGlobal.OK.Readers
 
             ConsoleWriter.Instance.PrintCommand(description + "0x" + blockNumber.ToString("X2"), input, output);
         }
-        public static void UpdateBinaryCommand(ISmartCardReader smartCardReader, string description, UpdateBinaryCommand.Type type, byte blockNumber, string data)
+        public static void UpdateBinaryCommand(ISmartCardReader smartCardReader, UpdateBinaryCommand.Type type, byte blockNumber, string data)
         {
             var updateBinaryCommand = new UpdateBinaryCommand();
 
@@ -119,7 +119,7 @@ namespace HidGlobal.OK.Readers
                 blockNumber, data);
             string output = smartCardReader.Transmit(input);
 
-            ConsoleWriter.Instance.PrintCommand(description + "0x" + blockNumber.ToString("X2"), input, output);
+            Console.WriteLine("Input: ", input, "\n Output: ", output);
         }
         public static void UpdateBinaryCommand(ISecureChannel secureChannel, string description, UpdateBinaryCommand.Type type, byte blockNumber, string data)
         {
@@ -131,16 +131,16 @@ namespace HidGlobal.OK.Readers
 
             ConsoleWriter.Instance.PrintCommand(description + "0x" + blockNumber.ToString("X2"), input, output);
         }
-        public static void ReadBinaryMifareCommand(ISmartCardReader smartCardReader, string description, byte blockNumber, byte expectedlength)
+        public static void ReadBinaryMifareCommand(ISmartCardReader smartCardReader, byte blockNumber, byte expectedlength)
         {
             var readBinaryCommand = new Readers.AViatoR.Components.ReadBinaryCommand();
 
             string input = readBinaryCommand.GetMifareReadApdu(blockNumber, expectedlength);
             string output = smartCardReader.Transmit(input);
 
-            ConsoleWriter.Instance.PrintCommand(description + "0x" + blockNumber.ToString("X2"), input, output);
+            Console.WriteLine("Input: ", input, "\n Output: ", output);
         }
-        public static void GeneralAuthenticateMifare(ISmartCardReader smartCardReader, string description, byte blockNumber, GeneralAuthenticateCommand.MifareKeyType keyType, byte keySlot)
+        public static void GeneralAuthenticateMifare(ISmartCardReader smartCardReader, byte blockNumber, GeneralAuthenticateCommand.MifareKeyType keyType, byte keySlot)
         {
             var generalAuthenticateCommand = new Readers.AViatoR.Components.GeneralAuthenticateCommand();
 
@@ -148,7 +148,7 @@ namespace HidGlobal.OK.Readers
                 generalAuthenticateCommand.GetMifareApdu(blockNumber, keyType, keySlot);
             string output = smartCardReader.Transmit(input);
 
-            ConsoleWriter.Instance.PrintCommand(description + keySlot.ToString("X2"), input, output);
+            Console.WriteLine("Output: ", output);
         }
         public static void GetDataCommand(ISmartCardReader smartCardReader, string description, GetDataCommand.Type type)
         {
