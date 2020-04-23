@@ -138,6 +138,8 @@ namespace WebServer
 
                 var WebReader = new SmartCardReader(text);
                 Console.WriteLine(WebReader.PcscReaderName);
+                var key = new MifareAPI.LoadMifareKey();
+                key.Run(WebReader.PcscReaderName, "FFFFFFFFFFFF");
 
                 //  WebReader.Connect();
 

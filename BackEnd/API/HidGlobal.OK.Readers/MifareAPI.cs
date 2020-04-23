@@ -1,26 +1,30 @@
-﻿using HidGlobal.OK.Readers;
-using HidGlobal.OK.Readers.AViatoR.Components;
+﻿using HidGlobal.OK.Readers.AViatoR.Components;
 using HidGlobal.OK.Readers.Components;
 using System;
 using System.Linq;
 
 namespace HidGlobal.OK.Readers
 {
-    class MifareAppAPI
+    public class MifareAPI
     {
-        class MifareClassic
-        {
+       
             public class LoadMifareKey
             {
-                private void LoadKeyCommand(ISmartCardReader smartCardReader, byte keySlot, LoadKeyCommand.KeyType keyType, LoadKeyCommand.Persistence persistence, LoadKeyCommand.Transmission transmission, LoadKeyCommand.KeyLength keyLength, string key)
+            public string MifareOutput = "";
+            public string MifareAPDU = "";
+
+            private void LoadKeyCommand(ISmartCardReader smartCardReader, byte keySlot, LoadKeyCommand.KeyType keyType, LoadKeyCommand.Persistence persistence, LoadKeyCommand.Transmission transmission, LoadKeyCommand.KeyLength keyLength, string key)
                 {
                     var loadKeyCommand = new Readers.AViatoR.Components.LoadKeyCommand();
 
                     string input = loadKeyCommand.GetApdu(keySlot, keyType, persistence, transmission, keyLength, key);
                     string output = ReaderHelper.SendCommand(smartCardReader, input);
-                    //ConsoleWriter.Instance.PrintCommand(description + key, input, output);
-                    Console.WriteLine("Load Key Output: ", output);
-                }
+                //ConsoleWriter.Instance.PrintCommand(description + key, input, output);
+                Console.WriteLine($"input {input}  Load Key Output:  {output}  Key: {key}");
+                MifareOutput = output;
+                MifareAPDU = input;
+               
+            }
                 public void Run(string readerName, string Keyresponse)
                 {
                     var reader = new SmartCardReader(readerName);
@@ -37,7 +41,7 @@ namespace HidGlobal.OK.Readers
                             Readers.AViatoR.Components.LoadKeyCommand.Transmission.Plain,
                             Readers.AViatoR.Components.LoadKeyCommand.KeyLength._6Bytes, Keyresponse);
 
-                        ConsoleWriter.Instance.PrintSplitter();
+                        
                     }
                     catch (Exception e)
                     {
@@ -50,7 +54,7 @@ namespace HidGlobal.OK.Readers
                             reader.Disconnect(CardDisposition.Unpower);
                             ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
-                        ConsoleWriter.Instance.PrintSplitter();
+                       
                     }
                 }
             }
@@ -68,7 +72,7 @@ namespace HidGlobal.OK.Readers
                         ReaderHelper.ConnectToReaderWithCard(reader);
 
 
-
+                        // Authenticate is READER, BLOCK NUMBER, KEYTYPE, KEYSLOT
 
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x01,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
@@ -154,7 +158,7 @@ namespace HidGlobal.OK.Readers
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                         ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x06, data);
 
-                        ConsoleWriter.Instance.PrintSplitter();
+                     
                     }
                     catch (Exception e)
                     {
@@ -228,7 +232,6 @@ namespace HidGlobal.OK.Readers
                             reader.Disconnect(CardDisposition.Unpower);
                             ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
-                        ConsoleWriter.Instance.PrintSplitter();
                     }
                 }
             }
@@ -288,10 +291,9 @@ namespace HidGlobal.OK.Readers
                             reader.Disconnect(CardDisposition.Unpower);
                             ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
-                        ConsoleWriter.Instance.PrintSplitter();
                     }
                 }
             }
         }
     }
-}
+

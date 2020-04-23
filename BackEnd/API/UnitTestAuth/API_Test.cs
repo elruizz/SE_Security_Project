@@ -4,7 +4,6 @@ using HidGlobal.OK.Readers;
 using HidGlobal.OK.Readers.AViatoR.Components;
 using HidGlobal.OK.Readers.Components;
 using HidGlobal.OK.Readers.Utilities;
-
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace API_Testing
@@ -15,8 +14,8 @@ namespace API_Testing
         [TestMethod]
             public void RunReaderNameTest()
             {
-            var result = ContextHandler.Instance;
-            IReadOnlyList<string> myreaders = result.ListReaders();
+            var Testresult = ContextHandler.Instance;
+            IReadOnlyList<string> myreaders = Testresult.ListReaders();
             string text = myreaders[0];
             var TestReader = new SmartCardReader(text);
             string expectedreader = "HID Global OMNIKEY 5022 Smart Card Reader 0";
@@ -26,12 +25,17 @@ namespace API_Testing
         [TestMethod]
         public void RunReaderKeyCommandTest()
         {
-            var result = ContextHandler.Instance;
+            var Testresult = ContextHandler.Instance;
+            IReadOnlyList<string> myreaders = Testresult.ListReaders();
+            string text = myreaders[0];
+            var TestReader = new SmartCardReader(text);
+            string TestKey = "FFFFFFFFFFFF";
+            string expectedApdu = "FF82200106FFFFFFFFFFFF";
+            var loadkey = new MifareAPI.LoadMifareKey();
             
-           
-            long expectedHandle = -3674937291639357440;
-            Assert.AreEqual(expectedHandle, result.Handle);
+            loadkey.Run(TestReader.PcscReaderName, TestKey);
 
+            Assert.AreEqual(expectedApdu, loadkey.MifareAPDU);
         }
     }
 
