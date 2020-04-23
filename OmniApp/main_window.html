@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+  <head runat="server">
     <meta charset="utf-8">
     <title>OMNIKey Reader</title>
     <script src="renderer.js"></script>
@@ -119,7 +119,9 @@
     </div>
     
     <div class="col-auto"><button id="Exit">Exit</button></div>
-
+    <div>
+      <asp:ScriptManager ID = "ScriptManger1" runat="server" EnablePageMethods = "true"></asp:ScriptManager>
+    </div>
   </body>
   <script src="js/MainButtons.js"></script>
 </html>
