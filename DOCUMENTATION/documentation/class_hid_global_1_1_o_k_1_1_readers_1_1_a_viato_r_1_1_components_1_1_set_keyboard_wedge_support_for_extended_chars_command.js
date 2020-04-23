@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_set_keyboard_wedge_support_for_extended_chars_command =
+[
+    [ "GetApdu", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_set_keyboard_wedge_support_for_extended_chars_command.html#a3d2462696832f591261e8a34d288a835", null ]
+];

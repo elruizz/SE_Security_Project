@@ -30,6 +30,7 @@ using HidGlobal.OK.Readers.WinSCard;
 
 namespace HidGlobal.OK.Readers
 {
+    
     public class SmartCardReader : ISmartCardReader
     {
         private byte[] _buffer;

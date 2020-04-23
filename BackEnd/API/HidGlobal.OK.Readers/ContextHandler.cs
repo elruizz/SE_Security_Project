@@ -56,7 +56,7 @@ namespace HidGlobal.OK.Readers
 
         private ContextHandler()
         {
-            _hasContext = false;
+            _hasContext = true;
             _contextHandle = IntPtr.Zero;
             _previousScope = Scope.System;
             Encoding = System.Text.Encoding.ASCII;

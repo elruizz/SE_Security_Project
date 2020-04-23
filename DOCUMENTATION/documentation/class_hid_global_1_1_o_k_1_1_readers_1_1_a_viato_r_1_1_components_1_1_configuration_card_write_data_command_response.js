@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_write_data_command_response =
+[
+    [ "ConfigurationCardWriteDataCommandResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_write_data_command_response.html#aeb4e1f2f46bf6c399ddc35cd45de4401", null ]
+];

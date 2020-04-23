@@ -1,0 +1,5 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_output_format_command =
+[
+    [ "GetApdu", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_output_format_command.html#ae11039dc1627c7f938f8b260282ec421", null ],
+    [ "TranslateResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_output_format_command.html#a370f41c8e7189918927866f9283bd19d", null ]
+];

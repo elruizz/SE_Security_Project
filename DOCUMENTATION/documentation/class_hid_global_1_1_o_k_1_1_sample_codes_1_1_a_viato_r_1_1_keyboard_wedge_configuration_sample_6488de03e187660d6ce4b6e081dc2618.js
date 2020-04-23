@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_keyboard_wedge_configuration_sample_6488de03e187660d6ce4b6e081dc2618 =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_keyboard_wedge_configuration_sample_6488de03e187660d6ce4b6e081dc2618.html#a1a97d4540f80a73420c94d99535828b0", null ]
+];

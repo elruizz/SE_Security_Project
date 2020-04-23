@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_command_common_base =
+[
+    [ "TranslateResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_command_common_base.html#abf120252f949652185b0cc7a0db4f9c2", null ]
+];

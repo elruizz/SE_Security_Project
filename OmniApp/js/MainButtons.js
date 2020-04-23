@@ -17,6 +17,7 @@ document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
 
 // Variables to store user data
+var sector;
 var key;
 var data0;
 var data1;
@@ -40,24 +41,32 @@ function writeBlock0(){
   else{
       console.log(strToHex(data0));
   }
+  var log = "Wrote to Block " + Block + " / (Sector " + sector + "Block 0) " + " Data :  " + data0;
+  updateLog(log);
 }
 
 function writeBlock1(){
   getData();
   var Block = getBlocknum(1);
   console.log(data1);
+  var log = "Wrote to Block " + Block + " / (Sector " + sector + "Block 1) " + " Data : " + data1;
+  updateLog(log);
 }
 
 function writeBlock2(){
   getData();
   var Block = getBlocknum(2);
   console.log(data2);
+  var log = "Wrote to Block " + Block + " / (Sector " + sector + "Block 2) " + " Data : " + data1;
+  updateLog(log);
 }
 
 function writeBlock3(){
   getData();
   var Block = getBlocknum(3);
   console.log(data3);
+  var log = "Wrote to Block " + Block + " / (Sector " + sector + "Block 3) " + " Data : " + data1;
+  updateLog(log);
 }
 
 // Read functions
@@ -65,24 +74,32 @@ function readBlock0(){
   getData();
   var Block = getBlocknum(0);
   console.log(Block);
+  var log = "Read from Block " + Block + " / (Sector " + sector + "Block 0)";
+  updateLog(log);
 }
 
 function readBlock1(){
   getData();
   var Block = getBlocknum(1);
   console.log(Block);
+  var log = "Read from Block " + Block + " / (Sector " + sector + "Block 1)";
+  updateLog(log);
 }
 
 function readBlock2(){
   getData();
   var Block = getBlocknum(2);
   console.log(Block);
+  var log = "Read from Block " + Block + " / (Sector " + sector + "Block 2)";
+  updateLog(log);
 }
 
 function readBlock3(){
   getData();
   var Block = getBlocknum(3);
   console.log(Block);
+  var log = "Read from Block " + Block + " / (Sector " + sector + "Block 3)";
+  updateLog(log);
 }
 
 
@@ -224,6 +241,7 @@ function getBlocknum(num) {
 
 // Get the data from the user input
 function getData(){
+  sector = document.getElementById("sector_num").innerHTML;
   key = document.getElementById("key").value;
   data0 = document.getElementById("usr_block_0").value;
   data1 = document.getElementById("usr_block_1").value;
@@ -250,6 +268,20 @@ function ascii_to_hexa(str){
 		arr1.push(hex);
 	}
 	return arr1.join('');
+}
+
+
+function updateLog(str){
+  document.getElementById("Log10").innerText = document.getElementById("Log9").innerText;
+  document.getElementById("Log9").innerText = document.getElementById("Log8").innerText;
+  document.getElementById("Log8").innerText = document.getElementById("Log7").innerText;
+  document.getElementById("Log7").innerText = document.getElementById("Log6").innerText;
+  document.getElementById("Log6").innerText = document.getElementById("Log5").innerText;
+  document.getElementById("Log5").innerText = document.getElementById("Log4").innerText;
+  document.getElementById("Log4").innerText = document.getElementById("Log3").innerText;
+  document.getElementById("Log3").innerText = document.getElementById("Log2").innerText;
+  document.getElementById("Log2").innerText = document.getElementById("Log1").innerText;
+  document.getElementById("Log1").innerText = str;
 }
 
 console.log(ascii_to_hexa('12'));

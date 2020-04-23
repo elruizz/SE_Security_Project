@@ -1,0 +1,5 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_write_data_command =
+[
+    [ "GetApdu", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_write_data_command.html#a918a30adc30959adb14b6fab8526257d", null ],
+    [ "TranslateResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_write_data_command.html#a43a509676b7383579ec6fdc08cf69c15", null ]
+];

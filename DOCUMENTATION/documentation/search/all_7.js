@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['aviator',['AViatoR',['../namespace_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r.html',1,'HidGlobal.OK.Readers.AViatoR'],['../namespace_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r.html',1,'HidGlobal.OK.SampleCodes.AViatoR']]],
+  ['components',['Components',['../namespace_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components.html',1,'HidGlobal.OK.Readers.AViatoR.Components'],['../namespace_hid_global_1_1_o_k_1_1_readers_1_1_components.html',1,'HidGlobal.OK.Readers.Components']]],
+  ['configurationcardsupport',['ConfigurationCardSupport',['../namespace_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_support.html',1,'HidGlobal::OK::Readers::AViatoR::Components']]],
+  ['handle',['Handle',['../class_hid_global_1_1_o_k_1_1_readers_1_1_context_handler.html#a6dff954c44b94c2df1852e0be4b2ba22',1,'HidGlobal.OK.Readers.ContextHandler.Handle()'],['../interface_hid_global_1_1_o_k_1_1_readers_1_1_i_context_handler.html#ae6d8cfa5c64b2d705fbb93f1d1d6bb29',1,'HidGlobal.OK.Readers.IContextHandler.Handle()']]],
+  ['hardwareversion',['HardwareVersion',['../class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_hardware_version.html',1,'HidGlobal.OK.Readers.AViatoR.Components.HardwareVersion'],['../class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_hardware_version.html',1,'HidGlobal.OK.SampleCodes.AViatoR.ReaderCapabilitiesSample.HardwareVersion']]],
+  ['hfcontrollertype',['HfControllerType',['../class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_hf_controller_type.html',1,'HidGlobal.OK.SampleCodes.AViatoR.ReaderCapabilitiesSample.HfControllerType'],['../class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_hf_controller_type.html',1,'HidGlobal.OK.Readers.AViatoR.Components.HfControllerType']]],
+  ['hfcontrollerversion',['HfControllerVersion',['../class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_hf_controller_version.html',1,'HidGlobal.OK.Readers.AViatoR.Components.HfControllerVersion'],['../class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_hf_controller_version.html',1,'HidGlobal.OK.SampleCodes.AViatoR.ReaderCapabilitiesSample.HfControllerVersion']]],
+  ['hidglobal',['HidGlobal',['../namespace_hid_global.html',1,'']]],
+  ['high',['High',['../namespace_hid_global_1_1_o_k_1_1_readers_1_1_components.html#af3aede1857b73a14f720ef8698481bcba655d20c1ca69519ca647684edbb2db35',1,'HidGlobal::OK::Readers::Components']]],
+  ['hostinterfaces',['HostInterfaces',['../class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_host_interfaces.html',1,'HidGlobal.OK.Readers.AViatoR.Components.HostInterfaces'],['../class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_host_interfaces.html',1,'HidGlobal.OK.SampleCodes.AViatoR.ReaderCapabilitiesSample.HostInterfaces']]],
+  ['humaninterfaces',['HumanInterfaces',['../class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_human_interfaces.html',1,'HidGlobal.OK.Readers.AViatoR.Components.HumanInterfaces'],['../class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_human_interfaces.html',1,'HidGlobal.OK.SampleCodes.AViatoR.ReaderCapabilitiesSample.HumanInterfaces']]],
+  ['hid_20omnikey_20smart_20card_20readers_27_20sample_20codes',['HID OMNIKEY Smart Card Readers&apos; Sample Codes',['../index.html',1,'']]],
+  ['menusections',['MenuSections',['../namespace_hid_global_1_1_o_k_1_1_sample_codes_1_1_menu_sections.html',1,'HidGlobal::OK::SampleCodes']]],
+  ['ok',['OK',['../namespace_hid_global_1_1_o_k.html',1,'HidGlobal']]],
+  ['readers',['Readers',['../namespace_hid_global_1_1_o_k_1_1_readers.html',1,'HidGlobal::OK']]],
+  ['samplecodes',['SampleCodes',['../namespace_hid_global_1_1_o_k_1_1_sample_codes.html',1,'HidGlobal::OK']]],
+  ['samsecuresession',['SamSecureSession',['../namespace_hid_global_1_1_o_k_1_1_readers_1_1_secure_session_1_1_sam_secure_session.html',1,'HidGlobal::OK::Readers::SecureSession']]],
+  ['securesession',['SecureSession',['../namespace_hid_global_1_1_o_k_1_1_readers_1_1_secure_session.html',1,'HidGlobal::OK::Readers']]],
+  ['utilities',['Utilities',['../namespace_hid_global_1_1_o_k_1_1_readers_1_1_utilities.html',1,'HidGlobal.OK.Readers.Utilities'],['../namespace_hid_global_1_1_o_k_1_1_sample_codes_1_1_utilities.html',1,'HidGlobal.OK.SampleCodes.Utilities']]],
+  ['winscard',['WinSCard',['../namespace_hid_global_1_1_o_k_1_1_readers_1_1_win_s_card.html',1,'HidGlobal::OK::Readers']]]
+];

@@ -1,0 +1,16 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5 =
+[
+    [ "MediaEdgeType", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#a97624657beb1b69f63457b3271854a93", [
+      [ "Unknown", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#a97624657beb1b69f63457b3271854a93a88183b946cc5f0e8c96b2e66e1c74a7e", null ],
+      [ "DESFire", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#a97624657beb1b69f63457b3271854a93a54df94031d6b3137e9d297bec4418a17", null ],
+      [ "MIFARE", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#a97624657beb1b69f63457b3271854a93a2cb76a9e96b892e1453877d88887187f", null ],
+      [ "PicoPass", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#a97624657beb1b69f63457b3271854a93a985ec8d9b0ba5c5b2a43307f7c81be88", null ],
+      [ "ISO14443AL4", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#a97624657beb1b69f63457b3271854a93abde01ce5704864be2e715586ba3ba808", null ],
+      [ "MIFAREPlus", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#a97624657beb1b69f63457b3271854a93a76eee62d999f48c48ea7fa9cdd59ec29", null ],
+      [ "Seos", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#a97624657beb1b69f63457b3271854a93a54cb336b33278d5bcd925c4fa40a3ded", null ]
+    ] ],
+    [ "SEPReadPACSDataResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#a9b85fb757064229053d297837d056682", null ],
+    [ "ContentElementData", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#add11327e0af54ae95ca30ab5b592cf04", null ],
+    [ "MediaType", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#ab2911f99098baafe1267e21d2e98b351", null ],
+    [ "SecureObjectOID", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_read_p_a_c_s_data_1_99943fb838b887f10172683c41c1f9d5.html#a1e2c5de5239f750aac0e3b5f9d53caf5", null ]
+];

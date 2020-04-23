@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_security_key_update_command_response =
+[
+    [ "ConfigurationCardSecurityKeyUpdateCommandResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_configuration_card_security_key_update_command_response.html#a2eec970a82a33860e4d4452c7e729d0b", null ]
+];

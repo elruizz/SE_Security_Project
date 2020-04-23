@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_keyboard_wedge_configuration_sample_1_1_credential_type_command =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_keyboard_wedge_configuration_sample_1_1_credential_type_command.html#aa5e2b5a7c1e26491352c3e115a0ca5e9", null ]
+];

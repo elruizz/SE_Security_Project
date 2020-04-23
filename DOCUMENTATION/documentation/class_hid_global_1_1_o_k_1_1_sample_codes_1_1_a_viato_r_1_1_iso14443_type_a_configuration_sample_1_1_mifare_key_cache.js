@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_iso14443_type_a_configuration_sample_1_1_mifare_key_cache =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_iso14443_type_a_configuration_sample_1_1_mifare_key_cache.html#a3829c0502790320cb11844edcbb0ce6d", null ]
+];

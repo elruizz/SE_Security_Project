@@ -1,0 +1,7 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_configuration_card_support_enabled_command_response =
+[
+    [ "GetConfigurationCardSupportEnabledCommandResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_configuration_card_support_enabled_command_response.html#a7bb29282a1e6eb5758cdec27b85244de", null ],
+    [ "ReadBody", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_configuration_card_support_enabled_command_response.html#aa4eaa0e1a80ff47f75e6d610c554401d", null ],
+    [ "ValidateResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_configuration_card_support_enabled_command_response.html#af5da6ed623667c0ac907d859f1107e1b", null ],
+    [ "FeatureSupport", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_configuration_card_support_enabled_command_response.html#aa4f73327e3143d2cb03d6412d4c97e2d", null ]
+];

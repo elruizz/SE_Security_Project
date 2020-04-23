@@ -1,0 +1,9 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_output_flags_command_response =
+[
+    [ "GetKeyboardWedgeOutputFlagsCommandResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_output_flags_command_response.html#a2d74ab54fb926bcd2fb08a547be9e4e2", null ],
+    [ "ReadBody", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_output_flags_command_response.html#a77563b07d5ea1d20f36d6300a2b77841", null ],
+    [ "ValidateResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_output_flags_command_response.html#a55dc6725951d15f7faad69c78a29cf04", null ],
+    [ "BitOrder", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_output_flags_command_response.html#a0631ec55020542636c7790329ee0cd16", null ],
+    [ "ByteOrder", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_output_flags_command_response.html#a999248cf97eb805b13432eac5111efb7", null ],
+    [ "OutputType", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_output_flags_command_response.html#aa3abe4a1f24754fc24d5bb81e2c39537", null ]
+];

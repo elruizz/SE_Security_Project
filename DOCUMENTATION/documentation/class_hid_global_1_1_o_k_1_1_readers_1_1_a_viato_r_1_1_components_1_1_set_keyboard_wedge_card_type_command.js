@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_set_keyboard_wedge_card_type_command =
+[
+    [ "GetApdu", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_set_keyboard_wedge_card_type_command.html#abd88ad4858cb3ce7badfdc124c853b51", null ]
+];
