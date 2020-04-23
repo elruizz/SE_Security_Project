@@ -1,18 +1,42 @@
 
 body{
     background-color: gray;
+    margin: 0px;
   }
 
+.row{
+  margin: 0px;
+  background-color: black;
+}
+
 h1{
-  position: relative;
-  left: 300px;
-  height: 10px;
+  margin-top: 0px;
   color: maroon;
   font-size: 300%;
 }
 
+.container{
+  background-color: gray;
+}
+
+input[name="UID-col"]{
+  height: 250px;
+}
+
+div[name="switch-col"]{
+  background-color: lightgray;
+  min-height: 100vh;
+  height: 100%;
+  width: 300px;
+}
+
+div[name="row_2"]{
+  background-color: slategray;
+}
+
  /* Dropdown Button */
  .dropbtn {
+  margin: 0px;
   background-color: #3498DB;
   color: white;
   padding: 16px;
@@ -30,6 +54,8 @@ h1{
 .dropdown {
   position: relative;
   display: inline-block;
+  float: right;
+
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -40,6 +66,7 @@ h1{
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  right: 0;
 }
 
 /* Links inside the dropdown */

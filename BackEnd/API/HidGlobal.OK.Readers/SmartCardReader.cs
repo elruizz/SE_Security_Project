@@ -57,6 +57,11 @@ namespace HidGlobal.OK.Readers
             // maximum command size foe extended apdu = ushort.MaxValue + 9
         }
 
+        public SmartCardReader(IContextHandler handle)
+        {
+            this.handle = handle;
+        }
+
         public void Connect(ReaderSharingMode mode, Protocol preferredProtocol)
         {
             var readerNameBytes = BinaryHelper.ConvertNullTerminatedByteArrayFromString(Encoding, PcscReaderName);
@@ -175,6 +180,7 @@ namespace HidGlobal.OK.Readers
 
         #region IDisposable Support
         private bool _disposedValue; // To detect redundant calls
+        private IContextHandler handle;
 
         protected virtual void Dispose(bool disposing)
         {
