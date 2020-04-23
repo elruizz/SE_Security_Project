@@ -18,7 +18,7 @@ namespace HidGlobal.OK.Readers
 
                     string input = loadKeyCommand.GetApdu(keySlot, keyType, persistence, transmission, keyLength, key);
                     string output = ReaderHelper.SendCommand(smartCardReader, input);
-                    // ConsoleWriter.Instance.PrintCommand(description + key, input, output);
+                    //ConsoleWriter.Instance.PrintCommand(description + key, input, output);
                     Console.WriteLine("Load Key Output: ", output);
                 }
                 public void Run(string readerName, string Keyresponse)
@@ -62,12 +62,12 @@ namespace HidGlobal.OK.Readers
 
                     try
                     {
-                        
+
                         Console.WriteLine($"Connecting to {reader.PcscReaderName}");
 
                         ReaderHelper.ConnectToReaderWithCard(reader);
 
-                        
+
 
 
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x01,
@@ -103,7 +103,7 @@ namespace HidGlobal.OK.Readers
                         ReaderHelper.ReadBinaryMifareCommand(reader, 0x07, 0x00);
 
 
-             
+
                     }
                     catch (Exception e)
                     {
@@ -127,7 +127,7 @@ namespace HidGlobal.OK.Readers
 
                     try
                     {
-                        
+
                         Console.WriteLine($"Connecting to {reader.PcscReaderName}");
 
                         ReaderHelper.ConnectToReaderWithCard(reader);
