@@ -1,0 +1,5 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_d_e_s_fire_create_standard_data_file =
+[
+    [ "GetApdu", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_d_e_s_fire_create_standard_data_file.html#ae84cfc7fda72e6ce784ea9ebbf182685", null ],
+    [ "BodyLength", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_s_e_p_d_e_s_fire_create_standard_data_file.html#a3af8a3ed847f8d2da3b9d460a59384af", null ]
+];

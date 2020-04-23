@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading;
-using HidGlobal.OK.Readers;
-using HidGlobal.OK.Readers.AViatoR.Components;
+using System.ComponentModel;
 using HidGlobal.OK.Readers.Components;
-using HidGlobal.OK.SampleCodes.Utilities;
+using HidGlobal.OK.Readers.AViatoR.Components;
+using HidGlobal.OK.Readers;
 
 namespace WebServer
 {
-
     public class WebServer
     {
         private readonly HttpListener _listener = new HttpListener();
@@ -44,6 +42,7 @@ namespace WebServer
             _listener.Start();
         }
 
+
         public WebServer(Func<HttpListenerRequest, string> method, params string[] prefixes)
            : this(prefixes, method)
         {
@@ -54,7 +53,6 @@ namespace WebServer
             ThreadPool.QueueUserWorkItem(o =>
             {
                 Console.WriteLine("Webserver running...");
-
                 try
                 {
                     while (_listener.IsListening)
@@ -102,271 +100,81 @@ namespace WebServer
             _listener.Close();
         }
 
-        private void LoadKeyCommand(ISmartCardReader smartCardReader, string description, byte keySlot, LoadKeyCommand.KeyType keyType, LoadKeyCommand.Persistence persistence, LoadKeyCommand.Transmission transmission, LoadKeyCommand.KeyLength keyLength, string key)
+        internal class Program
         {
-            var loadKeyCommand = new HidGlobal.OK.Readers.AViatoR.Components.LoadKeyCommand();
-
-            string input = loadKeyCommand.GetApdu(keySlot, keyType, persistence, transmission, keyLength, key);
-            string output = ReaderHelper.SendCommand(smartCardReader, input);
-        }
-
-        public void LoadCard(string readerName)
-        {
-            var reader = new SmartCardReader(readerName);
-
-            try
+            public static string SendResponse(HttpListenerRequest request)
             {
-                ReaderHelper.ConnectToReader(reader);
-
-                LoadKeyCommand(reader, "Load Mifare Key: ", 0x00,
-                    HidGlobal.OK.Readers.AViatoR.Components.LoadKeyCommand.KeyType.CardKey,
-                    HidGlobal.OK.Readers.AViatoR.Components.LoadKeyCommand.Persistence.Persistent,
-                    HidGlobal.OK.Readers.AViatoR.Components.LoadKeyCommand.Transmission.Plain,
-                    HidGlobal.OK.Readers.AViatoR.Components.LoadKeyCommand.KeyLength._6Bytes, "FFFFFFFFFFFF");
-            }
-            catch (Exception e)
-            {
-                ConsoleWriter.Instance.PrintError(e.Message);
-            }
-            finally
-            {
-                if (reader.IsConnected)
-                {
-                    reader.Disconnect(CardDisposition.Unpower);
-                }
+                return string.Format("<HTML><BODY>My web page.<br>{0}</BODY></HTML>", DateTime.Now);
 
             }
-        }
 
-        public void Reading(string readerName)
-        {
-            var reader = new SmartCardReader(readerName);
 
-            try
+            //   private static IMenuItem _rootMenu = new MenuItem("HID OMNIKEY Smart Card Readers' Sample Codes Application Menu", true);
+
+            // private static IMenuSection _keyboardWedgesSection = new KeyboardWedgesMenuSection(KeyboardWedgesMenuFactory.Instance);
+            //  private static IMenuSection _smartCardReadersSection = new SmartCardReadersMenuSection(SmartCardReadersMenuFactory.Instance);
+            //  public static string rName = "";
+            // private static ISmartCardReader smartC = new SmartCardReader(rName);
+            // private static web_con = new IContextHandler.Instance;
+
+            private static Scope scope = Scope.System;
+
+
+
+
+            public static void run()
             {
 
-                ReaderHelper.ConnectToReaderWithCard(reader);
+                var result = ContextHandler.Instance;
+                IReadOnlyList<string> myreaders = result.ListReaders();
+                string text = myreaders[0];
+                //var keycommand = new Load
+                
+                
 
-                ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                    GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x04, 0x00);
+                // var sReader = new SmartCardReader(result.ListReaders());
+                //result.IsValid();
+                //  result.Establish(scope);
 
-                ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x05,
-                    GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x05, 0x00);
+                var WebReader = new SmartCardReader(text);
+                Console.WriteLine(WebReader.PcscReaderName);
+                var key = new MifareAPI.LoadMifareKey();
+                key.Run(WebReader.PcscReaderName, "FFFFFFFFFFFF");
 
-                ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x06,
-                    GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x06, 0x00);
+                //  WebReader.Connect();
 
-                ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x07,
-                    GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                ReaderHelper.ReadBinaryMifareCommand(reader, "Read Binary block nr ", 0x07, 0x00);
+
 
             }
-            catch (Exception e)
-            {
-                ConsoleWriter.Instance.PrintError(e.Message);
-            }
-            finally
-            {
-                if (reader.IsConnected)
-                {
-                    reader.Disconnect(CardDisposition.Unpower);
-                }
 
-            }
-        }
 
-        public void Update(string readerName)
-        {
-            var reader = new SmartCardReader(readerName);
 
-            try
+            // private static ISmartCardReader _reader = new SmartCardReader(ContextHandler.Instance);
+
+            // private static Scope web_previousScope;
+            //  private static IContextHandler web_instance;
+
+
+
+            private static void Main(string[] args)
             {
 
-                ReaderHelper.ConnectToReaderWithCard(reader);
+                //web_con.
 
-                ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                    GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x04, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
-
-                ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x05,
-                    GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x05, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
-
-                ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x06,
-                    GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                ReaderHelper.UpdateBinaryCommand(reader, "Update Binary block nr ", UpdateBinaryCommand.Type.Plain, 0x06, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
-
-            }
-            catch (Exception e)
-            {
-                ConsoleWriter.Instance.PrintError(e.Message);
-            }
-            finally
-            {
-                if (reader.IsConnected)
-                {
-                    reader.Disconnect(CardDisposition.Unpower);
-                }
+                var ws = new WebServer(SendResponse, "http://localhost:8080/test/");
+                //  ws.Run();
+                run();
+                
+                //  _rootMenu.AddSubItem(_smartCardReadersSection.RootMenuItem);
+                //   _rootMenu.AddSubItem(_keyboardWedgesSection.RootMenuItem);
+                // web_con.Establish(web_previousScope);
+                //  web_instance.Establish(web_previousScope);
+                //   _rootMenu.Execute();
+                Console.WriteLine("A simple webserver. Press enter key to quit.");
+                Console.ReadKey();
+                // ws.Stop();
             }
         }
 
-        string GetMifareValueTypeData(int value, byte blockNumber)
-        {
-            var valueBytes = BitConverter.GetBytes(value);
-            var invertedValueBytes = BitConverter.GetBytes(~value);
-            if (!BitConverter.IsLittleEndian)
-            {
-                valueBytes = valueBytes.Reverse().ToArray();
-                invertedValueBytes = invertedValueBytes.Reverse().ToArray();
-            }
-            string lsbFirstValue = BitConverter.ToString(valueBytes).Replace("-", "");
-            string lsbFirstInvertedValue = BitConverter.ToString(invertedValueBytes).Replace("-", "");
-
-            return lsbFirstValue + lsbFirstInvertedValue + lsbFirstValue + $"{blockNumber:X2}" +
-                   ((byte)~blockNumber).ToString("X2") + $"{blockNumber:X2}" +
-                   ((byte)~blockNumber).ToString("X2");
-        }
-
-        void SendIncrementCommand(ISmartCardReader smartCardReader, string description, int value, byte blockNumber)
-        {
-            var incrementCommand = new IncrementCommand();
-            string input = incrementCommand.GetApdu(blockNumber, value);
-            string output = ReaderHelper.SendCommand(smartCardReader, input);
-
-        }
-
-        public void Increment(string readerName)
-        {
-            var reader = new SmartCardReader(readerName);
-            try
-            {
-                ReaderHelper.ConnectToReaderWithCard(reader);
-
-                ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                    GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                // Update block 4 with write operation in value block format:
-                // 4 byte value LSByte first, 4 byte bit inverted represetaton of value LSByte first, 4 byte value LSByte first, 1 byte block address, 1 byte bit inverted block address, 1 byte block address, 1 byte bit inverted block address
-                string valueTypeData = GetMifareValueTypeData(1234567, 0x04);
-                ReaderHelper.UpdateBinaryCommand(reader, "Create value type in block nr ",
-                    UpdateBinaryCommand.Type.Plain, 0x04, valueTypeData);
-
-                SendIncrementCommand(reader, "Increment value in block nr: ", 1, 0x04);
-
-            }
-            catch (Exception e)
-            {
-                ConsoleWriter.Instance.PrintError(e.Message);
-            }
-            finally
-            {
-                if (reader.IsConnected)
-                {
-                    reader.Disconnect(CardDisposition.Unpower);
-                }
-            }
-        }
-
-        void SendDecrementCommand(ISmartCardReader smartCardReader, string description, int value, byte blockNumber)
-        {
-            var decrementCommand = new DecrementCommand();
-            string input = decrementCommand.GetApdu(blockNumber, value);
-            string output = ReaderHelper.SendCommand(smartCardReader, input);
-        }
-
-        public void Decrement(string readerName)
-        {
-            var reader = new SmartCardReader(readerName);
-            try
-            {
-                ConsoleWriter.Instance.PrintSplitter();
-                ConsoleWriter.Instance.PrintTask($"Connecting to {reader.PcscReaderName}");
-
-                ReaderHelper.ConnectToReaderWithCard(reader);
-
-                ConsoleWriter.Instance.PrintMessage($"Connected\nConnection Mode: {reader.ConnectionMode}");
-                ConsoleWriter.Instance.PrintSplitter();
-
-                ReaderHelper.GeneralAuthenticateMifare(reader, "Authenticate with key from slot nr ", 0x04,
-                    GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                // Update block 4 with write operation in value block format:
-                // 4 byte value LSByte first, 4 byte bit inverted represetaton of value LSByte first, 4 byte value LSByte first, 1 byte block address, 1 byte bit inverted block address, 1 byte block address, 1 byte bit inverted block address
-                string valueTypeData = GetMifareValueTypeData(1234567, 0x04);
-                ReaderHelper.UpdateBinaryCommand(reader, "Create value type in block nr ",
-                    UpdateBinaryCommand.Type.Plain, 0x04, valueTypeData);
-
-                SendDecrementCommand(reader, "Decrement value in block nr: ", 1, 0x04);
-
-                ConsoleWriter.Instance.PrintSplitter();
-            }
-            catch (Exception e)
-            {
-                ConsoleWriter.Instance.PrintError(e.Message);
-            }
-            finally
-            {
-                if (reader.IsConnected)
-                {
-                    reader.Disconnect(CardDisposition.Unpower);
-                }
-            }
-        }
     }
-
-    internal class Program
-    { 
-        
-
-        public static string SendResponse(HttpListenerRequest request)
-        {
-            var reader = ContextHandler.Instance;
-
-            IReadOnlyList<string> myReader = reader.ListReaders();
-            string text = myReader[0];
-
-            var SCreader = new SmartCardReader(text);
-            SCreader.PcscReaderName();
-            
-
-            return string.Format("<HTML><BODY>My web page.<br> {0} <br> {1} </BODY></HTML>", DateTime.Now, text);
-        }
-
-        //private static IMenuItem _rootMenu = new MenuItem("HID OMNIKEY Smart Card Readers' Sample Codes Application Menu", true);
-        
-        
-        //private static IMenuSection _keyboardWedgesSection = new KeyboardWedgesMenuSection(KeyboardWedgesMenuFactory.Instance);
-        //private static IMenuSection _smartCardReadersSection = new SmartCardReadersMenuSection(SmartCardReadersMenuFactory.Instance);
-        //private static readonly Scope scope = Scope.System;
-        //private static string deviceName = "-3674937291639357440";
-
-        
-        private static void Main(string[] args)
-        {
-
-            //reader.IsValid();
-            //reader.Establish(scope);
-            //reader.IntroduceReader(readerName, deviceName);
-            //ReaderHelper.GetSerialNumber(readerName);
-            //reader.ListReaders();
-            //reader.ListReaders(readerName);
-            
-            var ws = new WebServer(SendResponse, "http://localhost:8080/test/");
-            ws.Run();
-            
-            
-            
-            
-            //_rootMenu.AddSubItem(_smartCardReadersSection.RootMenuItem);
-            //_rootMenu.AddSubItem(_keyboardWedgesSection.RootMenuItem);
-
-            //_rootMenu.Execute();
-            Console.WriteLine("A simple webserver. Press enter key to quit.");
-            Console.ReadKey();
-            ws.Stop();
-        }
-    }
-
-
 }

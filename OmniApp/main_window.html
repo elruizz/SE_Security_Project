@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+  <head runat="server">
     <meta charset="utf-8">
     <title>OMNIKey Reader</title>
     <script src="renderer.js"></script>
@@ -68,7 +68,7 @@
 
       <div class="col-md-6">
         <label type="text">Sector</label>
-        <label id="sector_num" type="text"></label>
+        <label id="sector_num" type="text">0</label>
       </div>
 
       <div class="col-md-9">
@@ -98,9 +98,37 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
 
+=======
+    <div class="row" name="row_4">
+      <div><P></P></div>
+    </div>
+
+    <div class="row" name="row_3">
+      <div><p>Most recent log</p></div>
+      <div class= "col-md-6" id = "logcol1">
+        <p id = "Log1"> Nothing logged yet</p>
+        <p id = "Log2"> . </p>
+        <p id = "Log3"> . </p>
+        <p id = "Log4"> . </p>
+        <p id = "Log5"> . </p>
+      </div>
+
+      <div class= "col-md-6" id = "logcol2">
+        <p id = "Log6"> . </p>
+        <p id = "Log7"> . </p>
+        <p id = "Log8"> . </p>
+        <p id = "Log9"> . </p>
+        <p id = "Log10"> . </p>
+      </div>
+    </div>
+    
+>>>>>>> master
     <div class="col-auto"><button id="Exit">Exit</button></div>
-
+    <div>
+      <asp:ScriptManager ID = "ScriptManger1" runat="server" EnablePageMethods = "true"></asp:ScriptManager>
+    </div>
   </body>
   <script src="js/MainButtons.js"></script>
 </html>

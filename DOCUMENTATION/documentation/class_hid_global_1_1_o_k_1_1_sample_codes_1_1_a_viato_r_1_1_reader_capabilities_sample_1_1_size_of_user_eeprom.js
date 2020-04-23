@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_size_of_user_eeprom =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_size_of_user_eeprom.html#a6494e6e99c1d686108717d98d0e2bf41", null ]
+];

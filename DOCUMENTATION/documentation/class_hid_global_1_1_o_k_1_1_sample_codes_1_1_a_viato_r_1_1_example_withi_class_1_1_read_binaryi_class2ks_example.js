@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_example_withi_class_1_1_read_binaryi_class2ks_example =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_example_withi_class_1_1_read_binaryi_class2ks_example.html#aaa45c90e173b486de17d73996c03065f", null ]
+];

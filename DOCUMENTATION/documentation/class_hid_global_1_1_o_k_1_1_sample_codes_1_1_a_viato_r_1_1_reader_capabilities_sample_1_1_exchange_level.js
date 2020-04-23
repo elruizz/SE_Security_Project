@@ -1,0 +1,4 @@
+var class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_exchange_level =
+[
+    [ "Run", "class_hid_global_1_1_o_k_1_1_sample_codes_1_1_a_viato_r_1_1_reader_capabilities_sample_1_1_exchange_level.html#a385a3360a2ccb720d77cfbc10d00f465", null ]
+];

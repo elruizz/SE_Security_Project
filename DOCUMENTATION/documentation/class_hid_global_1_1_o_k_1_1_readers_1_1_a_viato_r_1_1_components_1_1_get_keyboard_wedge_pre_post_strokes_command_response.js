@@ -1,0 +1,6 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_pre_post_strokes_command_response =
+[
+    [ "GetKeyboardWedgePrePostStrokesCommandResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_pre_post_strokes_command_response.html#aeaaeae3f2a95acc52a50a78d92749e46", null ],
+    [ "ReadBody", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_pre_post_strokes_command_response.html#a13a6a6103ea27185cd59a26de66122fb", null ],
+    [ "PrePostStrokes", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_pre_post_strokes_command_response.html#a17a92d782cdc88327e772fe9faa34993", null ]
+];

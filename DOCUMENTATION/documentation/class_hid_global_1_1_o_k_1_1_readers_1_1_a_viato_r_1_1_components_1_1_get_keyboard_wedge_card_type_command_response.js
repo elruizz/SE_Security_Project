@@ -1,0 +1,7 @@
+var class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_card_type_command_response =
+[
+    [ "GetKeyboardWedgeCardTypeCommandResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_card_type_command_response.html#ae8c7d55d1a0c398dd04fa3609cbb0aac", null ],
+    [ "ReadBody", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_card_type_command_response.html#a65961026cb857cd67c776058b219e6c8", null ],
+    [ "ValidateResponse", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_card_type_command_response.html#ad3f486a2c4d43cdcbc8d91ccb8a62055", null ],
+    [ "CardType", "class_hid_global_1_1_o_k_1_1_readers_1_1_a_viato_r_1_1_components_1_1_get_keyboard_wedge_card_type_command_response.html#a3b705265f4ee1626f391c7f768f70ac2", null ]
+];

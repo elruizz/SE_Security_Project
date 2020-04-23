@@ -1,3 +1,13 @@
+<<<<<<< HEAD
+=======
+// var request = new XMLHttpRequest();
+// request.open('GET', 'http://localhost:8080/test/');
+// request.onload= function()
+
+//export for our js file to use for the serve
+
+// Adding exit button functionality
+>>>>>>> master
 document.getElementById("Exit").addEventListener("click", ExitClick);
 
 // Write block buttons listeners
@@ -13,6 +23,9 @@ document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
 
 // Variables to store user data
+var UID;
+var WorR;
+var sector;
 var key;
 var data0;
 var data1;
@@ -45,57 +58,112 @@ function ExitClick(){
 // Write functions
 function writeBlock0(){
   getData();
+  WorR = "W";
   var Block = getBlocknum(0);
-  alert(data0.length);
-  if (data0.length != 12){ //---------------------"assertion" here
-    alert('error')
+  var data = strToHex(data0);
+
+  // if data = false str to hex failed the 12 char requirement
+  if (data != false){
+
+    //WriteData(data,Block);
+
+    var log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 0) " + " Data :  " + data0;
+    updateLog(log);
   }
-  else{
-    alert(strToHex(data0));
-  }
+
 }
 
 function writeBlock1(){
   getData();
+  WorR = "W";
   var Block = getBlocknum(1);
-  alert(data1);
+  var data = strToHex(data1);
+
+  // if data = false str to hex failed the 12 char requirement
+  if (data != false){
+
+    //WriteData(data,Block);
+
+    var log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 1) " + " Data :  " + data0;
+    updateLog(log);
+  }
 }
 
 function writeBlock2(){
   getData();
+  WorR = "W";
   var Block = getBlocknum(2);
-  alert(data2);
+  var data = strToHex(data2);
+
+  // if data = false str to hex failed the 12 char requirement
+  if (data != false){
+
+    //WriteData(data,Block);
+
+    var log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 2) " + " Data :  " + data0;
+    updateLog(log);
+  }
 }
 
 function writeBlock3(){
   getData();
+  WorR = "W";
   var Block = getBlocknum(3);
-  alert(data3);
+  var data = strToHex(data3);
+
+  // if data = false str to hex failed the 12 char requirement
+  if (data != false){
+
+    //WriteData(data,Block);
+
+    var log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 3) " + " Data :  " + data0;
+    updateLog(log);
+  }
 }
 
 // Read functions
 function readBlock0(){
   getData();
+  WorR = "R";
   var Block = getBlocknum(0);
-  alert(Block);
+
+  //ReadData(Block);
+
+  var log = "Read from Block " + Block + " / (Sector " + sector + " Block 0)";
+  updateLog(log);
 }
 
 function readBlock1(){
   getData();
+  WorR = "R";
   var Block = getBlocknum(1);
-  alert(Block);
+
+  //ReadData(Block);
+
+  var log = "Read from Block " + Block + " / (Sector " + sector + " Block 1)";
+  updateLog(log);
 }
 
 function readBlock2(){
   getData();
+  WorR = "R";
   var Block = getBlocknum(2);
-  alert(Block);
+
+  //ReadData(Block);
+
+  var log = "Read from Block " + Block + " / (Sector " + sector + " Block 2)";
+  updateLog(log);
 }
 
 function readBlock3(){
   getData();
+  WorR = "R";
   var Block = getBlocknum(3);
-  alert(Block);
+
+  //ReadData(Block);
+  
+  var log = "Read from Block " + Block + " / (Sector " + sector + " Block 3)";
+  updateLog(log);
 }
 
 
@@ -237,6 +305,7 @@ function getBlocknum(num) {
 
 // Get the data from the user input
 function getData(){
+  sector = document.getElementById("sector_num").innerHTML;
   key = document.getElementById("key").value;
   data0 = document.getElementById("usr_block_0").value;
   data1 = document.getElementById("usr_block_1").value;
@@ -244,26 +313,59 @@ function getData(){
   data3 = document.getElementById("usr_block_3").value;
 }
 
-//convert user input string to hex
+// convert string to hex
 function strToHex(str){
-	var arr1 = [];
-	for (var n = 0, l = str.length; n < l; n ++)
-     {
-		var hex = Number(str.charCodeAt(n)).toString(16);
-		arr1.push(hex);
-	 }
-	return arr1.join('');
+  var int = parseInt(str,10);
+  var hex = int.toString(16);
+  if(hex.length == 12)
+      return hex;
+  else{
+      var log = "Error Data string not 12 characters long : " + hex;
+      updateLog(log);
+      return false;
+  }
 }
 
-function ascii_to_hexa(str){
-	var arr1 = [];
-	for (var n = 0, l = str.length; n < l; n ++)
-  {
-		var hex = Number(str.charCodeAt(n)).toString(16);
-		arr1.push(hex);
-	}
-	return arr1.join('');
+// updating the log to not lose any data
+function updateLog(str){
+  document.getElementById("Log10").innerText = document.getElementById("Log9").innerText;
+  document.getElementById("Log9").innerText = document.getElementById("Log8").innerText;
+  document.getElementById("Log8").innerText = document.getElementById("Log7").innerText;
+  document.getElementById("Log7").innerText = document.getElementById("Log6").innerText;
+  document.getElementById("Log6").innerText = document.getElementById("Log5").innerText;
+  document.getElementById("Log5").innerText = document.getElementById("Log4").innerText;
+  document.getElementById("Log4").innerText = document.getElementById("Log3").innerText;
+  document.getElementById("Log3").innerText = document.getElementById("Log2").innerText;
+  document.getElementById("Log2").innerText = document.getElementById("Log1").innerText;
+  document.getElementById("Log1").innerText = str;
 }
 
-console.log(ascii_to_hexa('12'));
-console.log(ascii_to_hexa('100'));
+// C# server communication write data
+function WriteData(data, block) {
+
+  PageMethods.WriteData(UID , key, block, data, onSuccess, onError);
+
+  function onSuccess(result) {
+          alert(result);
+  }
+
+  function onError(result) {
+          alert('Cannot process your request at the moment');
+  }
+
+}
+
+// C# server communication read data
+function ReadData(block) {
+
+  PageMethods.ReadData(UID, key, block, onSuccess, onError);
+
+  function onSuccess(result) {
+          alert(result);
+  }
+
+  function onError(result) {
+          alert('Cannot process your request at the moment');
+  }
+
+}
