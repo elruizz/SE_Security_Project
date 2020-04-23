@@ -86,7 +86,6 @@
     <Compile Include="Components\PollingSearchOrder.cs" />
     <Compile Include="Components\VoltageSequenceFlags.cs" />
     <Compile Include="ConsoleWriter.cs" />
-    <Compile Include="ExampleWithMifareClassic.cs" />
     <Compile Include="ISmartCardReader.cs" />
     <Compile Include="AViatoR\OK5122.cs" />
     <Compile Include="MifareAppAPI.cs" />

@@ -4,11 +4,9 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.ComponentModel;
-using HidGlobal.OK.SampleCodes;
 using HidGlobal.OK.Readers.Components;
 using HidGlobal.OK.Readers.AViatoR.Components;
 using HidGlobal.OK.Readers;
-
 namespace WebServer
 {
     public class WebServer
@@ -136,6 +134,7 @@ namespace WebServer
 
                 var WebReader = new SmartCardReader(text);
                 Console.WriteLine(WebReader.PcscReaderName);
+
                 //  WebReader.Connect();
 
 

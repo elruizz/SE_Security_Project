@@ -10,7 +10,7 @@ namespace HidGlobal.OK.Readers
     {
         class MifareClassic
         {
-            public class LoadKeyExample
+            public class LoadMifareKey
             {
                 private void LoadKeyCommand(ISmartCardReader smartCardReader, byte keySlot, LoadKeyCommand.KeyType keyType, LoadKeyCommand.Persistence persistence, LoadKeyCommand.Transmission transmission, LoadKeyCommand.KeyLength keyLength, string key)
                 {
