@@ -50,28 +50,26 @@
       </div>
     </div>
 
-
     <div class="row" name="row_2">
+      <div class="col-md-6" name="sector_data">
+          <label type="text" id="sector_lbl">Sector</label>
+          <label type="text" id="sector_num">0</label>
+      </div>
+    </div>
 
+    <div class="row" name="row_3">
       <div class="col-md-6" name="UID-col">
         <label type="text">UID</label>
         <input type="text" name="UID-input" readonly="readonly">
       </div>
-
       <div class="col-md-6" name="Key-input">
         <label type="text">Key</label>
         <input type="text" id="key">
       </div>
     </div>
-    <div class="row" name = "row_3">
-      <div class="col-md-6">
-        <label type="text">Sector</label>
-        <label id="sector_num" type="text">0</label>
-      </div>
-    </div>
 
     <div class="row" name="row_4">
-      <div class="col-md-9" name="rwrBlock">
+      <div class="col-md-9">
           <div class="Block-0">
             <label for="usr">Block 0:</label>
             <input type="text" class="form-control" id="usr_block_0">
@@ -98,12 +96,11 @@
         </div>
       </div>
     </div>
-    <div class="row" name="row_5">
-      <div><P></P></div>
-    </div>
 
-    <div class="row" name="row_6">
-      <div><p>Most recent log</p></div>
+    <div class="row" name="row_5">
+      <div class="col-md-6" id="log_lbl">
+        <p>Most recent log</p>
+      </div>
       <div class= "col-md-6" id = "logcol1">
         <p id = "Log1"> Nothing logged yet</p>
         <p id = "Log2"> . </p>
@@ -120,7 +117,7 @@
       </div>
     </div>
 
-    <div class="row" name="row_7">
+    <div class="row" name="row_6">
       <div class="col-auto"><button id="Exit">Exit</button></div>
     </div>
 
