@@ -54,10 +54,10 @@ function writeBlock0(){
     }
     else{
       if (data == false){
-        log = "Write Failed. Your data has errors. It doesn't translate to 12 Characters long in hex.";
+        log = "Write Failed. Your data has errors. It doesn't translate to 32 Characters long in hex.";
       }
       if (key == false){
-        log = "Write Failed. Your key has errors. It doesn't translate to 8 Characters long in hex.";
+        log = "Write Failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
       }
     }
   }
@@ -84,10 +84,10 @@ function writeBlock1(){
     }
     else{
       if (data == false){
-        log = "Write Failed. Your data has errors. It doesn't translate to 12 Characters long in hex.";
+        log = "Write Failed. Your data has errors. It doesn't translate to 32 Characters long in hex.";
       }
       if (key == false){
-        log = "Write Failed. Your key has errors. It doesn't translate to 8 Characters long in hex.";
+        log = "Write Failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
       }
     }
   }
@@ -112,10 +112,10 @@ function writeBlock2(){
     }
     else{
       if (data == false){
-        log = "Write Failed. Your data has errors. It doesn't translate to 12 Characters long in hex.";
+        log = "Write Failed. Your data has errors. It doesn't translate to 32 Characters long in hex.";
       }
       if (key == false){
-        log = "Write Failed. Your key has errors. It doesn't translate to 8 Characters long in hex.";
+        log = "Write Failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
       }
     }
   }
@@ -140,10 +140,10 @@ function writeBlock3(){
     }
     else{
       if (data == false){
-        log = "Write Failed. Your data has errors. It doesn't translate to 12 Characters long in hex.";
+        log = "Write Failed. Your data has errors. It doesn't translate to 32 Characters long in hex.";
       }
       if (key == false){
-        log = "Write Failed. Your key has errors. It doesn't translate to 8 Characters long in hex.";
+        log = "Write Failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
       }
     }
   }
@@ -164,7 +164,7 @@ function readBlock0(){
   }
 
   else{
-    log = "Read failed. Your key has errors. It doesn't translate to 8 Characters long in hex.";
+    log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
 
   updateLog(log);
@@ -182,7 +182,7 @@ function readBlock1(){
   }
 
   else{
-    log = "Read failed. Your key has errors. It doesn't translate to 8 Characters long in hex.";
+    log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
 
   updateLog(log);
@@ -200,7 +200,7 @@ function readBlock2(){
   }
 
   else{
-    log = "Read failed. Your key has errors. It doesn't translate to 8 Characters long in hex.";
+    log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
 
   updateLog(log);
@@ -218,7 +218,7 @@ function readBlock3(){
   }
 
   else{
-    log = "Read failed. check your key and try again";
+    log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
 
   updateLog(log);
@@ -376,19 +376,20 @@ function getData(){
 function strToHex(str){
   var int = parseInt(str,10);
   var hex = int.toString(16);
-  // if the length of the hex string is 12 it passes other wise it is invalid
-  if(hex.length == 12)
+  // if the length of the hex string is 32 it passes other wise it is invalid
+  if(hex.length == 32)
       return hex;
   else{
       return false;
   }
 }
 
-// same function as above but checking for length 8
+// Key has to be 12 chars not converted to hex
+// same function as above but checking for length 12
 function keyToHex(str){
   var int = parseInt(str,10);
   var hex = int.toString(16);
-  if(hex.length == 8)
+  if(hex.length == 12)
       return hex;
   else{
       return false;
