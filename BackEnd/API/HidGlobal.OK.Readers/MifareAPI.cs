@@ -52,7 +52,7 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
+                           
                         }
                        
                     }
@@ -70,8 +70,6 @@ namespace HidGlobal.OK.Readers
                         Console.WriteLine($"Connecting to {reader.PcscReaderName}");
 
                         ReaderHelper.ConnectToReaderWithCard(reader);
-
-
                         // Authenticate is READER, BLOCK NUMBER, KEYTYPE, KEYSLOT
 
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x01,
@@ -118,7 +116,6 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
                     }
                 }
@@ -169,7 +166,6 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
                     }
                 }
@@ -230,7 +226,6 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
                     }
                 }
@@ -278,7 +273,7 @@ namespace HidGlobal.OK.Readers
 
                         SendDecrementCommand(reader, 1, 0x04);
 
-                        ConsoleWriter.Instance.PrintSplitter();
+
                     }
                     catch (Exception e)
                     {
@@ -289,7 +284,6 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
                     }
                 }

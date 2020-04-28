@@ -145,7 +145,7 @@ namespace HidGlobal.OK.Readers
                 ActiveProtocol = dataConnectionStatus.ActiveProtocol,
                 CardAnswerToReset = dataConnectionStatus.CardAnswerToReset,
                 ReaderAliases =
-                    (IReadOnlyList<string>)BinaryHelper.ConvertMultiNullTerminatedStringFromBytesToStringArray(
+                    (IReadOnlyList<string>)BinaryHelper.ConvertByteToString(
                         Encoding, dataConnectionStatus.ConnectedReaderNames),
                 Status = dataConnectionStatus.Status
             };

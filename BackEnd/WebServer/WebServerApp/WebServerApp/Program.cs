@@ -117,34 +117,26 @@ namespace WebServer
             // private static ISmartCardReader smartC = new SmartCardReader(rName);
             // private static web_con = new IContextHandler.Instance;
 
-            private static Scope scope = Scope.System;
-
-
-
-
-            public static void run()
+            private static IContextHandler WebContext;
+            private static ISmartCardReader WebReader;
+            
+            public static void InitWebReader()
             {
-
-                var result = ContextHandler.Instance;
-                IReadOnlyList<string> myreaders = result.ListReaders();
-                string text = myreaders[0];
-                //var keycommand = new Load
-                
-                
-
-                // var sReader = new SmartCardReader(result.ListReaders());
-                //result.IsValid();
-                //  result.Establish(scope);
-
-                var WebReader = new SmartCardReader(text);
-                Console.WriteLine(WebReader.PcscReaderName);
+                WebContext = ContextHandler.Instance;
+                IReadOnlyList<string> myreaders = WebContext.ListReaders();
+                string readername = myreaders[0];
+                WebReader = new SmartCardReader(readername);
+            }
+            public static void runLoadkey()
+            {
                 var key = new MifareAPI.LoadMifareKey();
                 key.Run(WebReader.PcscReaderName, "FFFFFFFFFFFF");
-
-                //  WebReader.Connect();
-
-
-
+            }
+            public static void run()
+            {
+                InitWebReader();
+                Console.WriteLine(WebReader.PcscReaderName);
+                runLoadkey();
             }
 
 
@@ -162,7 +154,7 @@ namespace WebServer
                 //web_con.
 
                 var ws = new WebServer(SendResponse, "http://localhost:8080/test/");
-                //  ws.Run();
+                  ws.Run();
                 run();
                 
                 //  _rootMenu.AddSubItem(_smartCardReadersSection.RootMenuItem);
@@ -172,7 +164,7 @@ namespace WebServer
                 //   _rootMenu.Execute();
                 Console.WriteLine("A simple webserver. Press enter key to quit.");
                 Console.ReadKey();
-                // ws.Stop();
+                 ws.Stop();
             }
         }
 

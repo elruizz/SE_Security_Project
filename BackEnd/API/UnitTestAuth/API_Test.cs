@@ -37,6 +37,15 @@ namespace API_Testing
 
             Assert.AreEqual(expectedApdu, loadkey.MifareAPDU);
         }
+        [TestMethod]
+        public void RunReaderAuthenticateCommandTest()
+        {
+            var Testresult = ContextHandler.Instance;
+            IReadOnlyList<string> myreaders = Testresult.ListReaders();
+            string text = myreaders[0];
+            var TestReader = new SmartCardReader(text);
+            
+        }
     }
 
 }

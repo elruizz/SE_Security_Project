@@ -144,7 +144,7 @@ namespace HidGlobal.OK.Readers
                 multiNullTerminatedBytesArray = new byte [0];
             }
 
-            return (IReadOnlyList<string>)BinaryHelper.ConvertMultiNullTerminatedStringFromBytesToStringArray(Encoding,
+            return (IReadOnlyList<string>)BinaryHelper.ConvertByteToString(Encoding,
                 multiNullTerminatedBytesArray);
         }
 
@@ -164,7 +164,7 @@ namespace HidGlobal.OK.Readers
         {
             var multiNullTerminatedBytesArray = WinSCardWrapper.ListReaderGroups(Handle);
 
-            return (IReadOnlyList<string>)BinaryHelper.ConvertMultiNullTerminatedStringFromBytesToStringArray(Encoding,
+            return (IReadOnlyList<string>)BinaryHelper.ConvertByteToString(Encoding,
                 multiNullTerminatedBytesArray);
         }
 
