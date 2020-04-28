@@ -164,7 +164,7 @@ function readBlock0(){
   }
 
   else{
-    log = "Read failed check your key and try again";
+    log = "Read failed. Your key has errors. It doesn't translate to 8 Characters long in hex.";
   }
 
   updateLog(log);
@@ -182,7 +182,7 @@ function readBlock1(){
   }
 
   else{
-    log = "Read failed check your key and try again";
+    log = "Read failed. Your key has errors. It doesn't translate to 8 Characters long in hex.";
   }
 
   updateLog(log);
@@ -200,7 +200,7 @@ function readBlock2(){
   }
 
   else{
-    log = "Read failed check your key and try again";
+    log = "Read failed. Your key has errors. It doesn't translate to 8 Characters long in hex.";
   }
 
   updateLog(log);
@@ -218,7 +218,7 @@ function readBlock3(){
   }
 
   else{
-    log = "Read failed check your key and try again";
+    log = "Read failed. check your key and try again";
   }
 
   updateLog(log);
@@ -372,10 +372,11 @@ function getData(){
   data3 = document.getElementById("usr_block_3").value;
 }
 
-// convert string to hex
+// convert string to hex --- turn str into base 10 number then convert that to a base 16 number.
 function strToHex(str){
   var int = parseInt(str,10);
   var hex = int.toString(16);
+  // if the length of the hex string is 12 it passes other wise it is invalid
   if(hex.length == 12)
       return hex;
   else{
@@ -383,6 +384,7 @@ function strToHex(str){
   }
 }
 
+// same function as above but checking for length 8
 function keyToHex(str){
   var int = parseInt(str,10);
   var hex = int.toString(16);
@@ -393,7 +395,7 @@ function keyToHex(str){
   }
 }
 
-// updating the log to not lose any data
+// Shifts all logs down one and write the new log at the top. Only saves 10 entries. 
 function updateLog(str){
   document.getElementById("Log10").innerText = document.getElementById("Log9").innerText;
   document.getElementById("Log9").innerText = document.getElementById("Log8").innerText;
