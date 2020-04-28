@@ -160,7 +160,7 @@ function readBlock0(){
 
   if (key != false){
     //ReadData(Block);
-    log = "Read from Block " + Block + " / (Sector " + sector + " Block 0)";
+    log = "Read from Block " + Block + " / (Sector " + sector + " Block 0) Key : " + key ;
   }
 
   else{
@@ -178,7 +178,7 @@ function readBlock1(){
 
   if (key != false){
     //ReadData(Block);
-    log = "Read from Block " + Block + " / (Sector " + sector + " Block 1)";
+    log = "Read from Block " + Block + " / (Sector " + sector + " Block 1) Key : " + key ;
   }
 
   else{
@@ -196,7 +196,7 @@ function readBlock2(){
 
   if (key != false){
     //ReadData(Block);
-    log = "Read from Block " + Block + " / (Sector " + sector + " Block 2)";
+    log = "Read from Block " + Block + " / (Sector " + sector + " Block 2) Key : " + key ;
   }
 
   else{
@@ -214,7 +214,7 @@ function readBlock3(){
 
   if (key != false){
     //ReadData(Block);
-    log = "Read from Block " + Block + " / (Sector " + sector + " Block 3)";
+    log = "Read from Block " + Block + " / (Sector " + sector + " Block 3) Key : " + key ;
   }
 
   else{
