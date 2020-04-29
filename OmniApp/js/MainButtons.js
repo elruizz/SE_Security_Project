@@ -387,10 +387,8 @@ function strToHex(str){
 // Key has to be 12 chars not converted to hex
 // same function as above but checking for length 12
 function keyToHex(str){
-  var int = parseInt(str,10);
-  var hex = int.toString(16);
-  if(hex.length == 12)
-      return hex;
+  if(str.length == 12)
+      return str;
   else{
       return false;
   }
