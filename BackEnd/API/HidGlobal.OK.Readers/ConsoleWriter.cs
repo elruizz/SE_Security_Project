@@ -36,6 +36,7 @@ namespace HidGlobal.OK.Readers
         void PrintSplitter();
         void Wait(int milliseconds);
         void WaitKeyPress();
+        void PrintReadData(string input, string output);
     }
 
     public class ConsoleWriter : IConsoleWriter
@@ -50,6 +51,12 @@ namespace HidGlobal.OK.Readers
             Console.WriteLine($"Sending command: {title}");
             Console.WriteLine($"<-- {input}");
             Console.WriteLine($"--> {output}");
+        }
+        public void PrintReadData(string input, string output)
+        {
+            string _newoutput = output.Remove(output.Length - 4);
+            Console.WriteLine($"input {input}");
+            Console.WriteLine($"The new Output{_newoutput}");
         }
 
         public void PrintCommand(string title, string input, string output, string translatedResponse)
