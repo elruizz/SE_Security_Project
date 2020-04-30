@@ -365,7 +365,7 @@ function getBlocknum(num) {
 function getData(){
   sector = document.getElementById("sector_num").innerHTML;
   prekey = document.getElementById("key").value;
-  key = keyToHex(prekey);
+  key = keyCheck(prekey);
   data0 = document.getElementById("usr_block_0").value;
   data1 = document.getElementById("usr_block_1").value;
   data2 = document.getElementById("usr_block_2").value;
@@ -386,7 +386,7 @@ function strToHex(str){
 
 // Key has to be 12 chars not converted to hex
 // same function as above but checking for length 12
-function keyToHex(str){
+function keyCheck(str){
   if(str.length == 12)
       return str;
   else{
