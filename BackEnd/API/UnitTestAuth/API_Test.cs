@@ -41,8 +41,6 @@ namespace API_Testing
             var Testresult = ContextHandler.Instance;
             IReadOnlyList<string> myreaders = Testresult.ListReaders();
             string text = myreaders[0];
-           // int success = 9000;
-           // string TestAPDU = "FF8600000501";
             var TestReader = new SmartCardReader(text);
             var readdata = new MifareAPI.ReadMifareClassic1k();
             readdata.Run(text);
