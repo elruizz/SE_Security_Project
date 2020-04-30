@@ -52,7 +52,7 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
+                           
                         }
                        
                     }
@@ -60,54 +60,34 @@ namespace HidGlobal.OK.Readers
             }
             public class ReadMifareClassic1k
             {
-                public void Run(string readerName)
+           
+            public void Run(string readerName)
                 {
                     var reader = new SmartCardReader(readerName);
 
                     try
                     {
-
                         Console.WriteLine($"Connecting to {reader.PcscReaderName}");
 
                         ReaderHelper.ConnectToReaderWithCard(reader);
-
-
-                        // Authenticate is READER, BLOCK NUMBER, KEYTYPE, KEYSLOT
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x01,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, 0x01, 0x00);
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader,  0x02,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.ReadBinaryMifareCommand(reader,  0x02, 0x00);
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x03,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
-                        ReaderHelper.ReadBinaryMifareCommand(reader,  0x03, 0x00);
+                        // Authenticate is SMARTCARDREADER, BLOCK NUMBER, KEYTYPE, KEYSLOT
 
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x04,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
                         ReaderHelper.ReadBinaryMifareCommand(reader, 0x04, 0x00);
 
-                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x04,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, 0x04, 0x00);
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x05,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, 0x05, 0x00);
+                        ReaderHelper.GeneralAuthenticateMifare(reader,  0x05,
+                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
+                        ReaderHelper.ReadBinaryMifareCommand(reader,  0x05, 0x00);
 
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x06,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.ReadBinaryMifareCommand(reader, 0x06, 0x00);
-
+                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
+                        ReaderHelper.ReadBinaryMifareCommand(reader,  0x06, 0x00);
+                    
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x07,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
+                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
                         ReaderHelper.ReadBinaryMifareCommand(reader, 0x07, 0x00);
-
-
-
+                    
                     }
                     catch (Exception e)
                     {
@@ -118,7 +98,6 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
                     }
                 }
@@ -137,7 +116,6 @@ namespace HidGlobal.OK.Readers
                         ReaderHelper.ConnectToReaderWithCard(reader);
 
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x04,
-
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
                         ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x04, data); // Data can be 32 bytes long
 
@@ -148,17 +126,12 @@ namespace HidGlobal.OK.Readers
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x06,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
 
-                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x04, data);
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x05,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
-                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x05, data);
-
-                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x06,
-                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
                         ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x06, data);
-
-                     
+                    /*
+                        ReaderHelper.GeneralAuthenticateMifare(reader, 0x04,
+                            GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x00);
+                        ReaderHelper.UpdateBinaryCommand(reader, UpdateBinaryCommand.Type.Plain, 0x04, data);
+                     */
                     }
                     catch (Exception e)
                     {
@@ -169,7 +142,6 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
                     }
                 }
@@ -230,7 +202,6 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
                     }
                 }
@@ -278,7 +249,7 @@ namespace HidGlobal.OK.Readers
 
                         SendDecrementCommand(reader, 1, 0x04);
 
-                        ConsoleWriter.Instance.PrintSplitter();
+
                     }
                     catch (Exception e)
                     {
@@ -289,7 +260,6 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-                            ConsoleWriter.Instance.PrintMessage("Reader connection closed");
                         }
                     }
                 }
