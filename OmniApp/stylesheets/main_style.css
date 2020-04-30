@@ -1,53 +1,112 @@
 
 body{
-    background-color: gray;
+    background: url(texturetastic_gray.png);
     margin: 0px;
   }
 
 .row{
   margin: 0px;
-  background-color: black;
 }
 
 h1{
+  white-space: nowrap;
   margin-top: 0px;
   color: maroon;
-  font-size: 300%;
+  font-size: 550%;
+  position: absolute;
+  left: 5px;
+  padding: 1rem;
+  width: 700px;
+}
+
+button[id="Exit"]{
+  position: absolute;
+  bottom: 3px;
+  left: 3px;
+  padding: 2rem;
 }
 
 .container{
-  background-color: gray;
-}
-
-input[name="UID-col"]{
-  height: 250px;
-}
-
-div[name="switch-col"]{
-  background-color: lightgray;
-  min-height: 100vh;
-  height: 100%;
-  width: 300px;
-}
-
-div[name="row_2"]{
   background-color: slategray;
 }
 
+div[name="sector_drpdn"]{
+  padding: 1rem;
+}
+
+div[name="row_1"]{
+  height: 100px;
+  font-size: 100%;
+  background: inherit;
+  border-bottom: 3px solid black;
+}
+
+div[name="row_2"]{
+  margin-top: 3px;
+  margin-left: 43%;
+}
+
+div[name="row_2"] div[name="sector_data"]{
+  font-size: 300%;
+  border: 3px solid black;
+  width: auto;
+}
+
+div[name="row_3"]{
+  display:flex;
+  font-size: 200%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 21%;
+  margin-top: 7px;
+  margin-bottom: 0px;
+}
+row_2 * {
+ display: inline;
+}
+
+div[name="row_3"] div[name="UID-col"]{
+  white-space: nowrap;
+  width: 29%;
+  margin-right: 1.5%;
+}
+div[name="row_3"] div[name="Key-input"]{
+  white-space: nowrap;
+  width: 30%;
+  padding-left: 9%;
+}
+
+div[name="row_4"]{
+  padding-left: 18%;
+  margin-bottom: 5px;
+  font-size: 130%;
+}
+
+div[name="row_5"] p{
+  color: white;
+  font-size: 18px;
+}
+
+div[name="row_5"] div[class="col-md-6"]{
+  background: url(darkness.png);
+  margin-left: 24%;
+}
+
  /* Dropdown Button */
- .dropbtn {
+.dropbtn {
   margin: 0px;
-  background-color: #3498DB;
+  background-color: maroon;
   color: white;
   padding: 16px;
-  font-size: 16px;
+  font-size: 21px;
   border: none;
   cursor: pointer;
+  height: 80px;
 }
 
 /* Dropdown button on hover & focus */
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #2980B9;
+  background-color: red;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -62,7 +121,7 @@ div[name="row_2"]{
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: darkgray;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -89,4 +148,10 @@ butpos {
 
 BLOCKS {
   float : center;
+}
+
+p {
+  color: black;
+  font-size: medium;
+  padding: 5px;
 }

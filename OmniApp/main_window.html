@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
+  <head runat="server">
     <meta charset="utf-8">
     <title>OMNIKey Reader</title>
     <script src="renderer.js"></script>
@@ -25,7 +25,7 @@
       </div>
       <div class="fixed-top">
         <div class="col-md-auto">
-          <div class="dropdown">
+          <div class="dropdown" name="sector_drpdn">
             <button onclick="DropDownMenu()" class="dropbtn">Sector Selection</button>
             <div id="myDropdown" class="dropdown-content">
               <a id = "Sector_0" >Sector 0</a>
@@ -50,24 +50,25 @@
       </div>
     </div>
 
-
     <div class="row" name="row_2">
+      <div class="col-md-6" name="sector_data">
+          <label type="text" id="sector_lbl">Sector</label>
+          <label type="text" id="sector_num">0</label>
+      </div>
+    </div>
 
+    <div class="row" name="row_3">
       <div class="col-md-6" name="UID-col">
         <label type="text">UID</label>
         <input type="text" name="UID-input" readonly="readonly">
       </div>
-
       <div class="col-md-6" name="Key-input">
         <label type="text">Key</label>
         <input type="text" id="key">
       </div>
+    </div>
 
-      <div class="col-md-6">
-        <label type="text">Sector</label>
-        <label id="sector_num" type="text"></label>
-      </div>
-
+    <div class="row" name="row_4">
       <div class="col-md-9">
           <div class="Block-0">
             <label for="usr">Block 0:</label>
@@ -95,9 +96,34 @@
         </div>
       </div>
     </div>
-    
-    <div class="col-auto"><button id="Exit">Exit</button></div>
 
+    <div class="row" name="row_5">
+      <div class="col-md-6" id="log_lbl">
+        <p>Most recent log</p>
+      </div>
+      <div class= "col-md-6" id = "logcol1">
+        <p id = "Log1"> Nothing logged yet</p>
+        <p id = "Log2"> . </p>
+        <p id = "Log3"> . </p>
+        <p id = "Log4"> . </p>
+        <p id = "Log5"> . </p>
+      </div>
+      <div class= "col-md-6" id = "logcol2">
+        <p id = "Log6"> . </p>
+        <p id = "Log7"> . </p>
+        <p id = "Log8"> . </p>
+        <p id = "Log9"> . </p>
+        <p id = "Log10"> . </p>
+      </div>
+    </div>
+
+    <div class="row" name="row_6">
+      <div class="col-auto"><button id="Exit">Exit</button></div>
+    </div>
+
+    <div>
+      <asp:ScriptManager ID = "ScriptManger1" runat="server" EnablePageMethods = "true"></asp:ScriptManager>
+    </div>
   </body>
   <script src="js/MainButtons.js"></script>
 </html>
