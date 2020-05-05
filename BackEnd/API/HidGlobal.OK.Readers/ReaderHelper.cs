@@ -31,6 +31,8 @@ namespace HidGlobal.OK.Readers
 {
     public static class ReaderHelper
     {
+        
+       
         public static void ConnectToReaderWithCard(ISmartCardReader smartCardReader)
         {
             try
@@ -119,7 +121,7 @@ namespace HidGlobal.OK.Readers
                 blockNumber, data);
             string output = smartCardReader.Transmit(input);
 
-            Console.WriteLine("Input: ", input, "\n Output: ", output);
+            Console.WriteLine($"0x{blockNumber.ToString("X2")}  Input: {input}  Output: {output}");
         }
         public static void UpdateBinaryCommand(ISecureChannel secureChannel, string description, UpdateBinaryCommand.Type type, byte blockNumber, string data)
         {
@@ -129,7 +131,7 @@ namespace HidGlobal.OK.Readers
                 blockNumber, data);
             string output = secureChannel.SendCommand(input);
 
-            ConsoleWriter.Instance.PrintCommand(description + "0x" + blockNumber.ToString("X2"), input, output);
+            Console.WriteLine($"0x{blockNumber.ToString("X2")}  Input: {input}  Output: {output}");
         }
         public static void ReadBinaryMifareCommand(ISmartCardReader smartCardReader, byte blockNumber, byte expectedlength)
         {
@@ -137,8 +139,7 @@ namespace HidGlobal.OK.Readers
 
             string input = readBinaryCommand.GetMifareReadApdu(blockNumber, expectedlength);
             string output = smartCardReader.Transmit(input);
-
-            Console.WriteLine("Input: ", input, "\n Output: ", output);
+            ConsoleWriter.Instance.PrintReadData(input, output);
         }
         public static void GeneralAuthenticateMifare(ISmartCardReader smartCardReader, byte blockNumber, GeneralAuthenticateCommand.MifareKeyType keyType, byte keySlot)
         {
@@ -147,8 +148,8 @@ namespace HidGlobal.OK.Readers
             string input =
                 generalAuthenticateCommand.GetMifareApdu(blockNumber, keyType, keySlot);
             string output = smartCardReader.Transmit(input);
-
-            Console.WriteLine("Output: ", output);
+           
+            Console.WriteLine($"0x {blockNumber.ToString("X2")} Input   {input} Output:  {output}");
         }
         public static void GetDataCommand(ISmartCardReader smartCardReader, string description, GetDataCommand.Type type)
         {

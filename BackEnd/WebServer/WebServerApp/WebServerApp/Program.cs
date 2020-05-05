@@ -117,34 +117,41 @@ namespace WebServer
             // private static ISmartCardReader smartC = new SmartCardReader(rName);
             // private static web_con = new IContextHandler.Instance;
 
-            private static Scope scope = Scope.System;
-
-
-
-
-            public static void run()
+            private static IContextHandler WebContext;
+            private static ISmartCardReader WebReader;
+            
+            public static void InitWebReader()
             {
-
-                var result = ContextHandler.Instance;
-                IReadOnlyList<string> myreaders = result.ListReaders();
-                string text = myreaders[0];
-                //var keycommand = new Load
+                WebContext = ContextHandler.Instance;
+                IReadOnlyList<string> myreaders = WebContext.ListReaders();
+                string readername = myreaders[0];
+                WebReader = new SmartCardReader(readername);
+            }
+            public static void runReadMifare()
+            {
+                var read = new MifareAPI.ReadMifareClassic1k();
+                read.Run(WebReader.PcscReaderName);
                 
-                
-
-                // var sReader = new SmartCardReader(result.ListReaders());
-                //result.IsValid();
-                //  result.Establish(scope);
-
-                var WebReader = new SmartCardReader(text);
-                Console.WriteLine(WebReader.PcscReaderName);
+            }
+            public static void runWriteMifare()
+            {
+                var write = new MifareAPI.UpdateMifareClassic1k();
+                write.Run(WebReader.PcscReaderName, "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF");
+            }
+            public static void runLoadkey()
+            {
                 var key = new MifareAPI.LoadMifareKey();
                 key.Run(WebReader.PcscReaderName, "FFFFFFFFFFFF");
+            }
+            public static void run()
+            {
+                InitWebReader();
+                Console.WriteLine(WebReader.PcscReaderName + ContextHandler.Instance.Handle);
+                runLoadkey();
+                runWriteMifare();
+                runReadMifare();
 
-                //  WebReader.Connect();
-
-
-
+                
             }
 
 
@@ -162,7 +169,7 @@ namespace WebServer
                 //web_con.
 
                 var ws = new WebServer(SendResponse, "http://localhost:8080/test/");
-                //  ws.Run();
+                  ws.Run();
                 run();
                 
                 //  _rootMenu.AddSubItem(_smartCardReadersSection.RootMenuItem);
@@ -172,7 +179,7 @@ namespace WebServer
                 //   _rootMenu.Execute();
                 Console.WriteLine("A simple webserver. Press enter key to quit.");
                 Console.ReadKey();
-                // ws.Stop();
+                 ws.Stop();
             }
         }
 

@@ -32,13 +32,30 @@ namespace API_Testing
             string TestKey = "FFFFFFFFFFFF";
             string expectedApdu = "FF82200106FFFFFFFFFFFF";
             var loadkey = new MifareAPI.LoadMifareKey();
-            
             loadkey.Run(TestReader.PcscReaderName, TestKey);
-
             Assert.AreEqual(expectedApdu, loadkey.MifareAPDU);
         }
-    }
+        [TestMethod]
+        public void RunReaderAuthenticateCommandTest()
+        {
+            var Testresult = ContextHandler.Instance;
+            IReadOnlyList<string> myreaders = Testresult.ListReaders();
+            string text = myreaders[0];
+            var TestReader = new SmartCardReader(text);
+            var readdata = new MifareAPI.ReadMifareClassic1k();
+            readdata.Run(text);
+       
+        }
+        [TestMethod]
+        public void RunReaderWrite()
+        {
+            var Testresult = ContextHandler.Instance;
+            IReadOnlyList<string> myreaders = Testresult.ListReaders();
+            string text = myreaders[0];
 
+        }
+    }
+   
 }
 
 
