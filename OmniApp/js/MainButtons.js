@@ -19,6 +19,10 @@ document.getElementById("Button-Read-Block-1").onclick = readBlock1;
 document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
 
+// Key Loader button
+document.getElementById("Load-Key").onclick = loadKey;
+
+
 // Variables to store user data
 var UID;
 var WorR;
@@ -33,6 +37,20 @@ const assert = require('assert');
 // Exit the application
 function ExitClick(){
   self.close()
+}
+
+// Load Key Function
+function loadKey(){
+  prekey = document.getElementById("key").value;
+  key = keyCheck(prekey);
+  var log;
+  if(key != false){
+    log = "Key Loaded";
+  }
+  else {
+    log = "Key not loaded";
+  }
+  updateLog(log);
 }
 
 // Write functions
