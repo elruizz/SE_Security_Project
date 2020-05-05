@@ -9,6 +9,8 @@
   "author": "JakeLambdin/JonahSimon",
   "license": "MIT",
   "dependencies": {
-    "electron": "^8.0.1"
+    "edge-js": "^13.0.1",
+    "electron": "^8.0.1",
+    "electron-edge-js": "^12.13.0"
   }
 }

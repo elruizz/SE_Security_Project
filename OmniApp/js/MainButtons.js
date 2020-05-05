@@ -1,7 +1,7 @@
 // var request = new XMLHttpRequest();
 // request.open('GET', 'http://localhost:8080/test/');
 // request.onload= function()
-
+var edge = remote.require('electron-edge-js');
 //export for our js file to use for the serve
 
 // Adding exit button functionality
@@ -19,6 +19,29 @@ document.getElementById("Button-Read-Block-1").onclick = readBlock1;
 document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
 
+var appReader = require('edge').func({
+  assemblyFile: 'HidGlobal.OK.Readers.dll',
+  typeName: 'HidGlobal.OK.Reader.MifareAPI',
+  methodName: 'RunInitReader'
+});
+
+//var initReader = edge.func(function(){
+/*
+  #r "HidGlobal.OK.Readers.dll"
+  using HidGlobal.OK.Readers.AViatoR.Components;
+  using HidGlobal.OK.Readers.Components;
+  using System;
+  using System.Linq;
+  using System.ComponentModel;
+  using System.Collections.Generic;
+  using HidGlobal.OK.Readers;
+  async(data) =>
+  {
+      await Task.Run(async () =>
+
+
+});
+*/  //})
 // Variables to store user data
 var UID;
 var WorR;
@@ -38,6 +61,7 @@ function ExitClick(){
 // Write functions
 function writeBlock0(){
   getData();
+  //appReader();
   WorR = "W";
   var log;
   var Block = getBlocknum(0);
@@ -148,7 +172,7 @@ function writeBlock3(){
     }
   }
   updateLog(log);
-  
+
 }
 
 // Read functions
@@ -394,7 +418,7 @@ function keyCheck(str){
   }
 }
 
-// Shifts all logs down one and write the new log at the top. Only saves 10 entries. 
+// Shifts all logs down one and write the new log at the top. Only saves 10 entries.
 function updateLog(str){
   document.getElementById("Log10").innerText = document.getElementById("Log9").innerText;
   document.getElementById("Log9").innerText = document.getElementById("Log8").innerText;

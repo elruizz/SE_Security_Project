@@ -2,11 +2,29 @@
 using HidGlobal.OK.Readers.Components;
 using System;
 using System.Linq;
+using System.ComponentModel;
+using System.Collections.Generic;
+using HidGlobal.OK.Readers;
+
 
 namespace HidGlobal.OK.Readers
 {
     public class MifareAPI
     {
+        private static IContextHandler ReaderContext;
+        private static ISmartCardReader MifareReader;
+        public class InitReader
+        {
+            
+            public void RunInitReader()
+            {
+               
+                ReaderContext = ContextHandler.Instance;
+                IReadOnlyList<string> myreaders = ReaderContext.ListReaders();
+                string readername = myreaders[0];
+                MifareReader = new SmartCardReader(readername);
+            }
+        }
        
             public class LoadMifareKey
             {
