@@ -1,7 +1,6 @@
 const electron = require('electron');
 const url = require('url');
 const path = require('path');
-
 const isMac = process.platform === 'darwin' //checks if Mac possibly mac global bool to make mulit OS cases more streamline
 
 const {app, BrowserWindow, Menu, ipcMain} = electron; //from Traversy: Build an Electron App in Under 60 Minutes
