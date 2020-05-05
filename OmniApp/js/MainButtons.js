@@ -18,8 +18,12 @@ document.getElementById("Button-Read-Block-0").onclick = readBlock0;
 document.getElementById("Button-Read-Block-1").onclick = readBlock1;
 document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
+<<<<<<< HEAD
 /*
 var appReader = edge.func({
+=======
+var appReader = require('edge').func({
+>>>>>>> master
   assemblyFile: 'HidGlobal.OK.Readers.dll',
   typeName: 'HidGlobal.OK.Reader.MifareAPI',
   methodName: 'RunInitReader'
@@ -42,6 +46,10 @@ var appReader = edge.func({
 
 });
 */  //})
+// Key Loader button
+document.getElementById("Load-Key").onclick = loadKey;
+
+
 // Variables to store user data
 var UID;
 var WorR;
@@ -56,6 +64,20 @@ const assert = require('assert');
 // Exit the application
 function ExitClick(){
   self.close()
+}
+
+// Load Key Function
+function loadKey(){
+  prekey = document.getElementById("key").value;
+  key = keyCheck(prekey);
+  var log;
+  if(key != false){
+    log = "Key Loaded";
+  }
+  else {
+    log = "Key not loaded";
+  }
+  updateLog(log);
 }
 
 // Write functions
