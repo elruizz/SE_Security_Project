@@ -90,7 +90,7 @@ namespace HidGlobal.OK.Readers.Utilities
             return result;
         }
 
-        public static IList<string> ConvertMultiNullTerminatedStringFromBytesToStringArray(System.Text.Encoding characterEncoding, IEnumerable<byte> multiNullTerminatedBytes)
+        public static IList<string> ConvertByteToString(System.Text.Encoding characterEncoding, IEnumerable<byte> multiNullTerminatedBytes)
         {
             if (multiNullTerminatedBytes == null)
                 throw new ArgumentNullException(nameof(multiNullTerminatedBytes));
