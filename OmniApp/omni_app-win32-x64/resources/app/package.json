@@ -1,0 +1,16 @@
+{
+  "name": "omni_app",
+  "version": "1.0.0",
+  "description": "Desktop app for OMNI Key Reader/Writer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "JakeLambdin/JonahSimon",
+  "license": "MIT",
+  "dependencies": {
+    "edge-js": "^13.0.1",
+    "electron": "^8.0.1",
+    "electron-edge-js": "^12.13.0"
+  }
+}
