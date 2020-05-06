@@ -1,7 +1,7 @@
 // var request = new XMLHttpRequest();
 // request.open('GET', 'http://localhost:8080/test/');
 // request.onload= function()
-//var edge = require('../electron-edge');
+
 //export for our js file to use for the serve
 
 // Adding exit button functionality
@@ -18,12 +18,8 @@ document.getElementById("Button-Read-Block-0").onclick = readBlock0;
 document.getElementById("Button-Read-Block-1").onclick = readBlock1;
 document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
-<<<<<<< HEAD
 /*
 var appReader = edge.func({
-=======
-var appReader = require('edge').func({
->>>>>>> master
   assemblyFile: 'HidGlobal.OK.Readers.dll',
   typeName: 'HidGlobal.OK.Reader.MifareAPI',
   methodName: 'RunInitReader'
