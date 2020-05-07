@@ -1,12 +1,17 @@
 # SE_Security_Project
 This is our semester project for Software Engineering. We are doing a security based project with OMNIKEY readers and Mifareclassic
-Client:
+
+##Client:
 Rick Fox rwfox@coloradomesa.edu
 
-Group Members:
+##Group Members:
+
 Ethan Ruiz elruiz@mavs.coloradomesa.edu
+
 Mike Tacker
+
 Jonah Simon Jpsimon@mavs.coloradomesa.edu
+
 Jake Lambdin 
 
 Mifare 1k classic blocks go from 0-63.
