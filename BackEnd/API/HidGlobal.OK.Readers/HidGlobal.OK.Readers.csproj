@@ -89,6 +89,7 @@
     <Compile Include="ISmartCardReader.cs" />
     <Compile Include="AViatoR\OK5122.cs" />
     <Compile Include="MifareAPI.cs" />
+    <Compile Include="MifareInitReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContextHandler.cs" />
     <Compile Include="IContextHandler.cs" />
