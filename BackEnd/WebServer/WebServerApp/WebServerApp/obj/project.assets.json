@@ -707,11 +707,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\CMU\\SOFTWARE\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\WebServerApp.csproj",
+      "projectUniqueName": "D:\\CMU\\NewOmniApp\\SE_Security_Project\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\WebServerApp.csproj",
       "projectName": "WebServerApp",
-      "projectPath": "D:\\CMU\\SOFTWARE\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\WebServerApp.csproj",
+      "projectPath": "D:\\CMU\\NewOmniApp\\SE_Security_Project\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\WebServerApp.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\CMU\\SOFTWARE\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\obj\\",
+      "outputPath": "D:\\CMU\\NewOmniApp\\SE_Security_Project\\BackEnd\\WebServer\\WebServerApp\\WebServerApp\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -730,8 +730,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "D:\\CMU\\SOFTWARE\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj": {
-              "projectPath": "D:\\CMU\\SOFTWARE\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj"
+            "D:\\CMU\\NewOmniApp\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj": {
+              "projectPath": "D:\\CMU\\NewOmniApp\\SE_Security_Project\\BackEnd\\API\\HidGlobal.OK.Readers\\HidGlobal.OK.Readers.csproj"
             }
           }
         }
