@@ -1,7 +1,8 @@
 // var request = new XMLHttpRequest();
 // request.open('GET', 'http://localhost:8080/test/');
 // request.onload= function()
-
+var path = require('path');
+var edge = require('electron-edge-js');
 //export for our js file to use for the serve
 
 // Adding exit button functionality
@@ -18,6 +19,7 @@ document.getElementById("Button-Read-Block-0").onclick = readBlock0;
 document.getElementById("Button-Read-Block-1").onclick = readBlock1;
 document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
+
 /*
 var appReader = edge.func({
   assemblyFile: 'HidGlobal.OK.Readers.dll',
@@ -25,23 +27,27 @@ var appReader = edge.func({
   methodName: 'RunInitReader'
 });
 */
-//var initReader = edge.func(function(){
 /*
-  #r "HidGlobal.OK.Readers.dll"
-  using HidGlobal.OK.Readers.AViatoR.Components;
-  using HidGlobal.OK.Readers.Components;
-  using System;
-  using System.Linq;
-  using System.ComponentModel;
-  using System.Collections.Generic;
-  using HidGlobal.OK.Readers;
-  async(data) =>
-  {
-      await Task.Run(async () =>
+var getReader = edge.func({
+  source: path.join(__dirname + '../HidGlobal.OK.Readers/MifareInitReader.cs')
+  ,
+  references :[
+    './Resources/HidGlobal.OK.Readers.dll'
+  ]});
+
+  setReader(function(){
+    getReader('Calling C# Reader', (err, res)=>{
+      if(err){
+        console.log("ERROR FOUND: ");
+        console.log(err);
+        return;
+      }
+      console.log(res);
+    });
+  },1000);
+*/
 
 
-});
-*/  //})
 // Key Loader button
 document.getElementById("Load-Key").onclick = loadKey;
 
@@ -64,6 +70,7 @@ function ExitClick(){
 
 // Load Key Function
 function loadKey(){
+//  setReader();
   prekey = document.getElementById("key").value;
   key = keyCheck(prekey);
   var log;
@@ -79,7 +86,7 @@ function loadKey(){
 // Write functions
 function writeBlock0(){
   getData();
-  //appReader();
+  //initReader;
   WorR = "W";
   var log;
   var Block = getBlocknum(0);
