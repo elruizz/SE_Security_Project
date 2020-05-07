@@ -27,12 +27,12 @@ var appReader = edge.func({
   methodName: 'RunInitReader'
 });
 */
-/*
+
 var getReader = edge.func({
-  source: path.join(__dirname + '../HidGlobal.OK.Readers/MifareInitReader.cs')
+  source: path.join(__dirname + '..\\..\\BackEnd\\API\\HidGlobal.OK.Readers\\MifareInitReader.cs')
   ,
   references :[
-    './Resources/HidGlobal.OK.Readers.dll'
+    'HidGlobal.OK.Readers.dll'
   ]});
 
   setReader(function(){
@@ -45,7 +45,7 @@ var getReader = edge.func({
       console.log(res);
     });
   },1000);
-*/
+
 
 
 // Key Loader button
