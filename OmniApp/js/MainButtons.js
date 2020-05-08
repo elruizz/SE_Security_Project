@@ -84,6 +84,30 @@ function loadKey(){
 
 }
 
+//Connect to Reader Function
+function readerConnect() {
+    getReader('Calling C# Reader', (err, res) => {
+        if (err) {
+            console.log("ERROR FOUND: ");
+            console.log(err);
+            return;
+        }
+        updateLog("Connecting to " + res);
+    });
+
+    prekey = document.getElementById("ConnectReader").value;
+    key = keyCheck(prekey);
+    var log;
+    if (key != false) {
+        log = "Reader Connected";
+    }
+    else {
+        log = "No Connection to Reader";
+    }
+    updateLog(log);
+
+}
+
 // Write functions
 function writeBlock0(){
   getData();

@@ -61,6 +61,12 @@ div[name="row_3"]{
   margin-top: 7px;
   margin-bottom: 0px;
 }
+
+div[name="row_3"] div[name="Key-input"] button[id="ConnectReader"]{
+    background-color: maroon;
+    color: white;
+}
+
 row_2 * {
  display: inline;
 }
