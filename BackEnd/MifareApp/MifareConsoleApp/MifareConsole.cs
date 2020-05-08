@@ -8,7 +8,7 @@ using HidGlobal.OK.Readers;
 
 namespace MifareConsoleApp
 {
-    class MifareConsole
+    public class MifareConsole
     {
         private static IContextHandler WebContext;
         private static ISmartCardReader WebReader;
