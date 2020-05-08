@@ -11,8 +11,8 @@ namespace HidGlobal.OK.Readers
 {
     public class MifareInitReader
     {
-        private static IContextHandler WebContext;
-        private static ISmartCardReader WebReader;
+        public IContextHandler WebContext;
+        public ISmartCardReader WebReader;
         public async Task<object> Invoke(object input)
         {
             WebContext = ContextHandler.Instance;

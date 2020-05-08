@@ -93,6 +93,7 @@
     <Compile Include="Components\OK5122.cs" />
     <Compile Include="MifareAPI.cs" />
     <Compile Include="MifareInitReader.cs" />
+    <Compile Include="MifareLoadKey.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ContextHandler.cs" />
     <Compile Include="IContextHandler.cs" />
