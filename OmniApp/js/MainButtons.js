@@ -27,7 +27,7 @@ var appReader = edge.func({
   methodName: 'RunInitReader'
 });
 */
-var hello;
+
 var getReader = edge.func({
   source: path.join(__dirname + '..\\..\\BackEnd\\API\\HidGlobal.OK.Readers\\MifareInitReader.cs')
   ,
@@ -37,14 +37,6 @@ var getReader = edge.func({
   ]});
 
 
-    getReader('Calling C# Reader', (err, res)=>{
-      if(err){
-        console.log("ERROR FOUND: ");
-        console.log(err);
-        return;
-      }
-      console.log(res);
-    });
 
 
 
@@ -70,7 +62,15 @@ function ExitClick(){
 
 // Load Key Function
 function loadKey(){
-//  setReader();
+  getReader('Calling C# Reader', (err, res)=>{
+    if(err){
+      console.log("ERROR FOUND: ");
+      console.log(err);
+      return;
+    }
+    updateLog("Connecting to " + res);
+  });
+
   prekey = document.getElementById("key").value;
   key = keyCheck(prekey);
   var log;
@@ -81,6 +81,7 @@ function loadKey(){
     log = "Key not loaded";
   }
   updateLog(log);
+
 }
 
 // Write functions
