@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 
 namespace HidGlobal.OK.Readers
 {
-    public class MifareInitReader
+    class MifareLoadKey
     {
         public IContextHandler WebContext;
         public ISmartCardReader WebReader;
@@ -21,6 +21,10 @@ namespace HidGlobal.OK.Readers
             WebReader = new SmartCardReader(readername);
             return WebReader.PcscReaderName;
         }
+        
+
+    
+
 
     }
 }

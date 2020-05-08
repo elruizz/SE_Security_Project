@@ -33,7 +33,7 @@ var getReader = edge.func({
   ,
   typeName: 'HidGlobal.OK.Readers.MifareInitReader',
   references :[
-    'HidGlobal.OK.Readers.dll'
+    (__dirname + '..\\..\\BackEnd\\MifareConsoleApplication.cs\\MifareConsoleApplication.cs\\bin\\Debug\\HidGlobal.OK.Readers.dll')
   ]});
 
 
