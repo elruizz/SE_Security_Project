@@ -28,14 +28,22 @@ var appReader = edge.func({
 });
 */
 
-var getReader = edge.func({
-  source: path.join(__dirname + '..\\..\\BackEnd\\API\\HidGlobal.OK.Readers\\MifareInitReader.cs')
+
+var getLoadKey = edge.func({
+  source: path.join(__dirname + '..\\..\\BackEnd\\API\\HidGlobal.OK.Readers\\MifareLoadKey.cs')
   ,
-  typeName: 'HidGlobal.OK.Readers.MifareInitReader',
+  typeName: 'HidGlobal.OK.Readers.MifareLoadKey',
   references :[
-    ('HidGlobal.OK.Readers.dll')
+    (__dirname + '..\\..\\BackEnd\\MifareConsoleApplication.cs\\MifareConsoleApplication.cs\\bin\\Debug\\HidGlobal.OK.Readers.dll')
   ]});
 
+  var getReader = edge.func({
+    source: path.join(__dirname + '..\\..\\BackEnd\\API\\HidGlobal.OK.Readers\\MifareInitReader.cs')
+    ,
+    typeName: 'HidGlobal.OK.Readers.MifareInitReader',
+    references :[
+      (__dirname + '..\\..\\BackEnd\\MifareConsoleApplication.cs\\MifareConsoleApplication.cs\\bin\\Debug\\HidGlobal.OK.Readers.dll')
+    ]});
 
 
 
@@ -50,11 +58,13 @@ var UID;
 var WorR;
 var sector;
 var key;
+var Back_key;
 var data0;
 var data1;
 var data2;
 var data3;
 const assert = require('assert');
+var readerName;
 
 // Exit the application
 function ExitClick(){
@@ -63,51 +73,46 @@ function ExitClick(){
 
 // Load Key Function
 function loadKey(){
-  getReader('Calling C# Reader', (err, res) => {
-      if (err) {
-          console.log("ERROR FOUND: ");
-          console.log(err);
-          return;
-      }
-      updateLog("Connecting to " + res);
-    });
+
   prekey = document.getElementById("key").value;
   key = keyCheck(prekey);
+  getLoadKey(key, (err, result) =>{
+    if(err) {
+      console.log("ERROR FOUND: ");
+      console.log(err);
+      return;
+    }
+    updateLog(result);
+    Back_key = result;
+  });
   var log;
   if(key != false){
-    log = "Key Loaded";
+    log = "Key Loaded ";
   }
   else {
-    log = "Key not loaded";
+    log = "Key not loaded ";
   }
-  updateLog(log);
-
+if(Back_key == true){
+  updateLog(log + key + " Sucessfully");
+}
+  else {
+    updateLog(log + "Failed");
+  }
 }
 
 
 //Connect to Reader Function
 function readerConnect() {
-    getReader('Calling C# Reader', (err, res) => {
+    getReader(null, (err, res) => {
         if (err) {
             console.log("ERROR FOUND: ");
             console.log(err);
             return;
         }
         updateLog("Connecting to " + res);
+        readerName = res;
     });
-
-    prekey = document.getElementById("key").value;
-    key = keyCheck(prekey);
-    var log;
-    if (key != false) {
-        log = "Key Loaded";
-    }
-    else {
-        log = "Key not loaded";
-    }
-    updateLog(log);
-
-}
+  }
 
 // Write functions
 function writeBlock0(){

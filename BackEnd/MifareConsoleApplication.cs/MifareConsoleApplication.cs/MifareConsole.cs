@@ -10,21 +10,20 @@ namespace MifareConsoleApplication
 {
     public class MifareConsole
     {
+        public static MifareAPI.LoadMifareKey LoadKeyMifareConsole = new MifareAPI.LoadMifareKey();
+        public static MifareAPI.InitReader InitMifareConsole = new MifareAPI.InitReader();
         private static IContextHandler WebContext;
         private static ISmartCardReader WebReader;
 
         public static void InitWebReader()
         {
-            WebContext = ContextHandler.Instance;
-            IReadOnlyList<string> myreaders = WebContext.ListReaders();
-            string readername = myreaders[0];
-            WebReader = new SmartCardReader(readername);
+            WebReader = InitMifareConsole.RunInitReader();
+            Console.Write(WebReader.PcscReaderName);
         }
         public static void runReadMifare()
         {
             var read = new MifareAPI.ReadMifareClassic1k();
             read.Run(WebReader.PcscReaderName);
-
         }
         public static void runWriteMifare()
         {
@@ -34,7 +33,8 @@ namespace MifareConsoleApplication
         public static void runLoadkey()
         {
             var key = new MifareAPI.LoadMifareKey();
-            key.Run(WebReader.PcscReaderName, "FFFFFFFFFFFF");
+            bool check = key.RunLoadkey("FFFFFFFFFFFF");
+            Console.Write(check);
         }
         public static void run()
         {
@@ -43,12 +43,11 @@ namespace MifareConsoleApplication
             runLoadkey();
             runWriteMifare();
             runReadMifare();
-
-
         }
         static void Main(string[] args)
         {
             run();
+            Console.ReadKey();
         }
     }
 }
