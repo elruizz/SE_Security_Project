@@ -50,7 +50,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\API\HidGlobal.OK.Readers\HidGlobal.OK.Readers.csproj">
+    <ProjectReference Include="..\..\..\..\..\..\HID-OMNIKEY-Sample-Codes\HidGlobal.OK.Readers\HidGlobal.OK.Readers.csproj">
       <Project>{12773016-4e38-4e9c-b0a2-a4ff295b3993}</Project>
       <Name>HidGlobal.OK.Readers</Name>
     </ProjectReference>
