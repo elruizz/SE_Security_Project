@@ -15,34 +15,34 @@ namespace HidGlobal.OK.Readers
         private static ISmartCardReader MifareReader;
         public class InitReader
         {
-
+            
             public void RunInitReader()
             {
-
+               
                 ReaderContext = ContextHandler.Instance;
                 IReadOnlyList<string> myreaders = ReaderContext.ListReaders();
                 string readername = myreaders[0];
                 MifareReader = new SmartCardReader(readername);
             }
         }
-
+       
             public class LoadMifareKey
             {
             public string MifareOutput = "";
             public string MifareAPDU = "";
 
-                private void LoadKeyCommand(ISmartCardReader smartCardReader, byte keySlot, LoadKeyCommand.KeyType keyType, LoadKeyCommand.Persistence persistence, LoadKeyCommand.Transmission transmission, LoadKeyCommand.KeyLength keyLength, string key)
+            private void LoadKeyCommand(ISmartCardReader smartCardReader, byte keySlot, LoadKeyCommand.KeyType keyType, LoadKeyCommand.Persistence persistence, LoadKeyCommand.Transmission transmission, LoadKeyCommand.KeyLength keyLength, string key)
                 {
                     var loadKeyCommand = new Readers.AViatoR.Components.LoadKeyCommand();
 
                     string input = loadKeyCommand.GetApdu(keySlot, keyType, persistence, transmission, keyLength, key);
                     string output = ReaderHelper.SendCommand(smartCardReader, input);
-                    //ConsoleWriter.Instance.PrintCommand(description + key, input, output);
-                    Console.WriteLine($"input {input}  Load Key Output:  {output}  Key: {key}");
-                    MifareOutput = output;
-                    MifareAPDU = input;
-
-                }
+                //ConsoleWriter.Instance.PrintCommand(description + key, input, output);
+                Console.WriteLine($"input {input}  Load Key Output:  {output}  Key: {key}");
+                MifareOutput = output;
+                MifareAPDU = input;
+               
+            }
                 public void Run(string readerName, string Keyresponse)
                 {
                     var reader = new SmartCardReader(readerName);
@@ -59,7 +59,7 @@ namespace HidGlobal.OK.Readers
                             Readers.AViatoR.Components.LoadKeyCommand.Transmission.Plain,
                             Readers.AViatoR.Components.LoadKeyCommand.KeyLength._6Bytes, Keyresponse);
 
-
+                        
                     }
                     catch (Exception e)
                     {
@@ -70,15 +70,15 @@ namespace HidGlobal.OK.Readers
                         if (reader.IsConnected)
                         {
                             reader.Disconnect(CardDisposition.Unpower);
-
+                           
                         }
-
+                       
                     }
                 }
             }
             public class ReadMifareClassic1k
             {
-
+           
             public void Run(string readerName)
                 {
                     var reader = new SmartCardReader(readerName);
@@ -101,11 +101,11 @@ namespace HidGlobal.OK.Readers
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x06,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
                         ReaderHelper.ReadBinaryMifareCommand(reader,  0x06, 0x00);
-
+                    
                         ReaderHelper.GeneralAuthenticateMifare(reader, 0x07,
                             GeneralAuthenticateCommand.MifareKeyType.MifareKeyA, 0x01);
                         ReaderHelper.ReadBinaryMifareCommand(reader, 0x07, 0x00);
-
+                    
                     }
                     catch (Exception e)
                     {
@@ -284,3 +284,4 @@ namespace HidGlobal.OK.Readers
             }
         }
     }
+
