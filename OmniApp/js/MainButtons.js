@@ -27,7 +27,7 @@ var appReader = edge.func({
   methodName: 'RunInitReader'
 });
 */
-
+var hello;
 var getReader = edge.func({
   source: path.join(__dirname + '..\\..\\BackEnd\\API\\HidGlobal.OK.Readers\\MifareInitReader.cs')
   ,
