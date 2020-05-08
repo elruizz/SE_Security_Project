@@ -42,7 +42,8 @@ var getReader = edge.func({
 
 // Key Loader button
 document.getElementById("Load-Key").onclick = loadKey;
-
+//connect to reader button
+document.getElementById("ConnectReader").onclick = readerConnect;
 
 // Variables to store user data
 var UID;
@@ -95,14 +96,14 @@ function readerConnect() {
         updateLog("Connecting to " + res);
     });
 
-    prekey = document.getElementById("ConnectReader").value;
+    prekey = document.getElementById("key").value;
     key = keyCheck(prekey);
     var log;
     if (key != false) {
-        log = "Reader Connected";
+        log = "Key Loaded";
     }
     else {
-        log = "No Connection to Reader";
+        log = "Key not loaded";
     }
     updateLog(log);
 
