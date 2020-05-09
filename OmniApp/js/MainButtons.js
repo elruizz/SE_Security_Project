@@ -20,31 +20,35 @@ document.getElementById("Button-Read-Block-1").onclick = readBlock1;
 document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
 
-/*
-var appReader = edge.func({
+//Import Edge Functions
+var appLoadKey = edge.func({
   assemblyFile: 'HidGlobal.OK.Readers.dll',
-  typeName: 'HidGlobal.OK.Reader.MifareAPI',
-  methodName: 'RunInitReader'
+  typeName: 'HidGlobal.OK.Readers.MifareLoadKey'
 });
-*/
-
-
+var appReadData = edge.func({
+  assemblyFile: 'HidGlobal.OK.Readers.dll',
+  typeName: 'HidGlobal.OK.Readers.MifareReadBlockData'
+});
+var appInitReader = edge.func({
+  assemblyFile: 'HidGlobal.OK.Readers.dll',
+  typeName: 'HidGlobal.OK.Readers.MifareInitReader'
+});
+var appWriteData = edge.func({
+  assemblyFile: 'HidGlobal.OK.Readers.dll',
+  typeName: 'HidGlobal.OK.Readers.MifareWriteBlockData'
+});
+// An old way to call Edge
+/*
 var getLoadKey = edge.func({
-  source: path.join(__dirname + '..\\..\\BackEnd\\API\\HidGlobal.OK.Readers\\MifareLoadKey.cs')
+  source: path.join(__dirname, 'MifareLoadKey.cs')
   ,
   typeName: 'HidGlobal.OK.Readers.MifareLoadKey',
   references :[
-    (__dirname + '..\\..\\BackEnd\\MifareConsoleApplication.cs\\MifareConsoleApplication.cs\\bin\\Debug\\HidGlobal.OK.Readers.dll')
+    ('HidGlobal.OK.Readers.dll')
   ]});
 
-  var getReader = edge.func({
-    source: path.join(__dirname + '..\\..\\BackEnd\\API\\HidGlobal.OK.Readers\\MifareInitReader.cs')
-    ,
-    typeName: 'HidGlobal.OK.Readers.MifareInitReader',
-    references :[
-      (__dirname + '..\\..\\BackEnd\\MifareConsoleApplication.cs\\MifareConsoleApplication.cs\\bin\\Debug\\HidGlobal.OK.Readers.dll')
-    ]});
 
+*/
 
 
 
@@ -59,6 +63,7 @@ var WorR;
 var sector;
 var key;
 var Back_key;
+var Back_data;
 var data0;
 var data1;
 var data2;
@@ -76,6 +81,14 @@ function loadKey(){
 
   prekey = document.getElementById("key").value;
   key = keyCheck(prekey);
+appLoadKey(key, function(error, result){
+  if(error){
+    console.log(error);
+    return;
+  }
+  Back_key = result;
+})
+/*
   getLoadKey(key, (err, result) =>{
     if(err) {
       console.log("ERROR FOUND: ");
@@ -85,6 +98,8 @@ function loadKey(){
     updateLog(result);
     Back_key = result;
   });
+  appReader(key, )
+*/
   var log;
   if(key != false){
     log = "Key Loaded ";
@@ -103,37 +118,43 @@ if(Back_key == true){
 
 //Connect to Reader Function
 function readerConnect() {
-    getReader(null, (err, res) => {
-        if (err) {
-            console.log("ERROR FOUND: ");
-            console.log(err);
-            return;
-        }
-        updateLog("Connecting to " + res);
-        readerName = res;
-    });
+  appInitReader(null, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    updateLog(result);
+  })
   }
 
 // Write functions
 function writeBlock0(){
   getData();
-  //initReader;
+
   WorR = "W";
   var log;
   var Block = getBlocknum(0);
-  var data = strToHex(data0);
+  //var data = strToHex(data0);
+appWriteData(data0, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    updateLog("Writing data " + result);
+
+  })
 
   // if data = false str to hex failed the 12 char requirement
-  if (data != false && key != false){
+  if (data0 != false && key != false){
     //WriteData(data,Block);
-    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 0) " + " Data : " + data + " Key : " + key;
+    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 0) " + " Data : " + data0 + " Key : " + key;
   }
   else{
-    if (data == false && key == false){
+    if (data0 == false && key == false){
       log = "Write Failed. Your data and key fields have errors. Check them and try again.";
     }
     else{
-      if (data == false){
+      if (data0 == false){
         log = "Write Failed. Your data has errors. It doesn't translate to 32 Characters long in hex.";
       }
       if (key == false){
@@ -234,6 +255,13 @@ function writeBlock3(){
 // Read functions
 function readBlock0(){
   getData();
+  appReadData(null, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    Back_data = result;
+  })
   WorR = "R";
   var log;
   var Block = getBlocknum(0);
@@ -246,7 +274,7 @@ function readBlock0(){
   else{
     log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
-
+  updateLog("Data: " + Back_data);
   updateLog(log);
 }
 
