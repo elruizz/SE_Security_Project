@@ -52,8 +52,6 @@ var getLoadKey = edge.func({
 
 */
 
-
-
 // Key Loader button
 document.getElementById("Load-Key").onclick = loadKey;
 //connect to reader button
@@ -136,10 +134,8 @@ function writeBlock0(){
   WorR = "W";
   var log;
   var Block = getBlocknum(0);
-  var appBlock = strToHex(Block);
   var data = strToHex(data0);
-
-appWriteData(data0, function(error, result){
+appWriteData(data, function(error, result){
     if(error){
       console.log(error);
       return;
@@ -210,6 +206,7 @@ function writeBlock1(){
   updateLog(log);
 }
 
+
 function writeBlock2(){
   getData();
   WorR = "W";
@@ -219,6 +216,7 @@ function writeBlock2(){
   var appBlock = strToHex(Block);
   var payload = {
     data, appBlock
+
   }
 appWriteData(payload, function(error, result){
     if(error){
@@ -295,13 +293,7 @@ function readBlock0(){
   WorR = "R";
   var log;
   var Block = getBlocknum(0);
-  var data = "0x" + BackEndstrToHex(Block);
-  updateLog("Testing BackEndFunc");
-  updateLog(data);
-
-  updateLog(appBlock);
-  var testblock = "0x04";
-  appReadData(testblock, function(error, result){
+  appReadData(Block, function(error, result){
     if(error){
       console.log(error);
       return;
@@ -567,11 +559,7 @@ function BackEndstrToHex(str){
   else {
     return "0x" + hex;
   }
-
-
-
-
-
+  return hex;
 }
 
 // Key has to be 12 chars not converted to hex

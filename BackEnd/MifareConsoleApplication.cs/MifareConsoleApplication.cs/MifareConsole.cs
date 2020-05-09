@@ -21,7 +21,7 @@ namespace MifareConsoleApplication
         }
         public static void runReadMifare()
         {
-            byte test = 0x04;
+            byte test = 4;
             var read = new MifareAPI.ReadMifareClassic1k();
             string _output = read.RunReadMifare(test);
             Console.Write( _output);
@@ -29,9 +29,9 @@ namespace MifareConsoleApplication
         
         public static void runWriteMifare()
         {
-            byte _test = 0x04;
+            byte _test = 4;
             var write = new MifareAPI.UpdateMifareClassic1k();
-            string _output = write.RunWriteMifare("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", _test);
+            string _output = write.RunWriteMifare("FFBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB", _test);
             Console.Write(_output);
         }
         
