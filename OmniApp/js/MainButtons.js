@@ -170,17 +170,17 @@ function writeBlock1(){
   WorR = "W";
   var log;
   var Block = getBlocknum(1);
-  var data = strToHex(data1);
+  //var data = strToHex(data1);
 
   // if data = false str to hex failed the 12 char requirement
-  if (data != false && key != false){
+  if (data1 != false && key != false){
 
     //WriteData(data,Block);
 
-    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 1) " + " Data :  " + data + " Key : " + key;
+    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 1) " + " Data :  " + data1 + " Key : " + key;
   }
   else{
-    if (data == false && key == false){
+    if (data1 == false && key == false){
       log = "Write Failed. Your data and key fields have errors. Check them and try again.";
     }
     else{
@@ -200,19 +200,19 @@ function writeBlock2(){
   WorR = "W";
   var log;
   var Block = getBlocknum(2);
-  var data = strToHex(data2);
+  //var data = strToHex(data2);
 
   // if data = false str to hex failed the 12 char requirement
-  if (data != false && key != false){
+  if (data2 != false && key != false){
     //WriteData(data,Block);
-    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 2) " + " Data :  " + data + " Key : " + key;
+    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 2) " + " Data :  " + data2 + " Key : " + key;
   }
   else{
-    if (data == false && key == false){
+    if (data2 == false && key == false){
       log = "Write Failed. Your data and key fields have errors. Check them and try again.";
     }
     else{
-      if (data == false){
+      if (data2 == false){
         log = "Write Failed. Your data has errors. It doesn't translate to 32 Characters long in hex.";
       }
       if (key == false){
@@ -228,7 +228,7 @@ function writeBlock3(){
   WorR = "W";
   var log;
   var Block = getBlocknum(3);
-  var data = strToHex(data3);
+  //var data = strToHex(data3);
 
   // if data = false str to hex failed the 12 char requirement
   if (data != false && key != false){

@@ -39,13 +39,21 @@ namespace MifareConsoleApplication
             bool check = key.RunLoadkey("FFFFFFFFFFFF");
             Console.Write(check);
         }
+        public static void runIncrementBlock()
+        {
+            var inc = new MifareAPI.IncrementMifareClassic1k();
+            inc.Run(WebReader.PcscReaderName);
+        }
         public static void run()
         {
             InitWebReader();
+
             //Console.WriteLine(WebReader.PcscReaderName + ContextHandler.Instance.Handle);
             runLoadkey();
+            runIncrementBlock();
             runWriteMifare();
             runReadMifare();
+            
         }
         static void Main(string[] args)
         {
