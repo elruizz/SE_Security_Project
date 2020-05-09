@@ -8,15 +8,19 @@ namespace HidGlobal.OK.Readers
 {
     class MifareWriteBlockData
     {
+        
         public async Task<object>
            Invoke(object input)
         {
-            string _input = (string)input;
             var _write = new MifareAPI.UpdateMifareClassic1k();
             var InitMifareBackEnd = new MifareAPI.InitReader();
+
+            byte _blockinput = 0x04;
+            string _input = (string)input;
+            
             ISmartCardReader WebReader = InitMifareBackEnd.RunInitReader();
             WebReader = InitMifareBackEnd.RunInitReader();
-            return _write.RunWriteMifare(_input);
+            return _write.RunWriteMifare(_input, _blockinput);
         }
     }
 }

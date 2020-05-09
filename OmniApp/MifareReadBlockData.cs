@@ -11,13 +11,12 @@ namespace HidGlobal.OK.Readers
         public async Task<object>
             Invoke(object input)
         {
-            
+            byte _input = 0x04;
             var _read = new MifareAPI.ReadMifareClassic1k();
             var InitMifareBackEnd = new MifareAPI.InitReader();
             ISmartCardReader WebReader = InitMifareBackEnd.RunInitReader();
             WebReader = InitMifareBackEnd.RunInitReader();
-            _read.Run(WebReader.PcscReaderName);
-            return _read.RunReadMifare(WebReader.PcscReaderName);
+           return _read.RunReadMifare(_input);
         }
 
     }

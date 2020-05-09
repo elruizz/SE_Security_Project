@@ -37,6 +37,8 @@ var appWriteData = edge.func({
   assemblyFile: 'HidGlobal.OK.Readers.dll',
   typeName: 'HidGlobal.OK.Readers.MifareWriteBlockData'
 });
+
+
 // An old way to call Edge
 /*
 var getLoadKey = edge.func({
@@ -88,6 +90,7 @@ appLoadKey(key, function(error, result){
   }
   Back_key = result;
 })
+//An old way to call function with old implimentation
 /*
   getLoadKey(key, (err, result) =>{
     if(err) {
@@ -130,11 +133,12 @@ function readerConnect() {
 // Write functions
 function writeBlock0(){
   getData();
-
   WorR = "W";
   var log;
   var Block = getBlocknum(0);
-  //var data = strToHex(data0);
+  var appBlock = strToHex(Block);
+  var data = strToHex(data0);
+
 appWriteData(data0, function(error, result){
     if(error){
       console.log(error);
@@ -145,16 +149,16 @@ appWriteData(data0, function(error, result){
   })
 
   // if data = false str to hex failed the 12 char requirement
-  if (data0 != false && key != false){
+  if (data != false && key != false){
     //WriteData(data,Block);
-    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 0) " + " Data : " + data0 + " Key : " + key;
+    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 0) " + " Data : " + data + " Key : " + key;
   }
   else{
-    if (data0 == false && key == false){
+    if (data == false && key == false){
       log = "Write Failed. Your data and key fields have errors. Check them and try again.";
     }
     else{
-      if (data0 == false){
+      if (data == false){
         log = "Write Failed. Your data has errors. It doesn't translate to 32 Characters long in hex.";
       }
       if (key == false){
@@ -170,17 +174,28 @@ function writeBlock1(){
   WorR = "W";
   var log;
   var Block = getBlocknum(1);
-  //var data = strToHex(data1);
+  var data = strToHex(data1);
+  var appBlock = strToHex(Block);
+  var payload = {
+    data, appBlock
+  }
+  appWriteData(payload, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    updateLog("Writing data " + result);
 
+  })
   // if data = false str to hex failed the 12 char requirement
   if (data1 != false && key != false){
 
-    //WriteData(data,Block);
+    WriteData(data,Block);
 
-    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 1) " + " Data :  " + data1 + " Key : " + key;
+    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 1) " + " Data :  " + data + " Key : " + key;
   }
   else{
-    if (data1 == false && key == false){
+    if (data == false && key == false){
       log = "Write Failed. Your data and key fields have errors. Check them and try again.";
     }
     else{
@@ -200,8 +215,19 @@ function writeBlock2(){
   WorR = "W";
   var log;
   var Block = getBlocknum(2);
-  //var data = strToHex(data2);
+  var data = strToHex(data2);
+  var appBlock = strToHex(Block);
+  var payload = {
+    data, appBlock
+  }
+appWriteData(payload, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    updateLog("Writing data " + result);
 
+  })
   // if data = false str to hex failed the 12 char requirement
   if (data2 != false && key != false){
     //WriteData(data,Block);
@@ -228,8 +254,19 @@ function writeBlock3(){
   WorR = "W";
   var log;
   var Block = getBlocknum(3);
-  //var data = strToHex(data3);
+  var data = strToHex(data3);
+  var appBlock = strToHex(Block);
+  var payload = {
+    data, appBlock
+  }
+  appWriteData(payload, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    updateLog("Writing data " + result);
 
+  })
   // if data = false str to hex failed the 12 char requirement
   if (data != false && key != false){
     //WriteData(data,Block);
@@ -255,16 +292,23 @@ function writeBlock3(){
 // Read functions
 function readBlock0(){
   getData();
-  appReadData(null, function(error, result){
+  WorR = "R";
+  var log;
+  var Block = getBlocknum(0);
+  var data = "0x" + BackEndstrToHex(Block);
+  updateLog("Testing BackEndFunc");
+  updateLog(data);
+
+  updateLog(appBlock);
+  var testblock = "0x04";
+  appReadData(testblock, function(error, result){
     if(error){
       console.log(error);
       return;
     }
     Back_data = result;
   })
-  WorR = "R";
-  var log;
-  var Block = getBlocknum(0);
+
 
   if (key != false){
     //ReadData(Block);
@@ -280,6 +324,14 @@ function readBlock0(){
 
 function readBlock1(){
   getData();
+
+  appReadData(appBlock, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    Back_data = result;
+  })
   WorR = "R";
   var log;
   var Block = getBlocknum(1);
@@ -298,6 +350,14 @@ function readBlock1(){
 
 function readBlock2(){
   getData();
+
+  appReadData(appBlock, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    Back_data = result;
+  })
   WorR = "R";
   var log;
   var Block = getBlocknum(2);
@@ -316,6 +376,14 @@ function readBlock2(){
 
 function readBlock3(){
   getData();
+  appBlock = "0x" + getBlocknum(3);
+  appReadData(appBlock, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    Back_data = result;
+  })
   WorR = "R";
   var log;
   var Block = getBlocknum(3);
@@ -490,6 +558,20 @@ function strToHex(str){
   else{
       return false;
   }
+}
+function BackEndstrToHex(str){
+  var hex = str.toString(16);
+  if(hex.length == 1){
+    hex = "0x0" + hex;
+  }
+  else {
+    return "0x" + hex;
+  }
+
+
+
+
+
 }
 
 // Key has to be 12 chars not converted to hex

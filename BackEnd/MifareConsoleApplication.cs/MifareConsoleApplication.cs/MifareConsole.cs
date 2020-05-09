@@ -21,15 +21,17 @@ namespace MifareConsoleApplication
         }
         public static void runReadMifare()
         {
+            byte test = 0x04;
             var read = new MifareAPI.ReadMifareClassic1k();
-            string _output = read.RunReadMifare(WebReader.PcscReaderName);
+            string _output = read.RunReadMifare(test);
             Console.Write( _output);
         }
         
         public static void runWriteMifare()
         {
+            byte _test = 0x04;
             var write = new MifareAPI.UpdateMifareClassic1k();
-            string _output = write.RunWriteMifare("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+            string _output = write.RunWriteMifare("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", _test);
             Console.Write(_output);
         }
         
@@ -39,18 +41,13 @@ namespace MifareConsoleApplication
             bool check = key.RunLoadkey("FFFFFFFFFFFF");
             Console.Write(check);
         }
-        public static void runIncrementBlock()
-        {
-            var inc = new MifareAPI.IncrementMifareClassic1k();
-            inc.Run(WebReader.PcscReaderName);
-        }
         public static void run()
         {
             InitWebReader();
 
             //Console.WriteLine(WebReader.PcscReaderName + ContextHandler.Instance.Handle);
             runLoadkey();
-            runIncrementBlock();
+            
             runWriteMifare();
             runReadMifare();
             
