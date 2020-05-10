@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Globalization;
 namespace HidGlobal.OK.Readers
 {
     class MifareReadBlockData
     {
         public async Task<object>
-            Invoke(object input)
+            Invoke(dynamic input)
         {
-            byte _input = 4;
+
+            byte _input = Byte.Parse(input, NumberStyles.HexNumber);
             var _read = new MifareAPI.ReadMifareClassic1k();
             var InitMifareBackEnd = new MifareAPI.InitReader();
             ISmartCardReader WebReader = InitMifareBackEnd.RunInitReader();

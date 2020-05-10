@@ -135,14 +135,23 @@ function writeBlock0(){
   var log;
   var Block = getBlocknum(0);
   var data = strToHex(data0);
-appWriteData(data, function(error, result){
+  var payload = {
+    _input: data,
+    _blockinput: Block
+  };
+appWriteData(payload, function(error, result){
     if(error){
       console.log(error);
       return;
     }
-    updateLog("Writing data " + result);
+      if(result == 9000){
+      updateLog("Succesful Write");
+  }
+    else{
+      updateLog("Unsuccesful Write");
+    }
+    })
 
-  })
 
   // if data = false str to hex failed the 12 char requirement
   if (data != false && key != false){
@@ -171,22 +180,26 @@ function writeBlock1(){
   var log;
   var Block = getBlocknum(1);
   var data = strToHex(data1);
-  var appBlock = strToHex(Block);
+  var appBlock = BackEndstrToHex(Block);
   var payload = {
-    data, appBlock
-  }
-  appWriteData(payload, function(error, result){
+    _input: data,
+    _blockinput: Block
+  };
+appWriteData(payload, function(error, result){
     if(error){
       console.log(error);
       return;
     }
-    updateLog("Writing data " + result);
+      if(result == 9000){
+      updateLog("Succesful Write");
+  }
+    else{
+      updateLog("Unsuccesful Write");
+    }
+    })
 
-  })
   // if data = false str to hex failed the 12 char requirement
   if (data1 != false && key != false){
-
-    WriteData(data,Block);
 
     log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 1) " + " Data :  " + data + " Key : " + key;
   }
@@ -213,19 +226,23 @@ function writeBlock2(){
   var log;
   var Block = getBlocknum(2);
   var data = strToHex(data2);
-  var appBlock = strToHex(Block);
+  var appBlock = BackEndstrToHex(Block);
   var payload = {
-    data, appBlock
-
-  }
+    _input: data,
+    _blockinput: Block
+  };
 appWriteData(payload, function(error, result){
     if(error){
       console.log(error);
       return;
     }
-    updateLog("Writing data " + result);
-
-  })
+      if(result == 9000){
+      updateLog("Succesful Write");
+  }
+    else{
+      updateLog("Unsuccesful Write");
+    }
+    })
   // if data = false str to hex failed the 12 char requirement
   if (data2 != false && key != false){
     //WriteData(data,Block);
@@ -253,18 +270,23 @@ function writeBlock3(){
   var log;
   var Block = getBlocknum(3);
   var data = strToHex(data3);
-  var appBlock = strToHex(Block);
+  var appBlock = BackEndstrToHex(Block);
   var payload = {
-    data, appBlock
-  }
-  appWriteData(payload, function(error, result){
+    _input: data,
+    _blockinput: Block
+  };
+appWriteData(payload, function(error, result){
     if(error){
       console.log(error);
       return;
     }
-    updateLog("Writing data " + result);
-
-  })
+      if(result == 9000){
+      updateLog("Succesful Write");
+  }
+    else{
+      updateLog("Unsuccesful Write");
+    }
+    })
   // if data = false str to hex failed the 12 char requirement
   if (data != false && key != false){
     //WriteData(data,Block);
@@ -293,6 +315,8 @@ function readBlock0(){
   WorR = "R";
   var log;
   var Block = getBlocknum(0);
+  updateLog("ReadBlock 0 " + Block);
+  var appBlock = BackEndstrToHex(Block);
   appReadData(Block, function(error, result){
     if(error){
       console.log(error);
@@ -316,7 +340,10 @@ function readBlock0(){
 
 function readBlock1(){
   getData();
-
+  WorR = "R";
+  var log;
+  var Block = getBlocknum(1);
+  var appBlock = BackEndstrToHex(Block);
   appReadData(appBlock, function(error, result){
     if(error){
       console.log(error);
@@ -324,9 +351,6 @@ function readBlock1(){
     }
     Back_data = result;
   })
-  WorR = "R";
-  var log;
-  var Block = getBlocknum(1);
 
   if (key != false){
     //ReadData(Block);
@@ -342,7 +366,10 @@ function readBlock1(){
 
 function readBlock2(){
   getData();
-
+  WorR = "R";
+  var log;
+  var Block = getBlocknum(2);
+  var appBlock = BackEndstrToHex(Block);
   appReadData(appBlock, function(error, result){
     if(error){
       console.log(error);
@@ -350,9 +377,6 @@ function readBlock2(){
     }
     Back_data = result;
   })
-  WorR = "R";
-  var log;
-  var Block = getBlocknum(2);
 
   if (key != false){
     //ReadData(Block);
@@ -368,7 +392,10 @@ function readBlock2(){
 
 function readBlock3(){
   getData();
-  appBlock = "0x" + getBlocknum(3);
+  WorR = "R";
+  var log;
+  var Block = getBlocknum(3);
+  var appBlock = BackEndstrToHex(Block);
   appReadData(appBlock, function(error, result){
     if(error){
       console.log(error);
@@ -376,9 +403,6 @@ function readBlock3(){
     }
     Back_data = result;
   })
-  WorR = "R";
-  var log;
-  var Block = getBlocknum(3);
 
   if (key != false){
     //ReadData(Block);
@@ -553,13 +577,12 @@ function strToHex(str){
 }
 function BackEndstrToHex(str){
   var hex = str.toString(16);
-  if(hex.length == 1){
-    hex = "0x0" + hex;
-  }
-  else {
-    return "0x" + hex;
-  }
-  return hex;
+if(hex.length == 1){
+  return "0x0" + hex;
+}
+else
+  return "0x" + hex;
+
 }
 
 // Key has to be 12 chars not converted to hex
