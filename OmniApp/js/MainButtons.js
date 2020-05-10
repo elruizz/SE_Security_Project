@@ -315,8 +315,6 @@ function readBlock0(){
   WorR = "R";
   var log;
   var Block = getBlocknum(0);
-  updateLog("ReadBlock 0 " + Block);
-  var appBlock = BackEndstrToHex(Block);
   appReadData(Block, function(error, result){
     if(error){
       console.log(error);
