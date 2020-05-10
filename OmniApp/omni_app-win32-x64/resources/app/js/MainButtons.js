@@ -1,7 +1,8 @@
 // var request = new XMLHttpRequest();
 // request.open('GET', 'http://localhost:8080/test/');
 // request.onload= function()
-var edge = remote.require('electron-edge-js');
+var path = require('path');
+var edge = require('electron-edge-js');
 //export for our js file to use for the serve
 
 // Adding exit button functionality
@@ -18,43 +19,60 @@ document.getElementById("Button-Read-Block-0").onclick = readBlock0;
 document.getElementById("Button-Read-Block-1").onclick = readBlock1;
 document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
-var appReader = require('edge').func({
+
+// Clear log
+document.getElementById("Clear-Log").onclick = clearLog;
+
+//Import Edge Functions
+var appLoadKey = edge.func({
   assemblyFile: 'HidGlobal.OK.Readers.dll',
-  typeName: 'HidGlobal.OK.Reader.MifareAPI',
-  methodName: 'RunInitReader'
+  typeName: 'HidGlobal.OK.Readers.MifareLoadKey'
+});
+var appReadData = edge.func({
+  assemblyFile: 'HidGlobal.OK.Readers.dll',
+  typeName: 'HidGlobal.OK.Readers.MifareReadBlockData'
+});
+var appInitReader = edge.func({
+  assemblyFile: 'HidGlobal.OK.Readers.dll',
+  typeName: 'HidGlobal.OK.Readers.MifareInitReader'
+});
+var appWriteData = edge.func({
+  assemblyFile: 'HidGlobal.OK.Readers.dll',
+  typeName: 'HidGlobal.OK.Readers.MifareWriteBlockData'
 });
 
-//var initReader = edge.func(function(){
+
+// An old way to call Edge
 /*
-  #r "HidGlobal.OK.Readers.dll"
-  using HidGlobal.OK.Readers.AViatoR.Components;
-  using HidGlobal.OK.Readers.Components;
-  using System;
-  using System.Linq;
-  using System.ComponentModel;
-  using System.Collections.Generic;
-  using HidGlobal.OK.Readers;
-  async(data) =>
-  {
-      await Task.Run(async () =>
+var getLoadKey = edge.func({
+  source: path.join(__dirname, 'MifareLoadKey.cs')
+  ,
+  typeName: 'HidGlobal.OK.Readers.MifareLoadKey',
+  references :[
+    ('HidGlobal.OK.Readers.dll')
+  ]});
 
 
-});
-*/  //})
+*/
+
 // Key Loader button
 document.getElementById("Load-Key").onclick = loadKey;
-
+//connect to reader button
+document.getElementById("ConnectReader").onclick = readerConnect;
 
 // Variables to store user data
 var UID;
 var WorR;
 var sector;
 var key;
+var Back_key;
+var Back_data;
 var data0;
 var data1;
 var data2;
 var data3;
 const assert = require('assert');
+var readerName;
 
 // Exit the application
 function ExitClick(){
@@ -63,26 +81,80 @@ function ExitClick(){
 
 // Load Key Function
 function loadKey(){
+
   prekey = document.getElementById("key").value;
   key = keyCheck(prekey);
+appLoadKey(key, function(error, result){
+  if(error){
+    console.log(error);
+    return;
+  }
+  Back_key = result;
+})
+//An old way to call function with old implimentation
+/*
+  getLoadKey(key, (err, result) =>{
+    if(err) {
+      console.log("ERROR FOUND: ");
+      console.log(err);
+      return;
+    }
+    updateLog(result);
+    Back_key = result;
+  });
+  appReader(key, )
+*/
   var log;
   if(key != false){
-    log = "Key Loaded";
+    log = "Key Loaded ";
   }
   else {
-    log = "Key not loaded";
+    log = "Key not loaded ";
   }
-  updateLog(log);
+if(Back_key == true){
+  updateLog(log + key + " Sucessfully");
 }
+  else {
+    updateLog(log + "Failed");
+  }
+}
+
+
+//Connect to Reader Function
+function readerConnect() {
+  appInitReader(null, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    updateLog(result);
+  })
+  }
 
 // Write functions
 function writeBlock0(){
   getData();
-  //appReader();
   WorR = "W";
   var log;
   var Block = getBlocknum(0);
   var data = strToHex(data0);
+  var payload = {
+    _input: data,
+    _blockinput: Block
+  };
+appWriteData(payload, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+      if(result == 9000){
+      updateLog("Succesful Write");
+  }
+    else{
+      updateLog("Unsuccesful Write");
+    }
+    })
+
 
   // if data = false str to hex failed the 12 char requirement
   if (data != false && key != false){
@@ -111,11 +183,25 @@ function writeBlock1(){
   var log;
   var Block = getBlocknum(1);
   var data = strToHex(data1);
-
+  var appBlock = BackEndstrToHex(Block);
+  var payload = {
+    _input: data,
+    _blockinput: Block
+  };
+appWriteData(payload, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+      if(result == 9000){
+      updateLog("Succesful Write");
+  }
+    else{
+      updateLog("Unsuccesful Write");
+    }
+    })
   // if data = false str to hex failed the 12 char requirement
-  if (data != false && key != false){
-
-    //WriteData(data,Block);
+  if (data1 != false && key != false){
 
     log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 1) " + " Data :  " + data + " Key : " + key;
   }
@@ -135,24 +221,41 @@ function writeBlock1(){
   updateLog(log);
 }
 
+
 function writeBlock2(){
   getData();
   WorR = "W";
   var log;
   var Block = getBlocknum(2);
   var data = strToHex(data2);
-
+  var appBlock = BackEndstrToHex(Block);
+  var payload = {
+    _input: data,
+    _blockinput: Block
+  };
+appWriteData(payload, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+      if(result == 9000){
+      updateLog("Succesful Write");
+  }
+    else{
+      updateLog("Unsuccesful Write");
+    }
+    })
   // if data = false str to hex failed the 12 char requirement
-  if (data != false && key != false){
+  if (data2 != false && key != false){
     //WriteData(data,Block);
-    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 2) " + " Data :  " + data + " Key : " + key;
+    log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 2) " + " Data :  " + data2 + " Key : " + key;
   }
   else{
-    if (data == false && key == false){
+    if (data2 == false && key == false){
       log = "Write Failed. Your data and key fields have errors. Check them and try again.";
     }
     else{
-      if (data == false){
+      if (data2 == false){
         log = "Write Failed. Your data has errors. It doesn't translate to 32 Characters long in hex.";
       }
       if (key == false){
@@ -169,7 +272,23 @@ function writeBlock3(){
   var log;
   var Block = getBlocknum(3);
   var data = strToHex(data3);
-
+  var appBlock = BackEndstrToHex(Block);
+  var payload = {
+    _input: data,
+    _blockinput: Block
+  };
+appWriteData(payload, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+      if(result == 9000){
+      updateLog("Succesful Write");
+  }
+    else{
+      updateLog("Unsuccesful Write");
+    }
+    })
   // if data = false str to hex failed the 12 char requirement
   if (data != false && key != false){
     //WriteData(data,Block);
@@ -198,6 +317,14 @@ function readBlock0(){
   WorR = "R";
   var log;
   var Block = getBlocknum(0);
+  appReadData(Block, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    Back_data = result;
+  })
+
 
   if (key != false){
     //ReadData(Block);
@@ -207,7 +334,7 @@ function readBlock0(){
   else{
     log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
-
+  updateLog("Data: " + Back_data);
   updateLog(log);
 }
 
@@ -217,6 +344,14 @@ function readBlock1(){
   var log;
   var Block = getBlocknum(1);
 
+  appReadData(Block, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    Back_data = result;
+  })
+
   if (key != false){
     //ReadData(Block);
     log = "Read from Block " + Block + " / (Sector " + sector + " Block 1) Key : " + key ;
@@ -225,7 +360,7 @@ function readBlock1(){
   else{
     log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
-
+  updateLog("Data: " + Back_data);
   updateLog(log);
 }
 
@@ -235,6 +370,14 @@ function readBlock2(){
   var log;
   var Block = getBlocknum(2);
 
+  appReadData(Block, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    Back_data = result;
+  })
+
   if (key != false){
     //ReadData(Block);
     log = "Read from Block " + Block + " / (Sector " + sector + " Block 2) Key : " + key ;
@@ -243,7 +386,7 @@ function readBlock2(){
   else{
     log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
-
+  updateLog("Data: " + Back_data);
   updateLog(log);
 }
 
@@ -253,6 +396,14 @@ function readBlock3(){
   var log;
   var Block = getBlocknum(3);
 
+  appReadData(Block, function(error, result){
+    if(error){
+      console.log(error);
+      return;
+    }
+    Back_data = result;
+  })
+
   if (key != false){
     //ReadData(Block);
     log = "Read from Block " + Block + " / (Sector " + sector + " Block 3) Key : " + key ;
@@ -261,7 +412,7 @@ function readBlock3(){
   else{
     log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
-
+  updateLog("Data: " + Back_data);
   updateLog(log);
 }
 
@@ -424,6 +575,16 @@ function strToHex(str){
       return false;
   }
 }
+function BackEndstrToHex(str){
+  var hex = str.toString(16);
+  if(hex.length == 1){
+    hex = "0x0" + hex;
+  }
+  else {
+    return "0x" + hex;
+  }
+  return hex;
+}
 
 // Key has to be 12 chars not converted to hex
 // same function as above but checking for length 12
@@ -449,6 +610,19 @@ function updateLog(str){
   document.getElementById("Log1").innerText = str;
 }
 
+function clearLog(str){
+  document.getElementById("Log10").innerText = ".";
+  document.getElementById("Log9").innerText = ".";
+  document.getElementById("Log8").innerText = ".";
+  document.getElementById("Log7").innerText = ".";
+  document.getElementById("Log6").innerText = ".";
+  document.getElementById("Log5").innerText = ".";
+  document.getElementById("Log4").innerText = ".";
+  document.getElementById("Log3").innerText = ".";
+  document.getElementById("Log2").innerText = ".";
+  document.getElementById("Log1").innerText = ".";
+}
+
 // C# server communication write data
 function WriteData(data, block) {
 
@@ -460,21 +634,6 @@ function WriteData(data, block) {
 
   function onError(result) {
           alert('Cannot process your request at the moment.');
-  }
-
-}
-
-// C# server communication read data
-function ReadData(block) {
-
-  PageMethods.ReadData(UID, key, block, onSuccess, onError);
-
-  function onSuccess(result) {
-          alert(result);
-  }
-
-  function onError(result) {
-          alert('Cannot process your request at the moment');
   }
 
 }

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head runat="server">
     <meta charset="utf-8">
@@ -64,8 +64,9 @@
       </div>
       <div class="col-md-6" name="Key-input">
         <label type="text">Key</label>
-        <input type="text" id="key" value = "123123123123">
+        <input type="text" id="key">
         <button id = "Load-Key">Load Key</button>
+        <button id = "ConnectReader">Connect to Reader</button>
       </div>
     </div>
 
@@ -73,7 +74,7 @@
       <div class="col-md-9">
           <div class="Block-0">
             <label for="usr">Block 0:</label>
-            <input type="text" class="form-control" id="usr_block_0" value = "123456789012345678901234567890123456789">
+            <input type="text" class="form-control" id="usr_block_0" value = "123456789012345678901234567890123456789" >
             <button id = "Button-Write-Block-0">Write</button>
             <button id = "Button-Read-Block-0">Read</button>
           </div>
@@ -119,7 +120,9 @@
     </div>
 
     <div class="row" name="row_6">
-      <div class="col-auto"><button id="Exit">Exit</button></div>
+      <div class="col-md-1"><button id="Exit">Exit</button></div>
+      <div class="col-md-10"></div>
+      <div class="col-md-1"><button id="Clear-Log">Clear Log</button></div>
     </div>
 
     <div>
