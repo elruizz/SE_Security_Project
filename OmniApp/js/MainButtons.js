@@ -343,8 +343,8 @@ function readBlock1(){
   WorR = "R";
   var log;
   var Block = getBlocknum(1);
-  var appBlock = BackEndstrToHex(Block);
-  appReadData(appBlock, function(error, result){
+
+  appReadData(Block, function(error, result){
     if(error){
       console.log(error);
       return;
@@ -369,8 +369,8 @@ function readBlock2(){
   WorR = "R";
   var log;
   var Block = getBlocknum(2);
-  var appBlock = BackEndstrToHex(Block);
-  appReadData(appBlock, function(error, result){
+
+  appReadData(Block, function(error, result){
     if(error){
       console.log(error);
       return;
@@ -395,8 +395,8 @@ function readBlock3(){
   WorR = "R";
   var log;
   var Block = getBlocknum(3);
-  var appBlock = BackEndstrToHex(Block);
-  appReadData(appBlock, function(error, result){
+
+  appReadData(Block, function(error, result){
     if(error){
       console.log(error);
       return;
