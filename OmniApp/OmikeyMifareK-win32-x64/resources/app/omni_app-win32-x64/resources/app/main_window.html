@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head runat="server">
+    <meta charset="utf-8">
+    <title>OMNIKey Reader</title>
+    <script src="renderer.js"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="stylesheets/main_style.css" type="text/css">
+    <link rel="stylesheet" href="stylesheets/ToggleReadWrite.css" type="text/css">
+    <!-- mainly for mobile devices i believe -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+    <div class="row" name="row_1">
+      <div class="col-md-5">
+        <h1>OMNIKey Reader/Writer</h1>
+      </div>
+      <div class="fixed-top">
+        <div class="col-md-auto">
+          <div class="dropdown" name="sector_drpdn">
+            <button onclick="DropDownMenu()" class="dropbtn">Sector Selection</button>
+            <div id="myDropdown" class="dropdown-content">
+              <a id = "Sector_0" >Sector 0</a>
+              <a id = "Sector_1" >Sector 1</a>
+              <a id = "Sector_2" >Sector 2</a>
+              <a id = "Sector_3" >Sector 3</a>
+              <a id = "Sector_4" >Sector 4</a>
+              <a id = "Sector_5" >Sector 5</a>
+              <a id = "Sector_6" >Sector 6</a>
+              <a id = "Sector_7" >Sector 7</a>
+              <a id = "Sector_8" >Sector 8</a>
+              <a id = "Sector_9" >Sector 9</a>
+              <a id = "Sector_10">Sector 10</a>
+              <a id = "Sector_11">Sector 11</a>
+              <a id = "Sector_12">Sector 12</a>
+              <a id = "Sector_13">Sector 13</a>
+              <a id = "Sector_14">Sector 14</a>
+              <a id = "Sector_15">Sector 15</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" name="row_2">
+      <div class="col-md-6" name="sector_data">
+          <label type="text" id="sector_lbl">Sector</label>
+          <label type="text" id="sector_num">0</label>
+      </div>
+    </div>
+
+    <div class="row" name="row_3">
+      <div class="col-md-6" name="UID-col">
+        <label type="text">UID</label>
+        <input type="text" name="UID-input" readonly="readonly">
+      </div>
+      <div class="col-md-6" name="Key-input">
+        <label type="text">Key</label>
+        <input type="text" id="key" value = "123123123123">
+        <button id = "Load-Key">Load Key</button>
+      </div>
+    </div>
+
+    <div class="row" name="row_4">
+      <div class="col-md-9">
+          <div class="Block-0">
+            <label for="usr">Block 0:</label>
+            <input type="text" class="form-control" id="usr_block_0" value = "123456789012345678901234567890123456789">
+            <button id = "Button-Write-Block-0">Write</button>
+            <button id = "Button-Read-Block-0">Read</button>
+          </div>
+          <div class="Block-1">
+            <label for="usr">Block 1:</label>
+            <input type="text" class="form-control" id="usr_block_1">
+            <button id = "Button-Write-Block-1">Write</button>
+            <button id = "Button-Read-Block-1">Read</button>
+          </div>
+          <div class="Block-2">
+            <label for="usr">Block 2:</label>
+            <input type="text" class="form-control" id="usr_block_2">
+            <button id = "Button-Write-Block-2">Write</button>
+            <button id = "Button-Read-Block-2">Read</button>
+          </div>
+          <div class="Block-3">
+            <label for="usr">Block 3:</label>
+            <input type="text" class="form-control" id="usr_block_3">
+            <button id = "Button-Write-Block-3">Write</button>
+            <button id = "Button-Read-Block-3">Read</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" name="row_5">
+      <div class="col-md-6" id="log_lbl">
+        <p>Most recent log</p>
+      </div>
+      <div class= "col-md-6" id = "logcol1">
+        <p id = "Log1"> Nothing logged yet</p>
+        <p id = "Log2"> . </p>
+        <p id = "Log3"> . </p>
+        <p id = "Log4"> . </p>
+        <p id = "Log5"> . </p>
+      </div>
+      <div class= "col-md-6" id = "logcol2">
+        <p id = "Log6"> . </p>
+        <p id = "Log7"> . </p>
+        <p id = "Log8"> . </p>
+        <p id = "Log9"> . </p>
+        <p id = "Log10"> . </p>
+      </div>
+    </div>
+
+    <div class="row" name="row_6">
+      <div class="col-auto"><button id="Exit">Exit</button></div>
+    </div>
+
+    <div>
+      <asp:ScriptManager ID = "ScriptManger1" runat="server" EnablePageMethods = "true"></asp:ScriptManager>
+    </div>
+  </body>
+  <script src="js/MainButtons.js"></script>
+</html>
