@@ -183,9 +183,19 @@ function writeBlock1(){
       console.log(error);
       return;
     }
+<<<<<<< HEAD
     updateLog("Writing data " + result);
 
   })
+=======
+      if(result == 9000){
+      updateLog("Succesful Write");
+  }
+    else{
+      updateLog("Unsuccesful Write");
+    }
+    })
+>>>>>>> ethan
   // if data = false str to hex failed the 12 char requirement
   if (data1 != false && key != false){
 
