@@ -319,16 +319,15 @@ function readBlock0(){
 
 function readBlock1(){
   getData();
-<<<<<<< HEAD
 
   appReadData(appBlock, function(error, result){
-=======
+
   WorR = "R";
   var log;
   var Block = getBlocknum(1);
 
   appReadData(Block, function(error, result){
->>>>>>> ethan
+
     if(error){
       console.log(error);
       return;
@@ -353,16 +352,15 @@ function readBlock1(){
 
 function readBlock2(){
   getData();
-<<<<<<< HEAD
+
 
   appReadData(appBlock, function(error, result){
-=======
+
   WorR = "R";
   var log;
   var Block = getBlocknum(2);
 
   appReadData(Block, function(error, result){
->>>>>>> ethan
     if(error){
       console.log(error);
       return;
@@ -387,16 +385,14 @@ function readBlock2(){
 
 function readBlock3(){
   getData();
-<<<<<<< HEAD
+
   appBlock = "0x" + getBlocknum(3);
   appReadData(appBlock, function(error, result){
-=======
   WorR = "R";
   var log;
   var Block = getBlocknum(3);
 
   appReadData(Block, function(error, result){
->>>>>>> ethan
     if(error){
       console.log(error);
       return;
