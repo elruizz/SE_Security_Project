@@ -20,6 +20,9 @@ document.getElementById("Button-Read-Block-1").onclick = readBlock1;
 document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
 
+// Clear log
+document.getElementById("ClearLog").onclick = clearLog;
+
 //Import Edge Functions
 var appLoadKey = edge.func({
   assemblyFile: 'HidGlobal.OK.Readers.dll',
@@ -135,23 +138,14 @@ function writeBlock0(){
   var log;
   var Block = getBlocknum(0);
   var data = strToHex(data0);
-  var payload = {
-    _input: data,
-    _blockinput: Block
-  };
-appWriteData(payload, function(error, result){
+appWriteData(data, function(error, result){
     if(error){
       console.log(error);
       return;
     }
-      if(result == 9000){
-      updateLog("Succesful Write");
-  }
-    else{
-      updateLog("Unsuccesful Write");
-    }
-    })
+    updateLog("Writing data " + result);
 
+  })
 
   // if data = false str to hex failed the 12 char requirement
   if (data != false && key != false){
@@ -180,26 +174,22 @@ function writeBlock1(){
   var log;
   var Block = getBlocknum(1);
   var data = strToHex(data1);
-  var appBlock = BackEndstrToHex(Block);
+  var appBlock = strToHex(Block);
   var payload = {
-    _input: data,
-    _blockinput: Block
-  };
-appWriteData(payload, function(error, result){
+    data, appBlock
+  }
+  appWriteData(payload, function(error, result){
     if(error){
       console.log(error);
       return;
     }
-      if(result == 9000){
-      updateLog("Succesful Write");
-  }
-    else{
-      updateLog("Unsuccesful Write");
-    }
-    })
+    updateLog("Writing data " + result);
 
+  })
   // if data = false str to hex failed the 12 char requirement
   if (data1 != false && key != false){
+
+    WriteData(data,Block);
 
     log = "Wrote to Block " + Block + " / (Sector " + sector + " Block 1) " + " Data :  " + data + " Key : " + key;
   }
@@ -226,23 +216,19 @@ function writeBlock2(){
   var log;
   var Block = getBlocknum(2);
   var data = strToHex(data2);
-  var appBlock = BackEndstrToHex(Block);
+  var appBlock = strToHex(Block);
   var payload = {
-    _input: data,
-    _blockinput: Block
-  };
+    data, appBlock
+
+  }
 appWriteData(payload, function(error, result){
     if(error){
       console.log(error);
       return;
     }
-      if(result == 9000){
-      updateLog("Succesful Write");
-  }
-    else{
-      updateLog("Unsuccesful Write");
-    }
-    })
+    updateLog("Writing data " + result);
+
+  })
   // if data = false str to hex failed the 12 char requirement
   if (data2 != false && key != false){
     //WriteData(data,Block);
@@ -270,23 +256,18 @@ function writeBlock3(){
   var log;
   var Block = getBlocknum(3);
   var data = strToHex(data3);
-  var appBlock = BackEndstrToHex(Block);
+  var appBlock = strToHex(Block);
   var payload = {
-    _input: data,
-    _blockinput: Block
-  };
-appWriteData(payload, function(error, result){
+    data, appBlock
+  }
+  appWriteData(payload, function(error, result){
     if(error){
       console.log(error);
       return;
     }
-      if(result == 9000){
-      updateLog("Succesful Write");
-  }
-    else{
-      updateLog("Unsuccesful Write");
-    }
-    })
+    updateLog("Writing data " + result);
+
+  })
   // if data = false str to hex failed the 12 char requirement
   if (data != false && key != false){
     //WriteData(data,Block);
@@ -315,8 +296,6 @@ function readBlock0(){
   WorR = "R";
   var log;
   var Block = getBlocknum(0);
-  updateLog("ReadBlock 0 " + Block);
-  var appBlock = BackEndstrToHex(Block);
   appReadData(Block, function(error, result){
     if(error){
       console.log(error);
@@ -340,10 +319,7 @@ function readBlock0(){
 
 function readBlock1(){
   getData();
-  WorR = "R";
-  var log;
-  var Block = getBlocknum(1);
-  var appBlock = BackEndstrToHex(Block);
+
   appReadData(appBlock, function(error, result){
     if(error){
       console.log(error);
@@ -351,6 +327,9 @@ function readBlock1(){
     }
     Back_data = result;
   })
+  WorR = "R";
+  var log;
+  var Block = getBlocknum(1);
 
   if (key != false){
     //ReadData(Block);
@@ -366,10 +345,7 @@ function readBlock1(){
 
 function readBlock2(){
   getData();
-  WorR = "R";
-  var log;
-  var Block = getBlocknum(2);
-  var appBlock = BackEndstrToHex(Block);
+
   appReadData(appBlock, function(error, result){
     if(error){
       console.log(error);
@@ -377,6 +353,9 @@ function readBlock2(){
     }
     Back_data = result;
   })
+  WorR = "R";
+  var log;
+  var Block = getBlocknum(2);
 
   if (key != false){
     //ReadData(Block);
@@ -392,10 +371,7 @@ function readBlock2(){
 
 function readBlock3(){
   getData();
-  WorR = "R";
-  var log;
-  var Block = getBlocknum(3);
-  var appBlock = BackEndstrToHex(Block);
+  appBlock = "0x" + getBlocknum(3);
   appReadData(appBlock, function(error, result){
     if(error){
       console.log(error);
@@ -403,6 +379,9 @@ function readBlock3(){
     }
     Back_data = result;
   })
+  WorR = "R";
+  var log;
+  var Block = getBlocknum(3);
 
   if (key != false){
     //ReadData(Block);
@@ -577,12 +556,13 @@ function strToHex(str){
 }
 function BackEndstrToHex(str){
   var hex = str.toString(16);
-if(hex.length == 1){
-  return "0x0" + hex;
-}
-else
-  return "0x" + hex;
-
+  if(hex.length == 1){
+    hex = "0x0" + hex;
+  }
+  else {
+    return "0x" + hex;
+  }
+  return hex;
 }
 
 // Key has to be 12 chars not converted to hex
@@ -609,6 +589,19 @@ function updateLog(str){
   document.getElementById("Log1").innerText = str;
 }
 
+function clearLog(str){
+  document.getElementById("Log10").innerText = ".";
+  document.getElementById("Log9").innerText = ".";
+  document.getElementById("Log8").innerText = ".";
+  document.getElementById("Log7").innerText = ".";
+  document.getElementById("Log6").innerText = ".";
+  document.getElementById("Log5").innerText = ".";
+  document.getElementById("Log4").innerText = ".";
+  document.getElementById("Log3").innerText = ".";
+  document.getElementById("Log2").innerText = ".";
+  document.getElementById("Log1").innerText = ".";
+}
+
 // C# server communication write data
 function WriteData(data, block) {
 
@@ -620,21 +613,6 @@ function WriteData(data, block) {
 
   function onError(result) {
           alert('Cannot process your request at the moment.');
-  }
-
-}
-
-// C# server communication read data
-function ReadData(block) {
-
-  PageMethods.ReadData(UID, key, block, onSuccess, onError);
-
-  function onSuccess(result) {
-          alert(result);
-  }
-
-  function onError(result) {
-          alert('Cannot process your request at the moment');
   }
 
 }
