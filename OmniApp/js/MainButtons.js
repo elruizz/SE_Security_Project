@@ -197,7 +197,6 @@ appWriteData(payload, function(error, result){
       updateLog("Unsuccesful Write");
     }
     })
-
   // if data = false str to hex failed the 12 char requirement
   if (data1 != false && key != false){
 
