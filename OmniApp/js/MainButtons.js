@@ -358,7 +358,7 @@ function readBlock1(){
   else{
     log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
-
+  updateLog("Data: " + Back_data);
   updateLog(log);
 }
 
@@ -384,7 +384,7 @@ function readBlock2(){
   else{
     log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
-
+  updateLog("Data: " + Back_data);
   updateLog(log);
 }
 
@@ -410,7 +410,7 @@ function readBlock3(){
   else{
     log = "Read failed. Your key has errors. It doesn't translate to 12 Characters long in hex.";
   }
-
+  updateLog("Data: " + Back_data);
   updateLog(log);
 }
 
