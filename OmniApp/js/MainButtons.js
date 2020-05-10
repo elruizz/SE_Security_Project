@@ -21,7 +21,7 @@ document.getElementById("Button-Read-Block-2").onclick = readBlock2;
 document.getElementById("Button-Read-Block-3").onclick = readBlock3;
 
 // Clear log
-document.getElementById("ClearLog").onclick = clearLog;
+document.getElementById("Clear-Log").onclick = clearLog;
 
 //Import Edge Functions
 var appLoadKey = edge.func({
