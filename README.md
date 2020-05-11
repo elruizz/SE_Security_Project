@@ -14,6 +14,17 @@ Jonah Simon Jpsimon@mavs.coloradomesa.edu
 
 Jake Lambdin 
 
+Addendum Recording:
+https://coloradomesa.zoom.us/rec/share/3tVLBL766WVIZKfCymfdd-krAb33eaa80yUdqaAFzxnMZAY6OofwnMA1l6PL7PFL?startTime=1589158102000
+
+Addendum Presentation:
+https://docs.google.com/presentation/d/1EWSMXHq0xvuccW0XkCCht1GNloYpO9Ln8-JSDRkyQco/edit?usp=sharing
+
+Showcase Recording:
+https://coloradomesa.zoom.us/rec/share/wspnKfbqyE9LQZXStlPiBvcnH93vT6a8hCEY-PAEn0lSDyoaIk5hEcXUPLF-kveC
+Showcase Presentation:
+https://docs.google.com/presentation/d/1wfbqdbzwLVa5c5Xyq1elfb-HsY8grDsoizuy_aRau_k/edit?usp=sharing
+
 Mifare 1k classic blocks go from 0-63.
 in order to read a block you must authenticate.
 Use Key A or Key B to Authenticate.
