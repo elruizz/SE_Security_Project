@@ -22,6 +22,7 @@ https://docs.google.com/presentation/d/1EWSMXHq0xvuccW0XkCCht1GNloYpO9Ln8-JSDRky
 
 Showcase Recording:
 https://coloradomesa.zoom.us/rec/share/wspnKfbqyE9LQZXStlPiBvcnH93vT6a8hCEY-PAEn0lSDyoaIk5hEcXUPLF-kveC
+
 Showcase Presentation:
 https://docs.google.com/presentation/d/1wfbqdbzwLVa5c5Xyq1elfb-HsY8grDsoizuy_aRau_k/edit?usp=sharing
 
