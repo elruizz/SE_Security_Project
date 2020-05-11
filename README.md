@@ -8,7 +8,7 @@ Rick Fox rwfox@coloradomesa.edu
 
 Ethan Ruiz elruiz@mavs.coloradomesa.edu
 
-Mike Tacker
+Mike Tacker matacker@mavs.coloradomesa.edu
 
 Jonah Simon Jpsimon@mavs.coloradomesa.edu
 
